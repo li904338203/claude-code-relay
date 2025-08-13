@@ -8,11 +8,13 @@ services:
     image: mysql:8.0
     container_name: claude-code-relay-mysql
     restart: unless-stopped
+    ports:
+      - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-claude123456}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-jie1306105459}
       MYSQL_DATABASE: ${MYSQL_DATABASE:-claude_code_relay}
       MYSQL_USER: ${MYSQL_USER:-claude}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-claude123456}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-jie1306105459}
       # 时区设置
       TZ: Asia/Shanghai
     volumes:

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>价格方案 - Claude Code</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="performance.css">
+    <link rel="stylesheet" href="nav-performance-fix.css">
+    <style>
+        .pricing-hero {
+            text-align: center;
+            padding: 3rem 0;
+            margin-bottom: 3rem;
+        }
+        
+        .pricing-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .pricing-hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+        }
+        
+        .pricing-section {
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.125rem;
+        }
+        
+        .comparison-table {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+        
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .comparison-table th {
+            background: var(--secondary-color);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .comparison-table tr:hover {
+            background: var(--secondary-color);
+        }
+        
+        .price-highlight {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .contact-section {
+            background: var(--gradient-bg);
+            color: white;
+            padding: 3rem;
+            border-radius: 1rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .contact-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.75rem;
+        }
+        
+        .contact-section p {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .contact-button {
+            background: white;
+            color: var(--primary-color);
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s ease;
+        }
+        
+        .contact-button:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">Claude Code</a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="pricing.html">价格</a></li>
+                <li><a href="docs.html">安装文档</a></li>
+                <li><a href="query.html">查询</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="pricing-hero fade-in">
+            <h1 style="background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 800;">💎 选择适合您的方案</h1>
+            <p style="font-size: 1.375rem; margin-bottom: 2rem;">三种服务模式，满足不同场景需求，让AI为您的项目赋能</p>
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 2rem;">
+                <div style="background: rgba(99, 102, 241, 0.1); padding: 1rem 1.5rem; border-radius: 1rem; color: var(--primary-color); font-weight: 600;">
+                    🚗 团队协作优选
+                </div>
+                <div style="background: rgba(16, 185, 129, 0.1); padding: 1rem 1.5rem; border-radius: 1rem; color: var(--success-color); font-weight: 600;">
+                    💳 稳定持续服务
+                </div>
+                <div style="background: rgba(245, 158, 11, 0.1); padding: 1rem 1.5rem; border-radius: 1rem; color: var(--warning-color); font-weight: 600;">
+                    ⚡ 灵活按需付费
+                </div>
+            </div>
+        </section>
+
+        <!-- CW拼车价格 -->
+        <section class="pricing-section slide-in-left">
+            <div style="text-align: center; margin-bottom: 3rem; padding: 2rem; background: var(--gradient-card); border-radius: 1.5rem; box-shadow: var(--card-shadow);">
+                <h2 style="font-size: 2.5rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; font-weight: 700;">🚗 CW拼车价格</h2>
+                <p style="color: var(--text-secondary); font-size: 1.25rem;">多人共享，成本更低，适合团队协作<br><span style="color: var(--accent-color); font-weight: 600;">💡 人数越多，成本越低</span></p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>3人车队</h3>
+                    <div class="price">¥688<span class="price-unit">/月</span></div>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">精品小队，极致体验</p>
+                    <ul class="features">
+                        <li>最多3人同时使用</li>
+                        <li>高优先级处理</li>
+                        <li>99.9%可用性保证</li>
+                        <li>VIP专属客服</li>
+                        <li>个性化配置</li>
+                    </ul>
+                    <button class="btn" style="width: 100%; margin-top: 1rem;">立即购买</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>5人车队</h3>
+                    <div class="price">¥399<span class="price-unit">/月</span></div>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">小型团队首选</p>
+                    <ul class="features">
+                        <li>最多5人同时使用</li>
+                        <li>高速稳定连接</li>
+                        <li>专属技术支持</li>
+                        <li>使用统计报告</li>
+                        <li>团队管理面板</li>
+                    </ul>
+                    <button class="btn" style="width: 100%; margin-top: 1rem;">立即购买</button>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <h3>10人车队</h3>
+                    <div class="price">¥199<span class="price-unit">/月</span></div>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">最受欢迎的选择</p>
+                    <ul class="features">
+                        <li>最多10人同时使用</li>
+                        <li>负载均衡优化</li>
+                        <li>24/7技术支持</li>
+                        <li>详细分析报告</li>
+                        <li>API速率优化</li>
+                    </ul>
+                    <button class="btn" style="width: 100%; margin-top: 1rem;">立即购买</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>20人车队</h3>
+                    <div class="price">¥99<span class="price-unit">/月</span></div>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">大型团队解决方案</p>
+                    <ul class="features">
+                        <li>最多20人同时使用</li>
+                        <li>企业级支持</li>
+                        <li>SLA服务保障</li>
+                        <li>定制化集成</li>
+                        <li>专属账户经理</li>
+                    </ul>
+                    <button class="btn" style="width: 100%; margin-top: 1rem;">立即购买</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 月卡价格 -->
+        <section class="pricing-section fade-in">
+            <h2 class="section-title">💳 月卡价格</h2>
+            <p class="section-subtitle">包月使用，每日限额保护，使用无忧</p>
+            
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>套餐类型</th>
+                            <th>日限额</th>
+                            <th>月费价格</th>
+                            <th>适用场景</th>
+                            <th>技术支持</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>基础月卡</strong></td>
+                            <td class="price-highlight">$10/日</td>
+                            <td class="price-highlight">¥99/月</td>
+                            <td>个人开发者</td>
+                            <td>工作日支持</td>
+                            <td><button class="btn">购买</button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>标准月卡</strong></td>
+                            <td class="price-highlight">$20/日</td>
+                            <td class="price-highlight">¥199/月</td>
+                            <td>中小型项目</td>
+                            <td>优先支持</td>
+                            <td><button class="btn">购买</button></td>
+                        </tr>
+                        <tr style="background-color: #f0f9ff;">
+                            <td><strong>专业月卡 ⭐</strong></td>
+                            <td class="price-highlight">$30/日</td>
+                            <td class="price-highlight">¥299/月</td>
+                            <td>专业开发团队</td>
+                            <td>24/7支持</td>
+                            <td><button class="btn">购买</button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>高级月卡</strong></td>
+                            <td class="price-highlight">$40/日</td>
+                            <td class="price-highlight">¥499/月</td>
+                            <td>企业级应用</td>
+                            <td>专属客服</td>
+                            <td><button class="btn">购买</button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>旗舰月卡</strong></td>
+                            <td class="price-highlight">$50/日</td>
+                            <td class="price-highlight">¥599/月</td>
+                            <td>大型企业</td>
+                            <td>VIP专享</td>
+                            <td><button class="btn">购买</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 纯量价格 -->
+        <section class="pricing-section fade-in">
+            <h2 class="section-title">⚡ 纯量价格</h2>
+            <p class="section-subtitle">按需购买，灵活使用，用多少买多少</p>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>入门包</h3>
+                    <div class="price">¥8.8</div>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">$10 API额度</p>
+                    <ul class="features">
+                        <li>$10 调用额度</li>
+                        <li>3个月有效期</li>
+                        <li>基础技术支持</li>
+                        <li>使用量监控</li>
+                    </ul>
+                    <button class="btn" style="width: 100%; margin-top: 1rem;">立即购买</button>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <h3>标准包</h3>
+                    <div class="price">¥15.8</div>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">$20 API额度</p>
+                    <ul class="features">
+                        <li>$20 调用额度</li>
+                        <li>6个月有效期</li>
+                        <li>优先技术支持</li>
+                        <li>详细使用报告</li>
+                        <li>额度转移功能</li>
+                    </ul>
+                    <button class="btn" style="width: 100%; margin-top: 1rem;">立即购买</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>进阶包</h3>
+                    <div class="price">¥38.8</div>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">$50 API额度</p>
+                    <ul class="features">
+                        <li>$50 调用额度</li>
+                        <li>1年有效期</li>
+                        <li>专业技术支持</li>
+                        <li>API密钥管理</li>
+                        <li>团队共享功能</li>
+                    </ul>
+                    <button class="btn" style="width: 100%; margin-top: 1rem;">立即购买</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>企业包</h3>
+                    <div class="price">¥78.8</div>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">$100 API额度</p>
+                    <ul class="features">
+                        <li>$100 调用额度</li>
+                        <li>1年有效期</li>
+                        <li>24/7专属支持</li>
+                        <li>企业级管理</li>
+                        <li>自定义集成</li>
+                        <li>SLA服务保障</li>
+                    </ul>
+                    <button class="btn" style="width: 100%; margin-top: 1rem;">立即购买</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 价格对比 -->
+        <section class="pricing-section fade-in">
+            <h2 class="section-title">📊 价格对比</h2>
+            <p class="section-subtitle">选择最适合您的计费方式</p>
+            
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>服务类型</th>
+                            <th>计费方式</th>
+                            <th>适用人群</th>
+                            <th>最低价格</th>
+                            <th>推荐指数</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>CW拼车</strong></td>
+                            <td>按月付费 + 人数分摊</td>
+                            <td>团队用户</td>
+                            <td class="price-highlight">¥299/月起</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td><strong>月卡服务</strong></td>
+                            <td>包月 + 日限额</td>
+                            <td>稳定使用用户</td>
+                            <td class="price-highlight">¥199/月起</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td><strong>纯量服务</strong></td>
+                            <td>预付费 + 按量计费</td>
+                            <td>临时或项目性用户</td>
+                            <td class="price-highlight">¥79起</td>
+                            <td>⭐⭐⭐</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 联系我们 -->
+        <section class="contact-section fade-in">
+            <h3>需要定制方案？</h3>
+            <p>我们为企业用户提供专属定制服务，包括私有部署、专线接入等解决方案</p>
+            <a href="mailto:support@claudecode.com" class="contact-button">联系我们</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Claude Code. 保留所有权利。</p>
+    </footer>
+
+    <script src="performance-fix.js"></script>
+    <script src="animations.js"></script>
+    <script>
+        // 页面特定功能 - 性能优化版本
+        document.addEventListener('DOMContentLoaded', function() {
+            // 购买按钮点击事件（移除过度动画）
+            document.querySelectorAll('.btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    alert('🎉 购买功能正在开发中，请联系客服：support@claudecode.com');
+                });
+            });
+
+            // 移除过度的鼠标交互以提升性能
+        });
+    </script>
+</body>
+</html>

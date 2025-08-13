@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>安装文档 - Claude Code</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="nav-performance-fix.css">
+    <style>
+        .docs-hero {
+            text-align: center;
+            padding: 3rem 0;
+            margin-bottom: 3rem;
+        }
+        
+        .docs-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .docs-hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+        }
+        
+        .platform-selector {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            background: white;
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .platform-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            background: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .platform-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .platform-btn:hover:not(.active) {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+        }
+        
+        .docs-content {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 2rem;
+        }
+        
+        .step {
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1.5rem;
+        }
+        
+        .step h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .step p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .warning {
+            background: #fef3cd;
+            border: 1px solid #ffd60a;
+            color: #997404;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .info {
+            background: #cff4fc;
+            border: 1px solid #0dcaf0;
+            color: #087990;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .success {
+            background: #d1e7dd;
+            border: 1px solid #198754;
+            color: #0a3622;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .copy-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            font-size: 0.75rem;
+            margin-left: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        .copy-btn:hover {
+            background: var(--primary-dark);
+        }
+        
+        .code-container {
+            position: relative;
+        }
+        
+        .code-container .copy-btn {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+        }
+        
+        .requirements {
+            background: var(--secondary-color);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .requirements h4 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .requirements ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            color: var(--text-secondary);
+        }
+        
+        .download-section {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            background: var(--primary-dark);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">Claude Code</a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="pricing.html">价格</a></li>
+                <li><a href="docs.html">安装文档</a></li>
+                <li><a href="query.html">查询</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="docs-hero fade-in">
+            <h1>Claude Code 安装文档</h1>
+            <p>快速部署和配置指南，支持 macOS、Linux 和 Windows 平台</p>
+        </section>
+
+        <!-- 平台选择器 -->
+        <div class="platform-selector fade-in">
+            <button class="platform-btn active" data-platform="macos">
+                🍎 macOS
+            </button>
+            <button class="platform-btn" data-platform="linux">
+                🐧 Linux
+            </button>
+            <button class="platform-btn" data-platform="windows">
+                🪟 Windows
+            </button>
+        </div>
+
+        <!-- macOS 安装文档 -->
+        <div id="macos-docs" class="platform-docs fade-in">
+            <div class="docs-content">
+                <h2>🍎 macOS 安装指南</h2>
+                
+                <div class="requirements">
+                    <h4>系统要求</h4>
+                    <ul>
+                        <li>macOS 10.15 或更高版本</li>
+                        <li>至少 4GB 内存</li>
+                        <li>200MB 可用磁盘空间</li>
+                        <li>网络连接</li>
+                    </ul>
+                </div>
+
+                <div class="download-section">
+                    <a href="#" class="download-btn">下载 macOS 版本</a>
+                </div>
+
+                <div class="step">
+                    <h3>步骤 1: 下载安装包</h3>
+                    <p>下载最新版本的 Claude Code for macOS</p>
+                    <div class="code-container">
+                        <div class="code-block">
+# 使用 Homebrew 安装 (推荐)
+brew install claude-code
+
+# 或者使用 curl 下载
+curl -fsSL https://install.claudecode.com/macos.sh | sh</div>
+                        <button class="copy-btn" onclick="copyCode(this)">复制</button>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <h3>步骤 2: 验证安装</h3>
+                    <p>检查 Claude Code 是否正确安装</p>
+                    <div class="code-container">
+                        <div class="code-block">
+claude-code --version</div>
+                        <button class="copy-btn" onclick="copyCode(this)">复制</button>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <h3>步骤 3: 配置 API 密钥</h3>
+                    <p>设置您的 Claude Code API 密钥</p>
+                    <div class="code-container">
+                        <div class="code-block">
+# 配置 API 密钥
+claude-code config set api-key YOUR_API_KEY
+
+# 配置服务端点
+claude-code config set endpoint https://api.claudecode.com</div>
+                        <button class="copy-btn" onclick="copyCode(this)">复制</button>
+                    </div>
+                    <div class="info">
+                        💡 您可以在 <a href="query.html">查询页面</a> 获取您的 API 密钥
+                    </div>
+                </div>
+
+                <div class="step">
+                    <h3>步骤 4: 测试连接</h3>
+                    <p>验证与 Claude Code 服务的连接</p>
+                    <div class="code-container">
+                        <div class="code-block">
+claude-code test</div>
+                        <button class="copy-btn" onclick="copyCode(this)">复制</button>
+                    </div>
+                </div>
+
+                <div class="success">
+                    ✅ 恭喜！Claude Code 已成功安装并配置完成
+                </div>
+            </div>
+        </div>
+
+        <!-- Linux 安装文档 -->
+        <div id="linux-docs" class="platform-docs fade-in" style="display: none;">
+            <div class="docs-content">
+                <h2>🐧 Linux 安装指南</h2>
+                
+                <div class="requirements">
+                    <h4>系统要求</h4>
+                    <ul>
+                        <li>Ubuntu 18.04+ / CentOS 7+ / Debian 10+</li>
+                        <li>至少 2GB 内存</li>
+                        <li>100MB 可用磁盘空间</li>
+                        <li>curl 或 wget</li>
+                    </ul>
+                </div>
+
+                <div class="download-section">
+                    <a href="#" class="download-btn">下载 Linux 版本</a>
+                </div>
+
+                <div class="step">
+                    <h3>步骤 1: 安装依赖</h3>
+                    <p>安装必要的系统依赖</p>
+                    <div class="code-container">
+                        <div class="code-block">
+# Ubuntu/Debian
+sudo apt update
+sudo apt install -y curl wget unzip
+
+# CentOS/RHEL
+sudo yum install -y curl wget unzip
+
+# Fedora
+sudo dnf install -y curl wget unzip</div>
+                        <button class="copy-btn" onclick="copyCode(this)">复制</button>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <h3>步骤 2: 下载并安装</h3>
+                    <p>下载 Claude Code 并安装到系统</p>
+                    <div class="code-container">
+                        <div class="code-block">
+# 下载安装脚本
+curl -fsSL https://install.claudecode.com/linux.sh -o install.sh
+
+# 执行安装
+chmod +x install.sh
+sudo ./install.sh
+
+# 或者一键安装
+curl -fsSL https://install.claudecode.com/linux.sh | sudo sh</div>
+                        <button class="copy-btn" onclick="copyCode(this)">复制</button>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <h3>步骤 3: 添加到 PATH</h3>
+                    <p>确保 Claude Code 在系统 PATH 中</p>
+                    <div class="code-container">
+                        <div class="code-block">
+# 添加到 ~/.bashrc 或 ~/.zshrc
+echo 'export PATH="/usr/local/bin/claude-code:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+
+# 验证安装
+claude-code --version</div>
+                        <button class="copy-btn" onclick="copyCode(this)">复制</button>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <h3>步骤 4: 配置服务</h3>
+                    <p>配置 Claude Code 并启动服务</p>
+                    <div class="code-container">
+                        <div class="code-block">
+# 创建配置文件
+claude-code init
+
+# 配置 API 密钥
+claude-code config set api-key YOUR_API_KEY
+
+# 启动服务 (可选)
+sudo systemctl enable claude-code
+sudo systemctl start claude-code</div>
+                        <button class="copy-btn" onclick="copyCode(this)">复制</button>
+                    </div>
+                </div>
+
+                <div class="warning">
+                    ⚠️ 在生产环境中，建议使用系统服务管理器来管理 Claude Code 进程
+                </div>
+
+                <div class="success">
+                    ✅ Linux 安装完成！您现在可以使用 Claude Code 了
+                </div>
+            </div>
+        </div>
+
+        <!-- Windows 安装文档 -->
+        <div id="windows-docs" class="platform-docs fade-in" style="display: none;">
+            <div class="docs-content">
+                <h2>🪟 Windows 安装指南</h2>
+                
+                <div class="requirements">
+                    <h4>系统要求</h4>
+                    <ul>
+                        <li>Windows 10 或更高版本</li>
+                        <li>至少 4GB 内存</li>
+                        <li>500MB 可用磁盘空间</li>
+                        <li>管理员权限</li>
+                    </ul>
+                </div>
+
+                <div class="download-section">
+                    <a href="#" class="download-btn">下载 Windows 版本</a>
+                </div>
+
+                <div class="step">
+                    <h3>步骤 1: 下载安装程序</h3>
+                    <p>下载 Claude Code Windows 安装包</p>
+                    <div class="code-container">
+                        <div class="code-block">
+# 使用 PowerShell 下载
+Invoke-WebRequest -Uri "https://releases.claudecode.com/windows/claude-code-setup.exe" -OutFile "claude-code-setup.exe"
+
+# 或者使用 Chocolatey 安装
+choco install claude-code</div>
+                        <button class="copy-btn" onclick="copyCode(this)">复制</button>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <h3>步骤 2: 运行安装程序</h3>
+                    <p>以管理员身份运行安装程序</p>
+                    <ol style="padding-left: 1.5rem; color: var(--text-secondary);">
+                        <li>右键点击下载的安装程序</li>
+                        <li>选择"以管理员身份运行"</li>
+                        <li>按照安装向导完成安装</li>
+                        <li>选择安装路径（默认：C:\Program Files\Claude Code）</li>
+                    </ol>
+                </div>
+
+                <div class="step">
+                    <h3>步骤 3: 配置环境变量</h3>
+                    <p>将 Claude Code 添加到系统 PATH</p>
+                    <div class="code-container">
+                        <div class="code-block">
+# PowerShell 命令
+$env:PATH += ";C:\Program Files\Claude Code"
+
+# 或者通过图形界面：
+# 1. 打开"系统属性" -> "高级" -> "环境变量"
+# 2. 在"系统变量"中找到"Path"
+# 3. 点击"编辑"，添加 Claude Code 安装目录</div>
+                        <button class="copy-btn" onclick="copyCode(this)">复制</button>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <h3>步骤 4: 配置 Claude Code</h3>
+                    <p>打开命令提示符或 PowerShell 配置服务</p>
+                    <div class="code-container">
+                        <div class="code-block">
+# 验证安装
+claude-code.exe --version
+
+# 配置 API 密钥
+claude-code.exe config set api-key YOUR_API_KEY
+
+# 配置服务端点
+claude-code.exe config set endpoint https://api.claudecode.com</div>
+                        <button class="copy-btn" onclick="copyCode(this)">复制</button>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <h3>步骤 5: 安装为 Windows 服务（可选）</h3>
+                    <p>将 Claude Code 安装为 Windows 系统服务</p>
+                    <div class="code-container">
+                        <div class="code-block">
+# 以管理员身份运行 PowerShell
+claude-code.exe service install
+
+# 启动服务
+claude-code.exe service start
+
+# 设置自动启动
+claude-code.exe service enable</div>
+                        <button class="copy-btn" onclick="copyCode(this)">复制</button>
+                    </div>
+                </div>
+
+                <div class="info">
+                    💡 Windows Defender 可能会阻止安装。请将 Claude Code 添加到 Windows Defender 排除列表中。
+                </div>
+
+                <div class="success">
+                    ✅ Windows 安装完成！重启命令提示符即可使用 Claude Code
+                </div>
+            </div>
+        </div>
+
+        <!-- 通用故障排除 -->
+        <section class="fade-in" style="margin-top: 3rem;">
+            <div class="docs-content">
+                <h2>🛠️ 常见问题</h2>
+                
+                <div class="step">
+                    <h3>Q: 无法连接到 Claude Code 服务</h3>
+                    <p>检查网络连接和防火墙设置</p>
+                    <div class="code-container">
+                        <div class="code-block">
+# 测试网络连接
+curl -I https://api.claudecode.com/health
+
+# 检查防火墙设置
+# Windows: 控制面板 -> 系统和安全 -> Windows Defender 防火墙
+# macOS: 系统偏好设置 -> 安全性与隐私 -> 防火墙
+# Linux: sudo ufw status</div>
+                        <button class="copy-btn" onclick="copyCode(this)">复制</button>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <h3>Q: API 密钥无效</h3>
+                    <p>确认 API 密钥格式正确且有效</p>
+                    <div class="code-container">
+                        <div class="code-block">
+# 验证 API 密钥
+claude-code auth validate
+
+# 重新设置 API 密钥
+claude-code config set api-key YOUR_NEW_API_KEY</div>
+                        <button class="copy-btn" onclick="copyCode(this)">复制</button>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <h3>Q: 安装权限不足</h3>
+                    <p>确保有足够的系统权限</p>
+                    <ul style="color: var(--text-secondary); padding-left: 1.5rem;">
+                        <li>Windows: 以管理员身份运行安装程序</li>
+                        <li>macOS/Linux: 使用 sudo 执行安装命令</li>
+                        <li>检查目标目录的写入权限</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 获取帮助 -->
+        <section class="contact-section fade-in" style="margin-top: 3rem;">
+            <h3>需要帮助？</h3>
+            <p>如果您在安装过程中遇到问题，请联系我们的技术支持团队</p>
+            <a href="mailto:support@claudecode.com" class="contact-button">技术支持</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Claude Code. 保留所有权利。</p>
+    </footer>
+
+    <script src="performance-fix.js"></script>
+    <script src="animations.js"></script>
+    <script>
+        // 平台切换
+        document.querySelectorAll('.platform-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // 移除所有活动状态
+                document.querySelectorAll('.platform-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.platform-docs').forEach(d => {
+                    d.style.display = 'none';
+                    d.classList.remove('fade-in');
+                });
+                
+                // 添加当前活动状态
+                this.classList.add('active');
+                const platform = this.dataset.platform;
+                const targetDoc = document.getElementById(platform + '-docs');
+                targetDoc.style.display = 'block';
+                setTimeout(() => {
+                    targetDoc.classList.add('fade-in');
+                }, 50);
+            });
+        });
+
+        // 复制代码功能
+        function copyCode(button) {
+            const codeBlock = button.parentElement.querySelector('.code-block');
+            const text = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                button.textContent = '已复制';
+                setTimeout(() => {
+                    button.textContent = '复制';
+                }, 2000);
+            }).catch(() => {
+                // 降级方案
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                button.textContent = '已复制';
+                setTimeout(() => {
+                    button.textContent = '复制';
+                }, 2000);
+            });
+        }
+
+        // 页面加载动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+
+        // 下载按钮点击事件
+        document.querySelectorAll('.download-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('下载功能正在开发中，请联系客服获取安装包：support@claudecode.com');
+            });
+        });
+    </script>
+</body>
+</html>

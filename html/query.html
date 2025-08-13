@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用量查询 - Claude Code</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="nav-performance-fix.css">
+    <style>
+        .query-hero {
+            text-align: center;
+            padding: 3rem 0;
+            margin-bottom: 3rem;
+        }
+        
+        .query-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .query-hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+        }
+        
+        .query-form {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .api-key-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            transition: border-color 0.3s ease;
+            margin-bottom: 1rem;
+        }
+        
+        .api-key-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .api-key-input.error {
+            border-color: #ef4444;
+        }
+        
+        .query-btn {
+            width: 100%;
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .query-btn:hover:not(:disabled) {
+            background: var(--primary-dark);
+        }
+        
+        .query-btn:disabled {
+            background: var(--text-secondary);
+            cursor: not-allowed;
+        }
+        
+        .loading-spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .results-section {
+            display: none;
+            margin-top: 2rem;
+        }
+        
+        .stats-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+        
+        .usage-chart {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 2rem;
+        }
+        
+        .logs-section {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .logs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        .logs-table th,
+        .logs-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.875rem;
+        }
+        
+        .logs-table th {
+            background: var(--secondary-color);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .logs-table tr:hover {
+            background: var(--secondary-color);
+        }
+        
+        .status-badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .status-success {
+            background: #dcfce7;
+            color: #166534;
+        }
+        
+        .status-error {
+            background: #fef2f2;
+            color: #991b1b;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .pagination button {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-color);
+            background: white;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .pagination button:hover:not(:disabled) {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .pagination .current {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .error-message {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #991b1b;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-secondary);
+        }
+        
+        .model-tag {
+            background: #eff6ff;
+            color: #1d4ed8;
+            padding: 0.125rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .cost-value {
+            font-weight: 600;
+            color: #059669;
+        }
+        
+        .time-range {
+            background: var(--secondary-color);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">Claude Code</a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="pricing.html">价格</a></li>
+                <li><a href="docs.html">安装文档</a></li>
+                <li><a href="query.html">查询</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="query-hero fade-in">
+            <h1 style="background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 800;">🔍 API Key 使用量查询</h1>
+            <p style="font-size: 1.375rem; margin-bottom: 2rem;">输入您的 API Key 查看详细的使用统计和调用日志<br><span style="color: var(--accent-color); font-weight: 600;">📊 实时数据，精准分析</span></p>
+        </section>
+
+        <!-- 查询表单 -->
+        <section class="fade-in">
+            <div class="query-form">
+                <div class="form-group">
+                    <label for="apiKey">API Key</label>
+                    <input 
+                        type="text" 
+                        id="apiKey" 
+                        class="api-key-input" 
+                        placeholder="请输入您的 API Key (例: sk-...)"
+                        autocomplete="off"
+                    >
+                    <p style="font-size: 0.875rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                        ⚠️ 请确保在安全的环境中使用此查询功能
+                    </p>
+                </div>
+                <button id="queryBtn" class="query-btn">
+                    <span id="queryBtnText">查询使用量</span>
+                </button>
+            </div>
+            
+            <div id="errorMessage" class="error-message" style="display: none;"></div>
+        </section>
+
+        <!-- 查询结果 -->
+        <section id="resultsSection" class="results-section fade-in">
+            <!-- 时间范围提示 -->
+            <div class="time-range">
+                📊 显示最近 30 天的使用数据
+            </div>
+
+            <!-- 统计概览 -->
+            <div class="stats-overview">
+                <div class="stat-card">
+                    <div id="totalCalls" class="stat-value">-</div>
+                    <div class="stat-label">总调用次数</div>
+                </div>
+                <div class="stat-card">
+                    <div id="totalCost" class="stat-value">-</div>
+                    <div class="stat-label">总费用 (USD)</div>
+                </div>
+                <div class="stat-card">
+                    <div id="totalTokens" class="stat-value">-</div>
+                    <div class="stat-label">总 Token 数</div>
+                </div>
+                <div class="stat-card">
+                    <div id="avgCost" class="stat-value">-</div>
+                    <div class="stat-label">平均单次费用</div>
+                </div>
+            </div>
+
+            <!-- 使用量图表 -->
+            <div class="usage-chart">
+                <h3 style="margin-bottom: 1rem; color: var(--text-primary);">📈 每日使用趋势</h3>
+                <div id="chartContainer" style="height: 300px; display: flex; align-items: center; justify-content: center; color: var(--text-secondary);">
+                    图表功能开发中...
+                </div>
+            </div>
+
+            <!-- 调用日志 -->
+            <div class="logs-section">
+                <h3 style="margin-bottom: 1rem; color: var(--text-primary);">📋 调用日志</h3>
+                <div id="logsContainer">
+                    <div class="empty-state">
+                        正在加载日志数据...
+                    </div>
+                </div>
+                
+                <!-- 分页控件 -->
+                <div id="pagination" class="pagination" style="display: none;">
+                    <button id="prevBtn">上一页</button>
+                    <span id="pageInfo">第 1 页</span>
+                    <button id="nextBtn">下一页</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Claude Code. 保留所有权利.</p>
+    </footer>
+
+    <script src="query.js"></script>
+    <script src="performance-fix.js"></script>
+    <script src="animations.js"></script>
+    <script>
+        // 页面特定增强功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 为查询按钮添加磁性效果
+            document.querySelector('.query-btn').classList.add('magnetic');
+            
+            // 输入框焦点效果增强
+            const apiKeyInput = document.getElementById('apiKey');
+            apiKeyInput.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'scale(1.02)';
+                this.parentElement.style.boxShadow = '0 10px 25px -3px rgba(99, 102, 241, 0.1)';
+            });
+            
+            apiKeyInput.addEventListener('blur', function() {
+                this.parentElement.style.transform = '';
+                this.parentElement.style.boxShadow = '';
+            });
+
+            // 结果卡片动画
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+
+            // 观察统计卡片
+            document.querySelectorAll('.stat-card').forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>

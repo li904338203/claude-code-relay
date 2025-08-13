@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Code 官网演示</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .demo-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+        
+        .demo-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .demo-header h1 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .demo-header p {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+        }
+        
+        .page-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .page-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .page-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .page-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .page-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .page-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .features-list {
+            background: var(--secondary-color);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .features-list h3 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .features-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .features-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .features-list li::before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+        }
+        
+        .tech-stack {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .tech-item {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 1rem;
+            margin: 0.25rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .quick-start {
+            background: var(--gradient-bg);
+            color: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .quick-start h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .quick-start p {
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        
+        .start-btn {
+            background: white;
+            color: var(--primary-color);
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s ease;
+        }
+        
+        .start-btn:hover {
+            transform: translateY(-2px);
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">Claude Code</a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="pricing.html">价格</a></li>
+                <li><a href="docs.html">安装文档</a></li>
+                <li><a href="query.html">查询</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="demo-container">
+        <div class="demo-header fade-in">
+            <h1>Claude Code 官网演示</h1>
+            <p>完整的产品官网解决方案，现代化设计，功能齐全</p>
+        </div>
+
+        <div class="page-grid fade-in">
+            <a href="index.html" class="page-card">
+                <span class="page-icon">🏠</span>
+                <div class="page-title">首页</div>
+                <div class="page-description">
+                    产品介绍页面，展示CW拼车、月卡、纯量三大服务体系，包含详细的功能特点和优势介绍。
+                </div>
+            </a>
+
+            <a href="pricing.html" class="page-card">
+                <span class="page-icon">💰</span>
+                <div class="page-title">价格方案</div>
+                <div class="page-description">
+                    完整的价格体系展示，包含对比表格、推荐标识，帮助用户选择最适合的服务方案。
+                </div>
+            </a>
+
+            <a href="docs.html" class="page-card">
+                <span class="page-icon">📚</span>
+                <div class="page-title">安装文档</div>
+                <div class="page-description">
+                    多平台安装指南，支持macOS、Linux、Windows，提供详细的步骤说明和故障排除。
+                </div>
+            </a>
+
+            <a href="query.html" class="page-card">
+                <span class="page-icon">🔍</span>
+                <div class="page-title">使用量查询</div>
+                <div class="page-description">
+                    API Key使用量查询功能，支持统计数据展示、调用日志查看，带分页和筛选功能。
+                </div>
+            </a>
+        </div>
+
+        <div class="features-list fade-in">
+            <h3>🚀 主要特性</h3>
+            <ul>
+                <li>响应式设计，完美适配桌面端和移动端</li>
+                <li>Claude官网风格，现代化商业设计</li>
+                <li>纯HTML/CSS/JS实现，无第三方依赖</li>
+                <li>完整的API集成，支持实时数据查询</li>
+                <li>SEO友好，语义化HTML结构</li>
+                <li>可定制主题，易于品牌化定制</li>
+                <li>渐进增强，核心功能兼容性强</li>
+                <li>高性能，静态资源加载快速</li>
+            </ul>
+        </div>
+
+        <div class="tech-stack fade-in">
+            <h3>🛠️ 技术栈</h3>
+            <div>
+                <span class="tech-item">HTML5</span>
+                <span class="tech-item">CSS3</span>
+                <span class="tech-item">JavaScript ES6+</span>
+                <span class="tech-item">Fetch API</span>
+                <span class="tech-item">CSS Grid</span>
+                <span class="tech-item">Flexbox</span>
+                <span class="tech-item">CSS Variables</span>
+                <span class="tech-item">CSS Animations</span>
+            </div>
+        </div>
+
+        <div class="quick-start fade-in">
+            <h3>🎯 快速开始</h3>
+            <p>点击下方按钮开始探索 Claude Code 官网的各个功能模块</p>
+            <a href="index.html" class="start-btn">开始探索</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Claude Code. 保留所有权利。</p>
+    </footer>
+
+    <script>
+        // 页面加载动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>

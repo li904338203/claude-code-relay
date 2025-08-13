@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Code - 官网展示</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="nav-performance-fix.css">
+    <style>
+        .showcase-hero {
+            background: var(--gradient-primary);
+            color: white;
+            text-align: center;
+            padding: 8rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .showcase-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" fill="%23ffffff" opacity="0.1"><circle cx="10" cy="10" r="1"><animate attributeName="opacity" dur="2s" values="1;0;1" repeatCount="indefinite"/></circle><circle cx="30" cy="10" r="1"><animate attributeName="opacity" dur="2s" values="0;1;0" repeatCount="indefinite"/></circle><circle cx="50" cy="10" r="1"><animate attributeName="opacity" dur="2s" values="1;0;1" repeatCount="indefinite"/></circle><circle cx="70" cy="10" r="1"><animate attributeName="opacity" dur="2s" values="0;1;0" repeatCount="indefinite"/></circle><circle cx="90" cy="10" r="1"><animate attributeName="opacity" dur="2s" values="1;0;1" repeatCount="indefinite"/></circle></svg>') repeat;
+        }
+        
+        .feature-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin: 4rem 0;
+        }
+        
+        .feature-demo {
+            background: var(--gradient-card);
+            border-radius: 2rem;
+            padding: 2.5rem;
+            box-shadow: var(--card-shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-demo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--gradient-primary);
+        }
+        
+        .demo-preview {
+            background: #1e293b;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            position: relative;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.875rem;
+            color: #e2e8f0;
+            overflow: hidden;
+        }
+        
+        .demo-preview::before {
+            content: '';
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .demo-preview::after {
+            content: '• • •';
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            color: #64748b;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+        
+        .demo-code {
+            margin-top: 2rem;
+            line-height: 1.6;
+        }
+        
+        .highlight {
+            color: #60a5fa;
+        }
+        
+        .success {
+            color: #34d399;
+        }
+        
+        .warning {
+            color: #fbbf24;
+        }
+        
+        .stats-animation {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .mini-stat {
+            background: rgba(99, 102, 241, 0.1);
+            padding: 1rem;
+            border-radius: 0.75rem;
+            text-align: center;
+        }
+        
+        .mini-stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.25rem;
+        }
+        
+        .mini-stat-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+        
+        .page-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        
+        .page-link {
+            display: block;
+            background: var(--gradient-card);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid var(--border-light);
+        }
+        
+        .page-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .page-link:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--card-shadow-hover);
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .page-link:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .page-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .page-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .page-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        .tech-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 2rem 0;
+        }
+        
+        .tech-badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 1.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">Claude Code</a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="pricing.html">价格</a></li>
+                <li><a href="docs.html">安装文档</a></li>
+                <li><a href="query.html">查询</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="showcase-hero fade-in">
+            <h1 style="font-size: 4rem; margin-bottom: 1.5rem; font-weight: 800; letter-spacing: -0.05em; position: relative; z-index: 1;">
+                ✨ Claude Code 精美官网
+            </h1>
+            <p style="font-size: 1.5rem; margin-bottom: 2rem; opacity: 0.95; max-width: 800px; margin-left: auto; margin-right: auto; position: relative; z-index: 1;">
+                现代化设计 • 专业级体验 • 企业级功能<br>
+                打造AI代码服务领域的标杆官网
+            </p>
+            <div class="tech-badges" style="justify-content: center; position: relative; z-index: 1;">
+                <span class="tech-badge">🎨 Modern Design</span>
+                <span class="tech-badge">📱 Responsive</span>
+                <span class="tech-badge">⚡ High Performance</span>
+                <span class="tech-badge">🔒 Enterprise Grade</span>
+            </div>
+        </section>
+
+        <!-- 功能展示 -->
+        <section class="slide-in-left">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h2 style="font-size: 3rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; font-weight: 800;">🚀 核心功能展示</h2>
+                <p style="font-size: 1.25rem; color: var(--text-secondary);">每个功能都经过精心设计，提供最佳用户体验</p>
+            </div>
+
+            <div class="feature-showcase">
+                <!-- 响应式设计 -->
+                <div class="feature-demo">
+                    <h3 style="background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 1.5rem; font-weight: 700;">📱 响应式设计</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">完美适配所有设备，从桌面到移动端</p>
+                    
+                    <div class="demo-preview">
+                        <div class="demo-code">
+                            <div class="highlight">// 自适应网格布局</div>
+                            <div>.card-grid {</div>
+                            <div>&nbsp;&nbsp;display: grid;</div>
+                            <div>&nbsp;&nbsp;grid-template-columns: <span class="success">repeat(auto-fit, minmax(320px, 1fr))</span>;</div>
+                            <div>&nbsp;&nbsp;gap: 2.5rem;</div>
+                            <div>}</div>
+                        </div>
+                    </div>
+
+                    <div class="stats-animation">
+                        <div class="mini-stat">
+                            <div class="mini-stat-value">100%</div>
+                            <div class="mini-stat-label">移动端兼容</div>
+                        </div>
+                        <div class="mini-stat">
+                            <div class="mini-stat-value">4K</div>
+                            <div class="mini-stat-label">分辨率支持</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 性能优化 -->
+                <div class="feature-demo">
+                    <h3 style="background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 1.5rem; font-weight: 700;">⚡ 性能优化</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">极致的加载速度和流畅的交互体验</p>
+                    
+                    <div class="demo-preview">
+                        <div class="demo-code">
+                            <div class="highlight">// 懒加载和渐进增强</div>
+                            <div class="success">✓ Critical CSS 内联</div>
+                            <div class="success">✓ 图片懒加载</div>
+                            <div class="success">✓ 代码分割</div>
+                            <div class="warning">⚡ First Paint: 0.8s</div>
+                        </div>
+                    </div>
+
+                    <div class="stats-animation">
+                        <div class="mini-stat">
+                            <div class="mini-stat-value">0.8s</div>
+                            <div class="mini-stat-label">首屏加载</div>
+                        </div>
+                        <div class="mini-stat">
+                            <div class="mini-stat-value">95+</div>
+                            <div class="mini-stat-label">性能评分</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 动画系统 -->
+                <div class="feature-demo">
+                    <h3 style="background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 1.5rem; font-weight: 700;">🎭 动画系统</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">丰富的交互动画，提升用户体验</p>
+                    
+                    <div class="demo-preview">
+                        <div class="demo-code">
+                            <div class="highlight">// 高性能动画</div>
+                            <div>transform: <span class="success">translateY(-8px) scale(1.02)</span>;</div>
+                            <div>transition: <span class="warning">all 0.4s cubic-bezier(0.4, 0, 0.2, 1)</span>;</div>
+                            <div>will-change: <span class="highlight">transform</span>;</div>
+                        </div>
+                    </div>
+
+                    <div class="stats-animation">
+                        <div class="mini-stat">
+                            <div class="mini-stat-value">60fps</div>
+                            <div class="mini-stat-label">动画帧率</div>
+                        </div>
+                        <div class="mini-stat">
+                            <div class="mini-stat-value">GPU</div>
+                            <div class="mini-stat-label">硬件加速</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- API 集成 -->
+                <div class="feature-demo">
+                    <h3 style="background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 1.5rem; font-weight: 700;">🔌 API 集成</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">完整的后端API集成，实时数据展示</p>
+                    
+                    <div class="demo-preview">
+                        <div class="demo-code">
+                            <div class="highlight">// 实时API调用</div>
+                            <div>const response = await <span class="success">fetch</span>('/api/v1/auth/api-key');</div>
+                            <div>const data = await response.<span class="warning">json</span>();</div>
+                            <div class="success">✓ 数据验证 ✓ 错误处理 ✓ 加载状态</div>
+                        </div>
+                    </div>
+
+                    <div class="stats-animation">
+                        <div class="mini-stat">
+                            <div class="mini-stat-value">RESTful</div>
+                            <div class="mini-stat-label">API标准</div>
+                        </div>
+                        <div class="mini-stat">
+                            <div class="mini-stat-value">Real-time</div>
+                            <div class="mini-stat-label">实时更新</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 页面导航 -->
+        <section class="scale-in">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h2 style="font-size: 3rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; font-weight: 800;">🗺️ 探索所有页面</h2>
+                <p style="font-size: 1.25rem; color: var(--text-secondary);">完整的官网体验，每个页面都是精品</p>
+            </div>
+
+            <div class="page-links">
+                <a href="index.html" class="page-link">
+                    <span class="page-icon">🏠</span>
+                    <div class="page-title">产品首页</div>
+                    <div class="page-desc">全面展示三大核心服务，Hero区域设计震撼，产品介绍详实专业</div>
+                </a>
+
+                <a href="pricing.html" class="page-link">
+                    <span class="page-icon">💎</span>
+                    <div class="page-title">价格方案</div>
+                    <div class="page-desc">精美的价格卡片设计，对比表格清晰，推荐标识突出，购买引导明确</div>
+                </a>
+
+                <a href="docs.html" class="page-link">
+                    <span class="page-icon">📚</span>
+                    <div class="page-title">安装文档</div>
+                    <div class="page-desc">多平台安装指南，Tab切换流畅，代码可复制，步骤说明详细</div>
+                </a>
+
+                <a href="query.html" class="page-link">
+                    <span class="page-icon">🔍</span>
+                    <div class="page-title">使用查询</div>
+                    <div class="page-desc">API Key查询功能，实时数据展示，统计图表丰富，交互体验优秀</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- 技术亮点 -->
+        <section class="fade-in" style="background: var(--gradient-card); padding: 4rem 2rem; border-radius: 2rem; box-shadow: var(--card-shadow-lg); margin-top: 4rem;">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 2.5rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; font-weight: 800;">🛠️ 技术栈亮点</h2>
+                <p style="color: var(--text-secondary); font-size: 1.125rem;">现代化技术栈，企业级开发标准</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div style="text-align: center;">
+                    <h4 style="color: var(--primary-color); margin-bottom: 1rem;">🎨 前端技术</h4>
+                    <div class="tech-badges">
+                        <span class="tech-badge">HTML5</span>
+                        <span class="tech-badge">CSS3</span>
+                        <span class="tech-badge">JavaScript ES6+</span>
+                        <span class="tech-badge">CSS Grid</span>
+                        <span class="tech-badge">Flexbox</span>
+                    </div>
+                </div>
+
+                <div style="text-align: center;">
+                    <h4 style="color: var(--success-color); margin-bottom: 1rem;">⚡ 性能优化</h4>
+                    <div class="tech-badges">
+                        <span class="tech-badge">Critical CSS</span>
+                        <span class="tech-badge">Lazy Loading</span>
+                        <span class="tech-badge">Web Vitals</span>
+                        <span class="tech-badge">GPU Acceleration</span>
+                    </div>
+                </div>
+
+                <div style="text-align: center;">
+                    <h4 style="color: var(--accent-color); margin-bottom: 1rem;">🔧 开发标准</h4>
+                    <div class="tech-badges">
+                        <span class="tech-badge">Semantic HTML</span>
+                        <span class="tech-badge">Progressive Enhancement</span>
+                        <span class="tech-badge">Accessibility</span>
+                        <span class="tech-badge">SEO Optimized</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Claude Code. 精美官网，专业服务。</p>
+    </footer>
+
+    <script src="performance-fix.js"></script>
+    <script src="animations.js"></script>
+    <script>
+        // 页面特定效果
+        document.addEventListener('DOMContentLoaded', function() {
+            // 为演示卡片添加特殊效果
+            document.querySelectorAll('.feature-demo').forEach((demo, index) => {
+                demo.style.animationDelay = `${index * 0.2}s`;
+                
+                // 悬浮时的代码高亮效果
+                demo.addEventListener('mouseenter', function() {
+                    const highlights = this.querySelectorAll('.highlight');
+                    highlights.forEach((highlight, i) => {
+                        setTimeout(() => {
+                            highlight.style.color = '#60a5fa';
+                            highlight.style.textShadow = '0 0 10px rgba(96, 165, 250, 0.5)';
+                        }, i * 100);
+                    });
+                });
+
+                demo.addEventListener('mouseleave', function() {
+                    const highlights = this.querySelectorAll('.highlight');
+                    highlights.forEach(highlight => {
+                        highlight.style.color = '';
+                        highlight.style.textShadow = '';
+                    });
+                });
+            });
+
+            // 统计数字动画
+            const miniStats = document.querySelectorAll('.mini-stat-value');
+            miniStats.forEach(stat => {
+                const text = stat.textContent;
+                if (text.includes('%') || text.includes('s') || !isNaN(text)) {
+                    stat.setAttribute('data-count', text.replace(/[^\d]/g, ''));
+                }
+            });
+        });
+    </script>
+</body>
+</html>

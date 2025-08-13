@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Code - AI代码中继服务</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="nav-performance-fix.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">Claude Code</a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="pricing.html">价格</a></li>
+                <li><a href="docs.html">安装文档</a></li>
+                <li><a href="query.html">查询</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="fade-in">
+                <h1>🚀 Claude Code 代码中继服务</h1>
+                <p>专业的AI代码服务解决方案</p><p>提供拼车、月卡、纯量多种服务模式</p><p>让AI赋能您的开发流程，提升代码质量与效率</p>
+                <div style="margin-top: 2rem; display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="pricing.html" class="cta-button pulse">🚀 立即开始</a>
+                    <a href="docs.html" class="cta-button pulse">📚 查看文档</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="fade-in">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h2 style="font-size: 3rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; font-weight: 800; letter-spacing: -0.05em;">🎯 我们的服务</h2>
+                <p style="font-size: 1.25rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">三种灵活的服务模式，满足从个人开发者到企业团队的各种需求</p>
+            </div>
+            
+            <!-- CW拼车服务 -->
+            <div class="slide-in-left" style="margin-bottom: 6rem;">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h3 style="font-size: 2.5rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; font-weight: 700;">🚗 CW拼车服务</h3>
+                    <p style="color: var(--text-secondary); font-size: 1.25rem; max-width: 500px; margin: 0 auto;">
+                        多人共享，降低成本，适合团队和个人开发者<br>
+                        <span style="color: var(--accent-color); font-weight: 600;">💰 成本分摊，效率提升</span>
+                    </p>
+                </div>
+                
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>20人车队</h3>
+                        <p>适合大型团队或社区使用，成本最低，性价比最高</p>
+                        <ul class="features">
+                            <li>最多20人同时使用</li>
+                            <li>共享额度，灵活使用</li>
+                            <li>24/7技术支持</li>
+                            <li>团队管理面板</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>10人车队</h3>
+                        <p>中型团队的理想选择，平衡成本与性能</p>
+                        <ul class="features">
+                            <li>最多10人同时使用</li>
+                            <li>更快的响应速度</li>
+                            <li>优先技术支持</li>
+                            <li>使用统计报告</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>5人车队</h3>
+                        <p>小型团队专享，高质量服务体验</p>
+                        <ul class="features">
+                            <li>最多5人同时使用</li>
+                            <li>高速稳定连接</li>
+                            <li>专属客服支持</li>
+                            <li>定制化配置</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>3人车队</h3>
+                        <p>精品小队，极致性能体验</p>
+                        <ul class="features">
+                            <li>最多3人同时使用</li>
+                            <li>极速响应时间</li>
+                            <li>VIP专属服务</li>
+                            <li>个性化支持</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 月卡服务 -->
+            <div class="slide-in-right" style="margin-bottom: 6rem;">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h3 style="font-size: 2.5rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; font-weight: 700;">💳 月卡服务</h3>
+                    <p style="color: var(--text-secondary); font-size: 1.25rem; max-width: 500px; margin: 0 auto;">
+                        包月不限次数，每日限额保护，稳定可靠的选择<br>
+                        <span style="color: var(--success-color); font-weight: 600;">🛡️ 安全可控，持续稳定</span>
+                    </p>
+                </div>
+                
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>基础月卡</h3>
+                        <div class="price">$15<span class="price-unit">/日限额</span></div>
+                        <p>适合轻度使用的个人开发者</p>
+                        <ul class="features">
+                            <li>每日最高15美元额度</li>
+                            <li>月付包月制</li>
+                            <li>基础技术支持</li>
+                            <li>使用量统计</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>标准月卡</h3>
+                        <div class="price">$25<span class="price-unit">/日限额</span></div>
+                        <p>适合中等强度使用的开发者</p>
+                        <ul class="features">
+                            <li>每日最高25美元额度</li>
+                            <li>月付包月制</li>
+                            <li>优先技术支持</li>
+                            <li>详细使用报告</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>专业月卡</h3>
+                        <div class="price">$35<span class="price-unit">/日限额</span></div>
+                        <p>适合高频使用的专业开发者</p>
+                        <ul class="features">
+                            <li>每日最高35美元额度</li>
+                            <li>月付包月制</li>
+                            <li>专业技术支持</li>
+                            <li>API访问权限</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>高级月卡</h3>
+                        <div class="price">$45<span class="price-unit">/日限额</span></div>
+                        <p>适合重度使用的企业用户</p>
+                        <ul class="features">
+                            <li>每日最高45美元额度</li>
+                            <li>月付包月制</li>
+                            <li>24/7专属支持</li>
+                            <li>自定义配置</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>旗舰月卡</h3>
+                        <div class="price">$55<span class="price-unit">/日限额</span></div>
+                        <p>顶级服务，无限可能</p>
+                        <ul class="features">
+                            <li>每日最高55美元额度</li>
+                            <li>月付包月制</li>
+                            <li>VIP专属服务</li>
+                            <li>优先新功能体验</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 纯量服务 -->
+            <div class="scale-in" style="margin-bottom: 6rem;">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h3 style="font-size: 2.5rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; font-weight: 700;">⚡ 纯量服务</h3>
+                    <p style="color: var(--text-secondary); font-size: 1.25rem; max-width: 500px; margin: 0 auto;">
+                        按需购买，灵活使用，适合临时或项目性需求<br>
+                        <span style="color: var(--warning-color); font-weight: 600;">🎯 精准投入，灵活控制</span>
+                    </p>
+                </div>
+                
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>入门包</h3>
+                        <div class="price">$10</div>
+                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">适合小型项目或测试使用</p>
+                        <ul class="features">
+                            <li>$10 API调用额度</li>
+                            <li>有效期3个月</li>
+                            <li>基础技术支持</li>
+                            <li>使用量监控</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pricing-card featured">
+                        <h3>标准包</h3>
+                        <div class="price">$20</div>
+                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">最受欢迎的选择，性价比极高</p>
+                        <ul class="features">
+                            <li>$20 API调用额度</li>
+                            <li>有效期6个月</li>
+                            <li>优先技术支持</li>
+                            <li>详细使用报告</li>
+                            <li>额度转移功能</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <h3>进阶包</h3>
+                        <div class="price">$50</div>
+                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">适合中型项目的长期使用</p>
+                        <ul class="features">
+                            <li>$50 API调用额度</li>
+                            <li>有效期1年</li>
+                            <li>专业技术支持</li>
+                            <li>API密钥管理</li>
+                            <li>团队共享功能</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <h3>企业包</h3>
+                        <div class="price">$100</div>
+                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">企业级解决方案，功能齐全</p>
+                        <ul class="features">
+                            <li>$100 API调用额度</li>
+                            <li>有效期1年</li>
+                            <li>24/7专属支持</li>
+                            <li>企业级管理面板</li>
+                            <li>自定义集成支持</li>
+                            <li>SLA服务保障</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 为什么选择我们 -->
+            <section class="fade-in" style="margin-top: 6rem; padding: 4rem 2rem; background: var(--gradient-card); border-radius: 2rem; box-shadow: var(--card-shadow);">
+                <div style="text-align: center; margin-bottom: 4rem;">
+                    <h3 style="font-size: 3rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; font-weight: 800;">🌟 为什么选择 Claude Code？</h3>
+                    <p style="color: var(--text-secondary); font-size: 1.25rem; max-width: 600px; margin: 0 auto;">专业、可靠、高效的AI代码服务，让您的开发更上一层楼</p>
+                </div>
+                <div class="card-grid">
+                    <div class="card" style="border: 2px solid var(--accent-color); background: linear-gradient(145deg, #ffffff 0%, #f0f9ff 100%);">
+                        <h3 style="color: var(--accent-color);">🚀 极致性能</h3>
+                        <p>全球分布式架构，毫秒级响应时间，99.9%可用性保证，让您的AI应用运行如飞</p>
+                    </div>
+                    <div class="card" style="border: 2px solid var(--success-color); background: linear-gradient(145deg, #ffffff 0%, #f0fdf4 100%);">
+                        <h3 style="color: var(--success-color);">🔒 安全可靠</h3>
+                        <p>银行级数据加密，零日志政策，SOC2认证，保护您的代码和数据安全无忧</p>
+                    </div>
+                    <div class="card" style="border: 2px solid var(--warning-color); background: linear-gradient(145deg, #ffffff 0%, #fffbeb 100%);">
+                        <h3 style="color: var(--warning-color);">💰 性价比王</h3>
+                        <p>灵活计费模式，比同类产品节省40%成本，透明定价，无隐藏费用</p>
+                    </div>
+                    <div class="card" style="border: 2px solid var(--primary-color); background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);">
+                        <h3 style="color: var(--primary-color);">🛠️ 开箱即用</h3>
+                        <p>5分钟快速集成，丰富的SDK和API文档，24/7技术支持，让集成变得简单</p>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Claude Code. 保留所有权利。</p>
+    </footer>
+
+    <script src="performance-fix.js"></script>
+    <script src="animations.js"></script>
+    <script>
+        // 页面特定的增强功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 添加数字动画
+            const statsElements = document.querySelectorAll('.stat-value');
+            statsElements.forEach(element => {
+                const text = element.textContent;
+                const numbers = text.match(/\d+/);
+                if (numbers) {
+                    element.setAttribute('data-count', numbers[0]);
+                }
+            });
+
+            // 只对CTA按钮添加轻量磁性效果，排除导航栏
+            document.querySelectorAll('.cta-button:not(.nav-links a), .btn:not(.nav-links a)').forEach(btn => {
+                btn.classList.add('magnetic');
+            });
+
+            // 为卡片添加悬浮效果
+            document.querySelectorAll('.card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-12px) scale(1.03)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Code - AI代码中继服务</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="nav-performance-fix.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">Claude Code</a>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="pricing.html">价格</a></li>
+                <li><a href="docs.html">安装文档</a></li>
+                <li><a href="query.html">查询</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="fade-in">
+                <h1>🚀 Claude Code 代码中继服务</h1>
+                <p>专业的AI代码服务解决方案，提供拼车、月卡、纯量多种服务模式，让AI赋能您的开发流程，提升代码质量与效率</p>
+                <div style="margin-top: 2.5rem; display: flex; justify-content: center; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+                    <a href="pricing.html" class="cta-button" style="
+                        display: inline-block;
+                        background: white;
+                        color: #6366f1;
+                        padding: 1rem 2.5rem;
+                        border-radius: 3rem;
+                        text-decoration: none;
+                        font-weight: 700;
+                        font-size: 1.125rem;
+                        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+                        transition: all 0.3s ease;
+                        border: none;
+                    ">🚀 立即开始</a>
+                    <a href="docs.html" class="cta-button" style="
+                        display: inline-block;
+                        background: rgba(255, 255, 255, 0.15);
+                        color: white;
+                        padding: 1rem 2.5rem;
+                        border-radius: 3rem;
+                        text-decoration: none;
+                        font-weight: 700;
+                        font-size: 1.125rem;
+                        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+                        transition: all 0.3s ease;
+                        border: 2px solid rgba(255, 255, 255, 0.3);
+                        backdrop-filter: blur(10px);
+                    ">📚 查看文档</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="fade-in">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <h2 style="font-size: 3rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; font-weight: 800; letter-spacing: -0.05em;">🎯 我们的服务</h2>
+                <p style="font-size: 1.25rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">三种灵活的服务模式，满足从个人开发者到企业团队的各种需求</p>
+            </div>
+            
+            <!-- CW拼车服务 -->
+            <div class="slide-in-left" style="margin-bottom: 6rem;">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h3 style="font-size: 2.5rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; font-weight: 700;">🚗 CW拼车服务</h3>
+                    <p style="color: var(--text-secondary); font-size: 1.25rem; max-width: 500px; margin: 0 auto;">
+                        多人共享，降低成本，适合团队和个人开发者<br>
+                        <span style="color: var(--accent-color); font-weight: 600;">💰 成本分摊，效率提升</span>
+                    </p>
+                </div>
+                
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>20人车队</h3>
+                        <p>适合大型团队或社区使用，成本最低，性价比最高</p>
+                        <ul class="features">
+                            <li>最多20人同时使用</li>
+                            <li>共享额度，灵活使用</li>
+                            <li>24/7技术支持</li>
+                            <li>团队管理面板</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>10人车队</h3>
+                        <p>中型团队的理想选择，平衡成本与性能</p>
+                        <ul class="features">
+                            <li>最多10人同时使用</li>
+                            <li>更快的响应速度</li>
+                            <li>优先技术支持</li>
+                            <li>使用统计报告</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>5人车队</h3>
+                        <p>小型团队专享，高质量服务体验</p>
+                        <ul class="features">
+                            <li>最多5人同时使用</li>
+                            <li>高速稳定连接</li>
+                            <li>专属客服支持</li>
+                            <li>定制化配置</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>3人车队</h3>
+                        <p>精品小队，极致性能体验</p>
+                        <ul class="features">
+                            <li>最多3人同时使用</li>
+                            <li>极速响应时间</li>
+                            <li>VIP专属服务</li>
+                            <li>个性化支持</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 月卡服务 -->
+            <div class="slide-in-right" style="margin-bottom: 6rem;">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h3 style="font-size: 2.5rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; font-weight: 700;">💳 月卡服务</h3>
+                    <p style="color: var(--text-secondary); font-size: 1.25rem; max-width: 500px; margin: 0 auto;">
+                        包月不限次数，每日限额保护，稳定可靠的选择<br>
+                        <span style="color: var(--success-color); font-weight: 600;">🛡️ 安全可控，持续稳定</span>
+                    </p>
+                </div>
+                
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>基础月卡</h3>
+                        <div class="price">$15<span class="price-unit">/日限额</span></div>
+                        <p>适合轻度使用的个人开发者</p>
+                        <ul class="features">
+                            <li>每日最高15美元额度</li>
+                            <li>月付包月制</li>
+                            <li>基础技术支持</li>
+                            <li>使用量统计</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>标准月卡</h3>
+                        <div class="price">$25<span class="price-unit">/日限额</span></div>
+                        <p>适合中等强度使用的开发者</p>
+                        <ul class="features">
+                            <li>每日最高25美元额度</li>
+                            <li>月付包月制</li>
+                            <li>优先技术支持</li>
+                            <li>详细使用报告</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>专业月卡</h3>
+                        <div class="price">$35<span class="price-unit">/日限额</span></div>
+                        <p>适合高频使用的专业开发者</p>
+                        <ul class="features">
+                            <li>每日最高35美元额度</li>
+                            <li>月付包月制</li>
+                            <li>专业技术支持</li>
+                            <li>API访问权限</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>高级月卡</h3>
+                        <div class="price">$45<span class="price-unit">/日限额</span></div>
+                        <p>适合重度使用的企业用户</p>
+                        <ul class="features">
+                            <li>每日最高45美元额度</li>
+                            <li>月付包月制</li>
+                            <li>24/7专属支持</li>
+                            <li>自定义配置</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>旗舰月卡</h3>
+                        <div class="price">$55<span class="price-unit">/日限额</span></div>
+                        <p>顶级服务，无限可能</p>
+                        <ul class="features">
+                            <li>每日最高55美元额度</li>
+                            <li>月付包月制</li>
+                            <li>VIP专属服务</li>
+                            <li>优先新功能体验</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 纯量服务 -->
+            <div class="scale-in" style="margin-bottom: 6rem;">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h3 style="font-size: 2.5rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; font-weight: 700;">⚡ 纯量服务</h3>
+                    <p style="color: var(--text-secondary); font-size: 1.25rem; max-width: 500px; margin: 0 auto;">
+                        按需购买，灵活使用，适合临时或项目性需求<br>
+                        <span style="color: var(--warning-color); font-weight: 600;">🎯 精准投入，灵活控制</span>
+                    </p>
+                </div>
+                
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>入门包</h3>
+                        <div class="price">$10</div>
+                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">适合小型项目或测试使用</p>
+                        <ul class="features">
+                            <li>$10 API调用额度</li>
+                            <li>有效期3个月</li>
+                            <li>基础技术支持</li>
+                            <li>使用量监控</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pricing-card featured">
+                        <h3>标准包</h3>
+                        <div class="price">$20</div>
+                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">最受欢迎的选择，性价比极高</p>
+                        <ul class="features">
+                            <li>$20 API调用额度</li>
+                            <li>有效期6个月</li>
+                            <li>优先技术支持</li>
+                            <li>详细使用报告</li>
+                            <li>额度转移功能</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <h3>进阶包</h3>
+                        <div class="price">$50</div>
+                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">适合中型项目的长期使用</p>
+                        <ul class="features">
+                            <li>$50 API调用额度</li>
+                            <li>有效期1年</li>
+                            <li>专业技术支持</li>
+                            <li>API密钥管理</li>
+                            <li>团队共享功能</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <h3>企业包</h3>
+                        <div class="price">$100</div>
+                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">企业级解决方案，功能齐全</p>
+                        <ul class="features">
+                            <li>$100 API调用额度</li>
+                            <li>有效期1年</li>
+                            <li>24/7专属支持</li>
+                            <li>企业级管理面板</li>
+                            <li>自定义集成支持</li>
+                            <li>SLA服务保障</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 为什么选择我们 -->
+            <section class="fade-in" style="margin-top: 6rem; padding: 4rem 2rem; background: var(--gradient-card); border-radius: 2rem; box-shadow: var(--card-shadow);">
+                <div style="text-align: center; margin-bottom: 4rem;">
+                    <h3 style="font-size: 3rem; background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; font-weight: 800;">🌟 为什么选择 Claude Code？</h3>
+                    <p style="color: var(--text-secondary); font-size: 1.25rem; max-width: 600px; margin: 0 auto;">专业、可靠、高效的AI代码服务，让您的开发更上一层楼</p>
+                </div>
+                <div class="card-grid">
+                    <div class="card" style="border: 2px solid var(--accent-color); background: linear-gradient(145deg, #ffffff 0%, #f0f9ff 100%);">
+                        <h3 style="color: var(--accent-color);">🚀 极致性能</h3>
+                        <p>全球分布式架构，毫秒级响应时间，99.9%可用性保证，让您的AI应用运行如飞</p>
+                    </div>
+                    <div class="card" style="border: 2px solid var(--success-color); background: linear-gradient(145deg, #ffffff 0%, #f0fdf4 100%);">
+                        <h3 style="color: var(--success-color);">🔒 安全可靠</h3>
+                        <p>银行级数据加密，零日志政策，SOC2认证，保护您的代码和数据安全无忧</p>
+                    </div>
+                    <div class="card" style="border: 2px solid var(--warning-color); background: linear-gradient(145deg, #ffffff 0%, #fffbeb 100%);">
+                        <h3 style="color: var(--warning-color);">💰 性价比王</h3>
+                        <p>灵活计费模式，比同类产品节省40%成本，透明定价，无隐藏费用</p>
+                    </div>
+                    <div class="card" style="border: 2px solid var(--primary-color); background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);">
+                        <h3 style="color: var(--primary-color);">🛠️ 开箱即用</h3>
+                        <p>5分钟快速集成，丰富的SDK和API文档，24/7技术支持，让集成变得简单</p>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Claude Code. 保留所有权利。</p>
+    </footer>
+
+    <script src="performance-fix.js"></script>
+    <script src="animations.js"></script>
+    <script>
+        // 页面特定的增强功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 添加数字动画
+            const statsElements = document.querySelectorAll('.stat-value');
+            statsElements.forEach(element => {
+                const text = element.textContent;
+                const numbers = text.match(/\d+/);
+                if (numbers) {
+                    element.setAttribute('data-count', numbers[0]);
+                }
+            });
+
+            // 只对CTA按钮添加轻量磁性效果，排除导航栏
+            document.querySelectorAll('.cta-button:not(.nav-links a), .btn:not(.nav-links a)').forEach(btn => {
+                btn.classList.add('magnetic');
+            });
+
+            // 为卡片添加悬浮效果
+            document.querySelectorAll('.card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-12px) scale(1.03)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
