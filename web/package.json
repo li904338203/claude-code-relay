@@ -21,6 +21,7 @@
     "test:coverage": "echo \"no test:coverage specified,work in process\""
   },
   "dependencies": {
+    "@rollup/rollup-win32-x64-msvc": "^4.46.2",
     "@vueuse/core": "^12.3.0",
     "axios": "^1.8.4",
     "dayjs": "^1.11.13",

@@ -1,0 +1,357 @@
+[INFO] 2025/08/11 17:27:38 logger.go:35: Claude Code Relay v1.0.0 started
+[ERROR] 2025/08/11 17:27:38 logger.go:43: failed to initialize database: failed to connect to MySQL server: Error 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+[INFO] 2025/08/11 17:29:23 logger.go:35: Claude Code Relay v1.0.0 started
+[ERROR] 2025/08/11 17:29:23 logger.go:43: failed to initialize database: failed to connect to MySQL server: Error 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+[INFO] 2025/08/11 17:30:43 logger.go:35: Claude Code Relay v1.0.0 started
+[ERROR] 2025/08/11 17:30:43 logger.go:43: failed to initialize database: failed to connect to MySQL server: Error 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+[INFO] 2025/08/11 17:31:11 logger.go:35: Claude Code Relay v1.0.0 started
+[INFO] 2025/08/11 17:31:11 logger.go:35: Database initialized successfully
+[INFO] 2025/08/11 17:31:11 logger.go:35: Redis connection established
+[INFO] 2025/08/11 17:31:11 logger.go:35: Cron service started successfully
+[INFO] 2025/08/11 17:31:11 logger.go:35: Server starting on port 8080
+[ERROR] 2025/08/11 17:31:11 logger.go:43: failed to start HTTP server: listen tcp :8080: bind: An attempt was made to access a socket in a way forbidden by its access permissions.
+[INFO] 2025/08/11 17:31:56 logger.go:35: Claude Code Relay v1.0.0 started
+[INFO] 2025/08/11 17:31:57 logger.go:35: Database initialized successfully
+[INFO] 2025/08/11 17:31:57 logger.go:35: Redis connection established
+[INFO] 2025/08/11 17:31:57 logger.go:35: Cron service started successfully
+[INFO] 2025/08/11 17:31:57 logger.go:35: Server starting on port 8088
+[INFO] 2025/08/11 17:31:57 logger.go:35: Default admin user created: admin/admin123
+[INFO] 2025/08/11 17:40:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/11 17:40:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/11 17:47:18 logger.go:35: Shutting down server...
+[INFO] 2025/08/11 17:47:18 logger.go:35: Cron service stopped
+[INFO] 2025/08/11 17:47:18 logger.go:35: Server stopped gracefully
+[INFO] 2025/08/11 17:47:18 logger.go:35: Cron service stopped
+[INFO] 2025/08/11 17:47:30 logger.go:35: Claude Code Relay v1.0.0 started
+[INFO] 2025/08/11 17:47:30 logger.go:35: Database initialized successfully
+[INFO] 2025/08/11 17:47:30 logger.go:35: Redis connection established
+[INFO] 2025/08/11 17:47:30 logger.go:35: Cron service started successfully
+[INFO] 2025/08/11 17:47:30 logger.go:35: Server starting on port 8088
+[INFO] 2025/08/11 17:50:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/11 17:50:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/11 18:00:00 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/11 18:00:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/11 18:00:00 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/11 18:00:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/11 18:10:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/11 18:10:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/11 18:20:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/11 18:20:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/12 08:24:55 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/12 08:24:55 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/12 08:24:56 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/12 08:24:56 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/12 08:34:58 logger.go:35: Starting expired logs cleanup task
+[INFO] 2025/08/12 08:34:58 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/12 08:34:58 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/12 08:34:58 logger.go:35: Starting daily stats reset task
+[INFO] 2025/08/12 08:34:58 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/12 08:34:58 logger.go:35: Cleaned expired logs successfully, deleted 0 records (older than 3 months)
+[INFO] 2025/08/12 08:34:58 logger.go:35: Expired logs cleanup task completed in 26.3791ms
+[INFO] 2025/08/12 08:34:58 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/12 08:34:58 logger.go:35: Account daily stats reset successfully
+[INFO] 2025/08/12 08:34:58 logger.go:35: API Key daily stats reset successfully
+[INFO] 2025/08/12 08:34:58 logger.go:35: Daily stats reset task completed in 32.5621ms
+[INFO] 2025/08/12 08:40:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/12 08:40:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/12 08:50:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/12 08:50:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/12 09:00:00 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/12 09:00:00 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/12 09:00:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/12 09:00:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/12 09:10:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/12 09:10:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/12 09:20:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/12 09:20:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/12 09:30:00 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/12 09:30:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/12 09:30:00 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/12 09:30:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/12 09:40:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/12 09:40:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/12 09:50:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/12 09:50:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/12 10:00:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/12 10:00:00 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/12 10:00:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/12 10:00:00 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/12 10:10:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/12 10:10:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/12 10:20:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/12 10:20:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/12 10:30:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/12 10:30:00 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/12 10:30:00 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/12 10:30:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/12 10:40:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/12 10:40:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/12 10:50:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/12 10:50:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/12 10:57:42 logger.go:35: Shutting down server...
+[INFO] 2025/08/12 10:57:42 logger.go:35: Cron service stopped
+[INFO] 2025/08/12 10:57:42 logger.go:35: Server stopped gracefully
+[INFO] 2025/08/12 10:57:42 logger.go:35: Cron service stopped
+[INFO] 2025/08/12 18:17:11 logger.go:35: Claude Code Relay v1.0.0 started
+[INFO] 2025/08/12 18:17:11 logger.go:35: Database initialized successfully
+[INFO] 2025/08/12 18:17:11 logger.go:35: Redis connection established
+[INFO] 2025/08/12 18:17:11 logger.go:35: Cron service started successfully
+[INFO] 2025/08/12 18:17:11 logger.go:35: Server starting on port 8088
+[INFO] 2025/08/12 18:20:01 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/12 18:20:01 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/12 18:30:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/12 18:30:00 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/12 18:30:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/12 18:30:00 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/13 08:24:49 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 08:24:49 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 08:34:49 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 08:34:49 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/13 08:34:49 logger.go:35: Starting daily stats reset task
+[INFO] 2025/08/13 08:34:49 logger.go:35: Starting expired logs cleanup task
+[INFO] 2025/08/13 08:34:49 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 08:34:49 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/13 08:34:49 logger.go:35: Cleaned expired logs successfully, deleted 0 records (older than 3 months)
+[INFO] 2025/08/13 08:34:49 logger.go:35: Expired logs cleanup task completed in 27.7899ms
+[INFO] 2025/08/13 08:34:49 logger.go:35: Account daily stats reset successfully
+[INFO] 2025/08/13 08:34:49 logger.go:35: API Key daily stats reset successfully
+[INFO] 2025/08/13 08:34:49 logger.go:35: Daily stats reset task completed in 33.9348ms
+[INFO] 2025/08/13 08:40:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 08:40:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 08:50:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 08:50:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 09:00:00 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/13 09:00:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 09:00:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 09:00:00 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/13 09:10:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 09:10:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 09:20:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 09:20:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 09:30:00 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/13 09:30:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 09:30:00 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/13 09:30:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 09:40:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 09:40:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 09:41:33 logger.go:35: Attempting OAuth token exchange - URL: https://console.anthropic.com/v1/oauth/token, Code length: 48, Code prefix: IAR6KccPZX..., Has proxy: false
+[ERROR] 2025/08/13 09:41:34 logger.go:43: OAuth token exchange failed - Status: 403, Body: <!DOCTYPE html><html lang="en-US"><head><title>Just a moment...</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}body{display:flex;flex-direction:column;height:100vh;min-height:100vh}.main-content{margin:8rem auto;padding-left:1.5rem;max-width:60rem}@media (width <= 720px){.main-content{margin-top:4rem}}.h2{line-height:2.25rem;font-size:1.5rem;font-weight:500}@media (width <= 720px){.h2{line-height:1.5rem;font-size:1.25rem}}#challenge-error-text{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iI0IyMEYwMyIgZD0iTTE2IDNhMTMgMTMgMCAxIDAgMTMgMTNBMTMuMDE1IDEzLjAxNSAwIDAgMCAxNiAzbTAgMjRhMTEgMTEgMCAxIDEgMTEtMTEgMTEuMDEgMTEuMDEgMCAwIDEtMTEgMTEiLz48cGF0aCBmaWxsPSIjQjIwRjAzIiBkPSJNMTcuMDM4IDE4LjYxNUgxNC44N0wxNC41NjMgOS41aDIuNzgzem0tMS4wODQgMS40MjdxLjY2IDAgMS4wNTcuMzg4LjQwNy4zODkuNDA3Ljk5NCAwIC41OTYtLjQwNy45ODQtLjM5Ny4zOS0xLjA1Ny4zODktLjY1IDAtMS4wNTYtLjM4OS0uMzk4LS4zODktLjM5OC0uOTg0IDAtLjU5Ny4zOTgtLjk4NS40MDYtLjM5NyAxLjA1Ni0uMzk3Ii8+PC9zdmc+");background-repeat:no-repeat;background-size:contain;padding-left:34px}@media (prefers-color-scheme: dark){body{background-color:#222;color:#d9d9d9}}</style><meta http-equiv="refresh" content="360"></head><body><div class="main-wrapper" role="main"><div class="main-content"><noscript><div class="h2"><span id="challenge-error-text">Enable JavaScript and cookies to continue</span></div></noscript></div></div><script>(function(){window._cf_chl_opt = {cvId: '3',cZone: 'console.anthropic.com',cType: 'managed',cRay: '96e482d75fe8eb2a',cH: 'UuQKKyBl35lulB2SvtCvBbPWvWinuBJDm3P0Ut5iWmo-1755049296-1.2.1.1-MPG20_QTDCkX2P9cd7pinOpo6NoHMyGqCKi1fz5Wx7CZI76I5aVOQnuCfUzYvlzL',cUPMDTk:"\/v1\/oauth\/token?__cf_chl_tk=PsEfsdne4yJ1nMzbLsL4.MOJ6c6nEULjQZHFoET9xEA-1755049296-1.0.1.1-b_ONYHK_tEMKHfvF4KvPvMpBBnnx7WrCKdqnYQDYUAE",cFPWv: 'b',cITimeS: '1755049296',cTplC:0,cTplV:5,cTplB: 'cf',fa:"\/v1\/oauth\/token?__cf_chl_f_tk=PsEfsdne4yJ1nMzbLsL4.MOJ6c6nEULjQZHFoET9xEA-1755049296-1.0.1.1-b_ONYHK_tEMKHfvF4KvPvMpBBnnx7WrCKdqnYQDYUAE",md: 'PoSGntYyycytmd36BmUa2uXvZ0uqWBU8xnJnBSJVlcU-1755049296-1.2.1.1-LvMiVyQYin8Zw3mqfPLjzpxrjLltxHLPqdtIeFVVHi_5VhzBeGN7lDJqh4ty_JOngdHZHQayopZdwefv6CAM0zDUR8XHDcWsaMZKoV4M_6HKD8eiOojmQm2Y3UnV0h9S2r4jUTe2UkF9wTm4fhaKZcMO9kAjuxkQBwIlvy3eSXAhC6MZRGA84qGz.0OTACgUcjCixUubuHcXvqFeWdvsjo73cV3Ell3ZXOUf3rTm6tvMVgqO2wXbztrajwIQLu6aPUcYP8yJr7jQJw_GvUVnBX7IWMNk0hiH4PeaZtwcyqV_kPHdFBh6zDuh4YQvLl_kXrHTM93vh4v7tJkhMFoDgWzCJTXvjtY4tQ71FJtm5hf2_afY7UCXNkgZszB.ye51i1_VGB.gZdgt9xI837pOKqpauK2lZ9zjzZDrp2Ta8yniNR2NqtBAaKhIOqzJYC7UfvxZDL5Gwd786SU4sJHgyo9ajWcq0qMkp0jr2tCCeJyUZxM4lOa9u9lfp6Ev.HtSOwoo9RVfaSHQinGi.YXZDFHt2EgwBHv3Qh4ZCKSGAIP.9Uu.yyRH.DG67JD7FGVmkYVoEW5fUUoQusaVxISSXbuPdGI7ncZZWs6GL7v6d4J2TMOMxhZyPbU4x516Cif8Vq93yN9LX983XLwZ84HhyEJoRVHZJsvw.GXmpQYts2T.00qRaXpDSz58zxPyCvguzfP1qrFgJhz_rr7BTg8fZcYrBpJBUybuadDJHJJRA9PuLQaTZjgx66NIfcaMuIHC6A3dOPRbsruxEsl_HzmGHWjvt3ud1XFG9EKMIA5wT1Natq4VidwS3U3DUaFy0JnThTzGzWeXYAqHpaVlUCEe4afqG60TgXEpjoQn4MfpJf8wUiE90d_UZVo87mr0He48x0SppBoeCGjR53s4c5eViC4opGNb1163fTa3J8de.tVhVrZdWVsMpQumLu7kpzOJDBcUJZIB3vHvLobwYFDDKN.ZAT9iH0tTQ1TkmaN6_tSeUafxjB6sYjL4cM2_BsZo',mdrd: 'z2W_jvXnF3pRnMWgYcp_1XhKwyMSwvhyKde9CnKpQlM-1755049296-1.2.1.1-TcMrjxtc6TDAEmWxmC0AGVOWN_r73XJUxh4YZkEmBQjuDAs8gEyr1tBaLJLwq2VFdp4.be8AYmNX3sDEND18a1Hk4BYlzP7p6fhAWPjALMbAmhvrQCtESH1RVTN1D_c9K373YmUZRCeB41lPfFZR_sPBVt1mYcpnZr_tq31jyfn1jygdmk1HNkYW1SQZfhkmeosYAG3cxwOL4_rG5FjLP.nsh7QAW40C_3LSzjZEdbrCmG8hFtyvhLK9S973czVYj.cYIusqcKwlZpuJv2WACmfhy_l.Cv3REM5CO0GV23vsMciDopE4j28aPvIfLQdYCgXwk0OGSqyG8fhg47opJ9gRFYhQZ4mpHf4khmypjwj4AT2S3kUVhvzNBMIvhvZyjbq2C2HmSdBHMWfF1t_6qssMw7mHVy8Q_MoV.nu1PfQG.HlwFu7yGpVGv_o5numNiENy8PPemqo4unTC9vt_q0zmKV1tVgnrlrECyk7gGQMcjSHej0SW8n1DSiXZL2NHC044V3ziLrTsXwFvDeoweIbUzws1cETEfvF0U0ANj4Wah1YrFtuNG_mzZUWlYYLooRLMmkMJapvgjm7jK8jz5_CAj3kPI76AxbsH7nRQh6MHkcxeodMdCZuCN3f2Eo8ZQxwOJw2_xlUyJIwl0A8H6DD8bm2QDaZHhVpWYooUK6bBnfxjXDr.hh9s1Sg11p_wW6ClDFoNBRntAu48rXUOEWwggYPWcnJ2ygEo9rBNEYolSw5zYZyBGGnpIPeciG8pweHXlWMHU2qjJHkuIh9vYc7YEyhx7NTkESrJM4ZhbGaiE2pDRSsvtIIFpDD2nI.x5Bw87JsRX2MSLcGWmXSInJhIUxh9nyhe_mh_kBFWxncaUPXtRaXd4NXPNqcPm.Qlie8fK8fcGL2FkL7krXD_6hGTYzraraRpI3l6..P5rrrochy02AX2cmm7U84V9PcuuzjHbbcxXCEURmaKhKb.LKXw.TqvwMCHpJGpRcRPfwibKtPuseudFP38gA1RjEPrdEDVEZ6YaUmYehj16_JsG77vFUJ.vL.Kj0z4meCaS1SmVNYtfU_9RH.2Qr7pb_HbojdtyZgFIlS4M.G1HFx5XdqrGDGOYDO2.W6A6k_elj0CpYUcOT0Dl_3QYzg_ab9ju9Ol0rbiIK4mXk4ZK7vx7PBgZwYsnrZSbz26OAP__BFTYu45iAj7HMdd5O2fLV.I_yXKXgxptsu_yUCT9aZhQJA0NON8HsruNHfCJrmG2pIf_yZoA0F1QlvYxArt0CoukaunJb4Uuq2jx2Ltm7N3O.g8dYyim_lHgA6xnWQo9ILBriHQhyDWNbjeChLa9_.qX_P0Q7ny9dklJabCxSUmHL9zmPgfH86KfLy_5IbAk8RPqQtxY2fPeQ8bdzWlo.9oMu.uQyFq80GKrdlkg3WWoMuP5tfuR.YVU6CuMjU.N1mJ.HwNDFkmRZfOoXKIf3hWqWMnS1dTAV8VLJrM9F0tOIqAliLerXFpMCbfo_LOY82SVcc_NCJfQzSurOHPLItzxHqwZU4t7bqjPkXT2Vns0xUZdO8a8V3AsjGDg0yqrHq2R.I1RK50LkuR3DdbvNvAmE3UxdQPBPNNkIYBCBHzFiAmTiaU9nZdBH0KZw7_NclEuRmH.KpLo1RfdyQi3kY2ivHhXfGos3LdlU4hCX.k2pdeGuBGylOLnEKPoHN22Kj7acK_UYNl02Aady_9q_Z6aJDAuFCHcQU4v2uK5oHJlwEyPmXRRZrnqmqBl9zAeriof.DsKhfs2pmjW2Ds.CCHY.IsZjKMphO6Hc.jzuCLYYf9dH2pC8aJIPi7RGuVhq.imObbkc1uixBbZRoAHWI_y4QVOUsb48MblM9umtR4tWwhH8XXdR1YTOEV9Rutm2C.oWBZ6ctbDELqZeMfMafOunYvEBhG9qve.S0azZjcCXzOo1vjZ38HJtAQXKanWIqQCOHi2Mc74FTqNPrnWZpD7IC0.ZOnRLzNVSmSAbgy7iYtnYQZ8aP.5lLgpasd.BDrvSDLSWI.4uHmjMyYoemp3xxrC7s7E_yPMpjUJglVdPuhuTUS.5.paY9hTpHEOsJbb9xoMRZNYHA0KLcaAg6idkuROEmFIGrQXQ1KaT4dNppC3uuo2hfeN2sWYs_qSzOLg7wp8_BkZNO1af.JC1sjAP4TujAUy3fUAR_TqsvHqjec0A4bK7nhEhBZXmkxT.8IIIMpmTXbFcNKNrzoPeQHeEI0VndD01zks1UYyPv1xsYsqb.IeIMDOXvQIRmcHDcKtEKZDnYH3nEVEx9TVN5Mez6rI4BLC5hy6URSBbKoxxOu0M8c88euPqk8FfMWohlyq_3hposqOio1q6e4r3IvQlvJ4mW19zRoXLsEqeQGGrcMad3fk3HugE_.vyRQIg.a8L6z7YMABR_Y6WZEoqH34d1FByZyJHpp1I29.di7qBCFHuvQehaMqP4BDpk.6BPKM93CL9.CM0kN_owth8zFcvsQo8Nd4HI4Bw8qT_pMIVGZR0s8WZHf9fP83q8rIem4hX08CSjQJT1am3IBhsB9BHJ0vhHrK3JPCOO_LaatPXgtoqpX3O_8WrxEIr4Qh_3YRJt2.NLYKAArjKmMM7LsZibhNW2PdvooqRM0mrqIUj0FaK_e.f7p1XmAfaECqbqPGX97K4M3WwvsgJpHgZkHjOp_JEpPHj8fyv0Bqncj0w',};var a = document.createElement('script');a.src = '/cdn-cgi/challenge-platform/h/b/orchestrate/chl_page/v1?ray=96e482d75fe8eb2a';window._cf_chl_opt.cOgUHash = location.hash === '' && location.href.indexOf('#') !== -1 ? '#' : location.hash;window._cf_chl_opt.cOgUQuery = location.search === '' && location.href.slice(0, location.href.length - window._cf_chl_opt.cOgUHash.length).indexOf('?') !== -1 ? '?' : location.search;if (window.history && window.history.replaceState) {var ogU = location.pathname + window._cf_chl_opt.cOgUQuery + window._cf_chl_opt.cOgUHash;history.replaceState(null, null,"\/v1\/oauth\/token?__cf_chl_rt_tk=PsEfsdne4yJ1nMzbLsL4.MOJ6c6nEULjQZHFoET9xEA-1755049296-1.0.1.1-b_ONYHK_tEMKHfvF4KvPvMpBBnnx7WrCKdqnYQDYUAE"+ window._cf_chl_opt.cOgUHash);a.onload = function() {history.replaceState(null, null, ogU);}}document.getElementsByTagName('head')[0].appendChild(a);}());</script></body></html>
+[INFO] 2025/08/13 09:41:35 logger.go:35: Attempting OAuth token exchange - URL: https://console.anthropic.com/v1/oauth/token, Code length: 48, Code prefix: IAR6KccPZX..., Has proxy: false
+[ERROR] 2025/08/13 09:41:36 logger.go:43: OAuth token exchange failed - Status: 403, Body: <!DOCTYPE html><html lang="en-US"><head><title>Just a moment...</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}body{display:flex;flex-direction:column;height:100vh;min-height:100vh}.main-content{margin:8rem auto;padding-left:1.5rem;max-width:60rem}@media (width <= 720px){.main-content{margin-top:4rem}}.h2{line-height:2.25rem;font-size:1.5rem;font-weight:500}@media (width <= 720px){.h2{line-height:1.5rem;font-size:1.25rem}}#challenge-error-text{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iI0IyMEYwMyIgZD0iTTE2IDNhMTMgMTMgMCAxIDAgMTMgMTNBMTMuMDE1IDEzLjAxNSAwIDAgMCAxNiAzbTAgMjRhMTEgMTEgMCAxIDEgMTEtMTEgMTEuMDEgMTEuMDEgMCAwIDEtMTEgMTEiLz48cGF0aCBmaWxsPSIjQjIwRjAzIiBkPSJNMTcuMDM4IDE4LjYxNUgxNC44N0wxNC41NjMgOS41aDIuNzgzem0tMS4wODQgMS40MjdxLjY2IDAgMS4wNTcuMzg4LjQwNy4zODkuNDA3Ljk5NCAwIC41OTYtLjQwNy45ODQtLjM5Ny4zOS0xLjA1Ny4zODktLjY1IDAtMS4wNTYtLjM4OS0uMzk4LS4zODktLjM5OC0uOTg0IDAtLjU5Ny4zOTgtLjk4NS40MDYtLjM5NyAxLjA1Ni0uMzk3Ii8+PC9zdmc+");background-repeat:no-repeat;background-size:contain;padding-left:34px}@media (prefers-color-scheme: dark){body{background-color:#222;color:#d9d9d9}}</style><meta http-equiv="refresh" content="360"></head><body><div class="main-wrapper" role="main"><div class="main-content"><noscript><div class="h2"><span id="challenge-error-text">Enable JavaScript and cookies to continue</span></div></noscript></div></div><script>(function(){window._cf_chl_opt = {cvId: '3',cZone: 'console.anthropic.com',cType: 'managed',cRay: '96e482e079d0eb2a',cH: 'Md_3O88O08IPaEG_ySNurChmOBsywV_QUbncRMOcJRA-1755049298-1.2.1.1-yWg6.59cUXT8lmd0FQkC.F_mhe3TYhImbDUQn2Uahl.cfd3yfldDVEKM9qePeiFI',cUPMDTk:"\/v1\/oauth\/token?__cf_chl_tk=XeWo4T4OxOyke3vKSdkVvVD4CKFsJCHCVUIbTw1810Y-1755049298-1.0.1.1-YbH7Jeq0HhsxkNlRBJ9QL2cYvp0q9Nur1RTRsnjHb3Q",cFPWv: 'b',cITimeS: '1755049298',cTplC:0,cTplV:5,cTplB: 'cf',fa:"\/v1\/oauth\/token?__cf_chl_f_tk=XeWo4T4OxOyke3vKSdkVvVD4CKFsJCHCVUIbTw1810Y-1755049298-1.0.1.1-YbH7Jeq0HhsxkNlRBJ9QL2cYvp0q9Nur1RTRsnjHb3Q",md: '_R27mkW_Oz0yiyndHi8oExfeww7iVAZzOmwsx94Jtk0-1755049298-1.2.1.1-ZXIBJ0k2wQphpsE2EoUwzk3MzQcW5oCvxSLOu.DjZqzPxQiDwh1q3UOC0vJ0fUt.tl90wVp4HV5CnNNx07PphcacfRlIMOsqZpgeI2ekRW5v2KVpBfokVEsBbCW.uhqgquYJcGAMO328JaXqhZ5gxJMWBwKX.ksLr1jU00lVmX7rUnZVRpggW0E3Bcbp6zBCDggwXH0VYYbM4t3OvMvWn4FRYcD1lLXhh4sDzGwddeKM.8xKL9CqlL1Rvq50HjuSg29nexFeHwwNdkrZKlDL7kEg0xonUCGtO9Debm11wV5rgNs44Hdx5skZWAIpDO4lMmpJb8s5ajdwSXatBwNm5F8dxlEUnQICzU.be.FjxYBZnnSaTdkZ_9QWjjqB0S9i0RaaKqw7577AqYVeD3XepWprIWwrYVylm.cUH2tgffQC5U6QfP6Ujgwn2K_uC_gf8yibJVeFNSHNtCuAaB5Aa5J2G4GRnkgdiSKH0L3MV9maXmIhkfw_l1GI1xIJRLCfAQ0L2ZUgdvf0vt2buudWOqCH8Z1ZlpWMDsu5BU01J3z_dpri.EtSYV94WpImYk9PSQr1LYodUabFsmpJPHgez7r1u0ojF17gVH7onvL.OVt0mjutzJTe58ScO.nyelIbIo9NR6ajkv4VMB9VrRNQEzyne7oShhrbcTZAggGs5NYoCVHI5aNBKVivUzVG0ZltFyBSNxTZZjco1Jt.i46Wvpd5wcrYAPRIuvD5HPDa1GJYDFtbHTWgb8yzkfMhzCMs.UQB3JW0gjrx2lSWy71qeihLgrVGZyMYGHbzx1i5cml2kpPhtvp0fkDNWDc.WMJxoczrM8K.CN8qGoNt4HrWrouqkkCyfr4xEfqTW2ZMEaFwvNitQ8SP.ll4pTwmhvRcmWhfc74lo1Bbim4BwLdWiMOgayHuXZbCIPr_kobWeZTIcnlP.6ZAyT9bCOVRxcf.k0KDPIDgKYCpTcgVOWuMmIxEbyRG0L2sVYov7VH7SETLjGjgO4kub1SOTycsoW9o',mdrd: 'yEAV.fA5YSyqiAJG1mAR9JJpSFFidoIiMGUq2XE0Pv0-1755049298-1.2.1.1-AOM7DO8Pyre.k5fqcHhZrVUOQBuns2oVq4FQIAsNOrk3kkupKFJ5SeKvmXIrrc0KSmN.sjLj5qOpLk9_K76gJqQNW1Dblg92smspx0xtEr82kOx18CJZamPnQnTt3_25fv4KAbK7FKIyRjMbr8g7koKOMGTJkzqKsrfOu8P4CshcPljms.E3jSEIawJ2FRpZ8Tlx87lmeAe3573fchOzpDyU9hF1XH7oENYTur9rsWB.kbe4wWEk40g5R4g1qIK1FCHu4HQgdPUUtk0uFE7UYRuYAJcbgf8tOY62nsJjglNFCWMljRukjxRLlc20n9G68l7sQS_11AfvQVig9xCNPIsgaf_nyVzVZSdvELHgzZuIlRnKOQu6lqdyhLAbl7m9SPmrP8dld.KZNS4hUAALnTe3idkVVbXNIiJkHiIh.VvmVu4HTPsOW2NavTyAlF4UVaM1CeaWzZ0cWdyBgfvmT.oLLqkvf343R4DnI.jtmJZIqgl0oK8PS07Qs14uomvYXLqVhdmbAPGHCHtPLpL_0RfwH2Lb44IUT9yWJwczD8Dg7aHo0Xlz6HO78UAJFSiv14uGg7x81vNMnJME4bnsoXT2KSWXi5TBvZRIMwc2rRS8gezH5J73Qk5cHcg0KtcFI4tJLX6la6aOewIJfkZ1w14bJtdtClZ80aaVZFJDqYjFvgKxxlixO6JcsT5x75FCloiOWagAb9kbj.5_NPskCK1SaySj9wsCIRhPDJKCPebeboqqUWDTPgxoxAUniiMxqzksSJtJAVSri5fo1zHCxKAIqAtDliMeySj9p4FzvQp0PX0iS0s41QBv5ApUn26R4XXdLoiWBUzAfiYoR.PZ5JcOFQnZtCGVBA6_jWLF6XHKFEFK9cr62700l33cdn8PXc_39Kq7wuuQJpzA8xU4QTW9vux9F3ZSu5VDtGlyrx4kMZ6HGyoOEwHSAcWmhdFkmeDnpBFVb3heMdkVN6qMVRmbcAdV3XbHa0L6_r_sUYl8rm8Nww05bW8PjCL4SUbxkqJ55rRMH13nxlvND.40DJYDJaYetrpjrtdGzb_IivNR5gCgcTDUrTbr.6qKGH8PUgDlsb2Vn5OdxGTwHqKt8CFWaii426j7yJaN6zZ9_yqTajeEjBto28chPiybetEfY9B5NC4I2VS_rzsUBMQt.NCUDUbr_.tlJTJIQE.0p3w4yChlGchfdqtDlR7czJ.wjTMiwkRA8juTKogoza8gGO2WRQUg0TzswfLamXPMz4VJN_hUtOIewBTqsXggGtr0j53xXJypdzYvHEwe.yt8p6FIUCrW_qulw.b0cG2TPZQ3hYAeg2.t9NW6.tTvW6VblUHL8MBruuaY6oegsh_GlGgHz28cqjhWCp5yAcsxS22MM8ql9YwEpeZIIYyxBzT3BpfZezh097BNQYc_AligfcC1C3XVwNv8PNWf2ehTAG.6f98LaGn5MgRCK8_pHo0zNl9c5AoN.40zsc7ktQJte6TwqUa0XKUDTXRMzc2nkTe3JOWsIn3LktEQh6wUVXUmna_JughV0f9EVyoSoXJZQLiH8IP5mjrONIUg26uqYIr5lHuZQUsRB1FP0a90FtOn0hHhhBQc_JfT0l0vhlq9pT3r4O.BU8pudPCOMnzv0BMaEVkAsCnM6mROF0PEAf9Cc5tAf.Wv3TgYHLBn5vb3sBHaXNDjSrM1KtXeNZPoXohLlcvyVYJ62y9aH5bjjr71101TQ..mGtKvGTkYjfo37nTYWf6efJQoJVDY3N3WigB9B0QKkwc3AQMwtFg9NUyabgLdHlkly6YkH1hdrGAv7CxusK2tA7WBJYrBNiSY0G.1tCQ2Vdiirzmfqps8Ms4ocxBwq7JvXyKEjmfeYOkAQwP5.Uj6VaMlaQWO_ObgzTSVRwikzzBbJr4bzFhRcCgi.GWMoeGIHilbAdhuzcNylaMu8XTp2uqHKF.6vi7fM7.dvPnoigr4I68rvUfT.CC.NX7uq5fc6stGHfY6i93h2ctty.Kf1RAOIZ6D7Ij2UeebyvVIkq2UrhVtVLATLzL3Zjcu3WnsdCKjlrsZUFSBQOaP9zt3qOi.ZoiGlluJJ8o1gzxAae2Qg.jtO4bv7EEYOuInKoybtBQFm_g4_41lXesc8Sw1j2cvtWqimvogiyEwseQL7OkdsQ5TB1eFMTqJAtXzH8vxoUHMOxvq8y2aVKm4XYIzVzhaaB.HSCf8Y4XfjsEjlMZnv5xY8yVMNl2QFLy5AlTasduzdARg5RrciJFaTH3psMLBh6VIj9oM8rmORI33dUrXw7bPOqU2tb9RXwQpQiPGXe13CY1P4F5XCggs3ky1SDmLskqx8ceFT2.q86T_gG5J8nfXxYEFRZBt4xHqJzNbHNV4lAuLm4MSR14NdTkhBbKUMbj.vnxU31I',};var a = document.createElement('script');a.src = '/cdn-cgi/challenge-platform/h/b/orchestrate/chl_page/v1?ray=96e482e079d0eb2a';window._cf_chl_opt.cOgUHash = location.hash === '' && location.href.indexOf('#') !== -1 ? '#' : location.hash;window._cf_chl_opt.cOgUQuery = location.search === '' && location.href.slice(0, location.href.length - window._cf_chl_opt.cOgUHash.length).indexOf('?') !== -1 ? '?' : location.search;if (window.history && window.history.replaceState) {var ogU = location.pathname + window._cf_chl_opt.cOgUQuery + window._cf_chl_opt.cOgUHash;history.replaceState(null, null,"\/v1\/oauth\/token?__cf_chl_rt_tk=XeWo4T4OxOyke3vKSdkVvVD4CKFsJCHCVUIbTw1810Y-1755049298-1.0.1.1-YbH7Jeq0HhsxkNlRBJ9QL2cYvp0q9Nur1RTRsnjHb3Q"+ window._cf_chl_opt.cOgUHash);a.onload = function() {history.replaceState(null, null, ogU);}}document.getElementsByTagName('head')[0].appendChild(a);}());</script></body></html>
+[INFO] 2025/08/13 09:41:37 logger.go:35: Attempting OAuth token exchange - URL: https://console.anthropic.com/v1/oauth/token, Code length: 48, Code prefix: IAR6KccPZX..., Has proxy: false
+[ERROR] 2025/08/13 09:41:37 logger.go:43: OAuth token exchange failed - Status: 403, Body: <!DOCTYPE html><html lang="en-US"><head><title>Just a moment...</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}body{display:flex;flex-direction:column;height:100vh;min-height:100vh}.main-content{margin:8rem auto;padding-left:1.5rem;max-width:60rem}@media (width <= 720px){.main-content{margin-top:4rem}}.h2{line-height:2.25rem;font-size:1.5rem;font-weight:500}@media (width <= 720px){.h2{line-height:1.5rem;font-size:1.25rem}}#challenge-error-text{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iI0IyMEYwMyIgZD0iTTE2IDNhMTMgMTMgMCAxIDAgMTMgMTNBMTMuMDE1IDEzLjAxNSAwIDAgMCAxNiAzbTAgMjRhMTEgMTEgMCAxIDEgMTEtMTEgMTEuMDEgMTEuMDEgMCAwIDEtMTEgMTEiLz48cGF0aCBmaWxsPSIjQjIwRjAzIiBkPSJNMTcuMDM4IDE4LjYxNUgxNC44N0wxNC41NjMgOS41aDIuNzgzem0tMS4wODQgMS40MjdxLjY2IDAgMS4wNTcuMzg4LjQwNy4zODkuNDA3Ljk5NCAwIC41OTYtLjQwNy45ODQtLjM5Ny4zOS0xLjA1Ny4zODktLjY1IDAtMS4wNTYtLjM4OS0uMzk4LS4zODktLjM5OC0uOTg0IDAtLjU5Ny4zOTgtLjk4NS40MDYtLjM5NyAxLjA1Ni0uMzk3Ii8+PC9zdmc+");background-repeat:no-repeat;background-size:contain;padding-left:34px}@media (prefers-color-scheme: dark){body{background-color:#222;color:#d9d9d9}}</style><meta http-equiv="refresh" content="360"></head><body><div class="main-wrapper" role="main"><div class="main-content"><noscript><div class="h2"><span id="challenge-error-text">Enable JavaScript and cookies to continue</span></div></noscript></div></div><script>(function(){window._cf_chl_opt = {cvId: '3',cZone: 'console.anthropic.com',cType: 'managed',cRay: '96e482e9192deb2a',cH: 'xa7dDuLegRmxgvfI4rHm9Z.zaQcD6anDjYEEWvRNVhg-1755049299-1.2.1.1-ma0oHjXkX9.5_yG1osJDW6pWeyPes7ojVK.ng9pPgNyfmsUYuRTo0QDPlKDPwriI',cUPMDTk:"\/v1\/oauth\/token?__cf_chl_tk=.CHqS5_Ex.f4j3AdBNNAHPB6tODuBD1fyQoHGXjN2fs-1755049299-1.0.1.1-X6ezqxc2ilX7NqI1kpzeM9xFUMVFx9REftvYCXX8gbk",cFPWv: 'b',cITimeS: '1755049299',cTplC:0,cTplV:5,cTplB: 'cf',fa:"\/v1\/oauth\/token?__cf_chl_f_tk=.CHqS5_Ex.f4j3AdBNNAHPB6tODuBD1fyQoHGXjN2fs-1755049299-1.0.1.1-X6ezqxc2ilX7NqI1kpzeM9xFUMVFx9REftvYCXX8gbk",md: 'xHYzk2ufYrKLnFawcjqy.36FO5epF7bDvWh51CauLAc-1755049299-1.2.1.1-bni.fll0U3jJjkoQCWCciIXaCqTOFpGVc6w026Sc9A3DuIIZPMhzEhJIQwfz5N2WCJo69MeHx3ZapWgpcIFBSQdjQxY4.cJBFMAI3Efjo8Wu8Fp.mctIyvt2BwYIysr58VS667oisrxsvwkmGW7DzNiIpDTKpM0_AmyeDM2HM3oQq5ezsS.5XiaEcDRLF5ywWb9c2OajfmwPS23cQB7C0Qq.R2Yptjdam6KGeFUZBmTC7LPj3di9SUFDj9jyyYmS0Fe35hqBaK9zVRHn0eRwjFsgaXiNOi0Di4VQJ.uib1NText0N4yQuetQrtFsMMBKkeF7Iqj1PXmGJSB.zXytt7De_bzhMSWJQiV.tEfy_DDjcqWnWWM2FlCSe070ymuyEllUBXNyjaBBG47HVJBiXkDQYkEHj4GOZT3Ptwg0kfmYvVP8u3u6pGUzQddgs9sQMIAvTGJ9a.Nmr3WZS.SId2rJVhrQapwIHbmJySsseVJjlRTO0hpkC3eb0E.g2D8ek7GkAxdKr5YZyRUoFh_4BuR6ZUOBvxh2h.H52yTtasv3CLmiOyGgB.vXMzA_4UdcSQQJGas.8.Gs3.E_8wuOLurPd8u9QMvihWbUXBMyLN.jP_1Xi2ur0nFFRn_K2aRkTLvniBevpNaZDTPcVayH5NdB3CHDsZAq6QjnaBCLKbc7NP2_vUuQAWTxBByr6woVW4sO3j3D2BDgutE2wUu1N_TOkeGdGUcMxkb.S7C8rCRnrin_c2ksH5MLFWKHRd5Knmxz9Rv2sN.uHHMBRl0Bw8dzn6B8y0jgFtZGFExIdner_BhyE0hH5y7o8dFGkCARbV56TaB0woyQ3rpGj11o_EARZJdGK2IqNa4BThxsNK5cBA.ngxu8V1IJlll4RV28LDDBQoGnS9Q_xea67CA8OzlE2AO7BfGQwN.2lUrx9rYX_eZz_5untq1a5lrcDTAsNhIvFNGBuYgC_IiHt5be4wqpnrJhg9_B5atk2Xd3G6I2HaxiWXCM5uJnUZ99sP1Y',mdrd: 'b_IQ39dFNSGrKF_nRjjgRHv4vOf66Zi3v00fIcLjWd4-1755049299-1.2.1.1-Nh.I4XYvs2iiGYGkaQLfV5asGhR.JoMzdEFMDCMERUN8kZoFDilyfnD.M8bX9RgVKrd3aZsWTH9iLESXnIk_646vyUWTksHWg5NjyW47xEf_UoISfF7yartqBtSNbu4qU0DD96HpvylTfsd_g4aO6dfNwAhBPI9t5R4peJHHaVXBQUzeXmXrkIQZUmNxEn09LnDiGZtBU2oUBmgMWZjWVNrj_HWGG.v1g7HDSUo4uoVhDAeP_MUrPxyjg90aivo.cbDeIl5gOX3Y6U2osrzobXjCAeanHaEYA3gaW.rVUec2u.WhPxu0oKIOU.8RG5S7WjXPHCATZppF.wyakHkjRSBWylyV7SUUMMBVHkpuM2mRzXdpu7gVPTe.yK_HwQ4iEGxaXwO6XKJvpYmBDblyyjY6Qg.FoJayWZeSM7ZuC0A2bN8EW.xJM2VAfcyBYs0UKxepTcMW5DbK.tbYynLMUCLEMGe6Sya8SELNtmD_Eo6gaZJo865vkNhQ.bj8VUAr2_CUtpyohZOQjiBQhnGciKpawpPAJ6hS7lMxgIlb1o2_VpuP8D.gD659Ph5HYAx1iuQWa1PucALo7y4h5OVPA4APtpDnQWtYj89uE7NAipSOkUiOq86O_hnU4tlvTh48CoKYyrWVlBqF20WDeXJ950g8uAkRvj6VnD3bjTwEOAdzYMjFdxEOemGc3NH.J5MeWxnsFXbSxcaJ1wB0xf4mQsrOGrTRw.U.Mbh7vt90d54c9PwSeOMOpxL2plIFzo1IrPsqrBFzcERLjyLWwZJk_DH.Y6v9oeH0tUc6oI5qemLzV97CTUowoY3GuI0.gJsCgOUZheY._56kDavvn5csiWK6BvpDRpdqFthMk3yRPUhMtNYdbvNp6MccbbhRDqVWeLPUVireArksLbJ5tZOhpEgouN2El8FEbL0hgbTigtxZOB6ifTTkSyV86Ql2xYcOZOVBn1gaHZrfSBOcOyOYwDuvK1j68zKarwdgKuO7mo80ZKCVQHgHFrfT5ik0TNaiiSeOFySFwHqGcDJxOJFl6DpbDSnjnmMGvU5Nr1AJiT_rBzIsOmPrv8pdWjpH0jCO13VdiAK8z1IXn7NCY0t.0dWAVCWwK5DCOWtGGfNtOOtz0yLoMTbQN1qYB.Q6cEGOlNYHdIiVN8.kUNHUXFvYeTw5bg56rQDDltp32e23wkYneFsqksfj9Fk_YBgCl5E96N4XJUsWaFLyd4EpoyRT2w7Lqp_zfoGOzV9f87kIEhlxFTJxZLOLnZ.fPX9eyqpxqkns_mr2XLmbLewHnzdFBy4T6.X7PMTgFtOAYD_YIF.7BE2vefTG3uOuVjeLcHclcB_VbMawsWOkk7Mv095SMF60hM5SFadFTKOt3lWbBGIjiq_711WIraYT9aiAURqvQIj5EkYdHXCe5gBsl3hz.hCcj4BTF0FHWw6VkmezpVF.lBVrobBcpibUxWHJ5LoIJ1y3UuSUj5N0l6sDDSkRU_uXjfhdFBCgzBZ921JD86NJHHsvZCO6sADRxBsvDlBKcF1Zx.rhIrJiwlN0SyKdXGJWMTFwwyJeTavgjnow0uEMGGgIAJS0XdTFNmTkHiQ3kSjczw_bXtAhKKQq0NEhlB1hF2bkw86yZjIfqzzrlfEu7maYUIac.Fw5wftKU1C0m7t34GLsLlFgKOgncSRAlGXXQ1QtIUETPxnH93SNAv9QGT5YF1ABFXU1EXtSegLLOKMegF83NlmKLBAoAmouYZT0fbPas0lTRbDWYK4omp8JMFFMLZqM2O7pre06bGgkTnzkuvR3v82Grq1vLpkufPGmVJRJQ7EBklrAskTsurYm3Vas2DVduyy9oWbaNXF6feEzxi9ctjr3L02ItN_v3FPe2cabkGalzv2Q4BdHYsuI.fZXl86j5B5LrDwfq9fHljYMYZD.mZKyndboDiWQGUveQ1q9yaU5EWaDKMh3TPbaM0C4825kfWdaGgunp_qN67Vm29B47yfSpvDAz09.ohDgIjIg72IZhPKApM7e6KMltKVIXbZ5P3eRcwQyuSeh.gIzp5grC3C17mEZ5qoQ0dvLx5.Bw3c6hTJdtErMGlG3ap3bMMmTr5DmsrLhEQyFaHwVUt1MTfGe8mvbgibRI6Us3kvbifg9tDw4mZ1NbziGpnXmpNuyP8lELx.RlifCqs7D9gRP3jVa_e6509kZLKeeUTcahDYjLO4_.fQJJL7OArmppPUTOtUQB6TecDBxVJJppk8ZIeI80QDLIFVDz7jUABzR_JriglDkW7ohRvnhd1T0W.RP4Rp0Y4fEeSwF.Pu9l2EwM8FL1AcxCbIeNH_J.3nhlKZQOa4RZFgJCyeIzem_v2VEwYwPhxi1IHFlwNbDyo1R2nkLByczmgTKFeufECtJz64zG8KXzSF8aUQ',};var a = document.createElement('script');a.src = '/cdn-cgi/challenge-platform/h/b/orchestrate/chl_page/v1?ray=96e482e9192deb2a';window._cf_chl_opt.cOgUHash = location.hash === '' && location.href.indexOf('#') !== -1 ? '#' : location.hash;window._cf_chl_opt.cOgUQuery = location.search === '' && location.href.slice(0, location.href.length - window._cf_chl_opt.cOgUHash.length).indexOf('?') !== -1 ? '?' : location.search;if (window.history && window.history.replaceState) {var ogU = location.pathname + window._cf_chl_opt.cOgUQuery + window._cf_chl_opt.cOgUHash;history.replaceState(null, null,"\/v1\/oauth\/token?__cf_chl_rt_tk=.CHqS5_Ex.f4j3AdBNNAHPB6tODuBD1fyQoHGXjN2fs-1755049299-1.0.1.1-X6ezqxc2ilX7NqI1kpzeM9xFUMVFx9REftvYCXX8gbk"+ window._cf_chl_opt.cOgUHash);a.onload = function() {history.replaceState(null, null, ogU);}}document.getElementsByTagName('head')[0].appendChild(a);}());</script></body></html>
+[INFO] 2025/08/13 09:41:38 logger.go:35: Attempting OAuth token exchange - URL: https://console.anthropic.com/v1/oauth/token, Code length: 48, Code prefix: IAR6KccPZX..., Has proxy: false
+[ERROR] 2025/08/13 09:41:39 logger.go:43: OAuth token exchange failed - Status: 403, Body: <!DOCTYPE html><html lang="en-US"><head><title>Just a moment...</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}body{display:flex;flex-direction:column;height:100vh;min-height:100vh}.main-content{margin:8rem auto;padding-left:1.5rem;max-width:60rem}@media (width <= 720px){.main-content{margin-top:4rem}}.h2{line-height:2.25rem;font-size:1.5rem;font-weight:500}@media (width <= 720px){.h2{line-height:1.5rem;font-size:1.25rem}}#challenge-error-text{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iI0IyMEYwMyIgZD0iTTE2IDNhMTMgMTMgMCAxIDAgMTMgMTNBMTMuMDE1IDEzLjAxNSAwIDAgMCAxNiAzbTAgMjRhMTEgMTEgMCAxIDEgMTEtMTEgMTEuMDEgMTEuMDEgMCAwIDEtMTEgMTEiLz48cGF0aCBmaWxsPSIjQjIwRjAzIiBkPSJNMTcuMDM4IDE4LjYxNUgxNC44N0wxNC41NjMgOS41aDIuNzgzem0tMS4wODQgMS40MjdxLjY2IDAgMS4wNTcuMzg4LjQwNy4zODkuNDA3Ljk5NCAwIC41OTYtLjQwNy45ODQtLjM5Ny4zOS0xLjA1Ny4zODktLjY1IDAtMS4wNTYtLjM4OS0uMzk4LS4zODktLjM5OC0uOTg0IDAtLjU5Ny4zOTgtLjk4NS40MDYtLjM5NyAxLjA1Ni0uMzk3Ii8+PC9zdmc+");background-repeat:no-repeat;background-size:contain;padding-left:34px}@media (prefers-color-scheme: dark){body{background-color:#222;color:#d9d9d9}}</style><meta http-equiv="refresh" content="360"></head><body><div class="main-wrapper" role="main"><div class="main-content"><noscript><div class="h2"><span id="challenge-error-text">Enable JavaScript and cookies to continue</span></div></noscript></div></div><script>(function(){window._cf_chl_opt = {cvId: '3',cZone: 'console.anthropic.com',cType: 'managed',cRay: '96e482f2ec3ceb2a',cH: 'gqK8SqldQyX_OPOBn.iKCTmp6F6N3XLpfmE5dxFqj0k-1755049300-1.2.1.1-rec1xs4Atj2mh7JegGt5TQd1FrSSiXbKIaIqj82byUOmHL_3f7AokO.07bzxJFil',cUPMDTk:"\/v1\/oauth\/token?__cf_chl_tk=bO7C8zbZ3I3apRFhMP21fT3RmJiSwCQQgry2MXuzwGE-1755049300-1.0.1.1-UCKAIkGf8vu7DkXmZ2jmwy_iNcPeqcNZPD2WMT5_2xU",cFPWv: 'b',cITimeS: '1755049300',cTplC:0,cTplV:5,cTplB: 'cf',fa:"\/v1\/oauth\/token?__cf_chl_f_tk=bO7C8zbZ3I3apRFhMP21fT3RmJiSwCQQgry2MXuzwGE-1755049300-1.0.1.1-UCKAIkGf8vu7DkXmZ2jmwy_iNcPeqcNZPD2WMT5_2xU",md: '7BRZxsP2I39MSDSqK2vtCDG31QN8Etb4uIfW5d06pQ0-1755049300-1.2.1.1-_KFonROkg9.Y_FY9zc5cMMOI31oQr05i3jyVxFBhxZN0zb6SrmQ7pwq825kNvp32533_disMgiI.nt9Qac8n6F9Xi4ebHvNRTBxjO62dOxAERE8IWLMl13bJLNEbN6aXjR8jx_sY9PwcCSqDtS1Wme_0C4p.GHQ.0y_kyJJjeDbFFm1BKxSFtr1NUos.dFExMhRnPMFmnZxKlBZgQi9mgoSMIxoZOaPkEZeLONT_12vDj_8Zb1Kxy49kZm9.TP06TiyUb5qHNFGOW7bSAmuIG0BvF69UW0h9GPGHH18s_hDjeRfQrq2lLu2ue8i6uwNh2li67UGZBj9272N3aZkMSdkZmADEXjZN7tkfDgITrGiaPmdJ4muveOBu1egQfYHehobC3swsODAg1_spuPh9Z9UDT0FEGb8gxxaEqwugkDYp6Dhoblp6N2PlzcYvnrN0iXHWj.TGqDnCtn8ziTX8BsvwT1OU9c8Ok_7nJI.xtkvpNqZ4EN1Zzq_cB5lEf_08XuypWGvXP8_SUqqnubszDgfviwLh4anU_yMpzuTeeFiHwcwE7HiNLr9vNYwOv18HsbC7pg2goUgdJ8g4frqn34kkhoJuJB58AhL0efwCKLA7kXMCAiZeBhGDw2z.zO7ok3HNAJlzwl.fCQ9z6V8HeBwAZYAzCyymdPh6OCTUg.xFIawZFMruU12k6s_q5aaCRPn9IHWqZLGjUX3R5DCS1Q.AEel8QnRG2JhtZpY.ZJOoKo66qi9aUqntspvdc_C1S2cbsm23b6VkKoXWrzYBTkZggHpI1hrCiIfjkQe3LMonfzvCgoiDx6aBGFxuQUacjGvhj77RHmGsTBPFeOtN_oHPgfvepEJYgOcl367HEaytldLoxm70xtZLEVdT6P2yJLKc1vDJQmAfVNSu6BBeeRfkHbWW_Tykws5BUvFuguSnTeSRh8B9FvGTiU4Ubuju989L_ripNL6sgCvezfIl8_MbhCpza3OvX3IbFubQXFFRnd08TNfBlkxGmjSTf.sP',mdrd: 'tfhkExDIMzfFOZNOikLfZXfte312VYRIMqD53IZnJ5w-1755049300-1.2.1.1-e8WD__n3NjxV7YO3w6dE4jCizdlPLaKK0o5WaIAP0FAjC57XMWNsGAUSsG28MqvENCcRQ9xWcPc7OPPG1_pruK0em07CqCAag0u0nbzsh.Y2cQVGuCIOW7AhxgC8k33bpyWeCpsDpMCVt_z0HCzCpObofk5zbOxFcXNxQ7o7fOiOP3nUEaRldN2ItC5eD8rKY5nNr9qnbEOLbXMY5sG9iBtoPzJdBQTHieFBk16OXmrr8oiG69eclEgf_MUgEIPQ40YylnkRgqX6tAG7h5rxHcZens77EvMRYiQawfuS3LGN_upcIQNrcDP_HDdFSOPBVO0x2PgImK9s7mAj0h.9vtP0wnrJiNKJ2QQXFOp3zZ_Pf7eOmgKuHQKXW1FCrAgVjhgn01f57oj6ucRW_2LIOVR8pbFfO82kTLGiJaKp9BSZe8mh_4E.ap_NbXVr8n1Srp5K5byLZU3h5nSG_EUsWY44NbqAeFFNSsaEImqSapctjnyBP_FsKo2cxucOowrZmGlcyXbLKRmnsU0kCrnY21JPvj3KaOIY7RaVEF61nCZXKs_Hbj3X6yrKtQW6Ma7EDeIWPDJks81zwLNhbrzYEbvPYaR6ezGUzI5frfPs5LDR.fDP3SWZQxp5X8RklcO1ubaA729PKaFE3J8yKq0zuxZncN1bdRDL7Mt13XnJC_h3O.fB6AKzKy_Tv6E1PuiKSLYC6LMlECoeSyLU4_W.TCMZFrnG8zPYpx6rTpglECuYH0CR_23wffVSjkrUv4quP40zM0WmHVajSvM5Ap3SeC0CP5iVbazNWAT8eORtiLXpSO6iRwEP.NhzN9K8o.D5EZaH7SUex6rXY6_RzoESMFRFdqmM8vL7IBSteFzvaGzenGf9thuksWZEnj4y2vA1lPfXz9GPZJr_NLmdy1VHTwCSIvXZjBSFy6KEYTT5viuW2aGhDtvHkTorEQuBe5sMYUxy5wCPnnYbe_7_4x9qYLztXrdmrgsj128s03HUgfgefJNH3WTLXJQC7uQpl_z9C7F9a1GSkQrxHYqc8vZOrAf_l4xpyh8EyDvYTsdlLWxlzY3inRyNyVsJtYe3CtrYN57AWwcPEdNHfwgLxZ2RcKk1UOY8wed_3iQ45l_E7irWAb1xcJ73aF86DWLons14xO6mHPoIoGr_gFbiBVoiOunlAlj3yZ6prx2jBYttTPdEit2tJI1OrC2pmMVExwoaGX1.420yO9YxFCGKXVkmPfIWs5XkCXPgo_B7UV8hbfQI09rBDGapeqJiX4KHOCSyEcKcFqLTRejHgvaS2sXaER0ulX05SRwlQy6F25fQJhPOXCbpZgEfhpH.1mtJAN_q0rP2CeFtF8zb0._7PmUt6k9oDkvawE24w5JcBRr3EjJZy2cwAMNGjcii1cm5Y4uKzWyVT0rDGaiVTK0kyMLwgtb_aZXXW7e5hUmD4zd.KownhdDqyhogcLBYgM_eizsm1wgZDEaXFqUQrUgmuFF7_QAlaU9TEK1L_rSz6nFnvUzTHtXq2EKhyVLVDXdDTb_PDOART4HBzYp0LqcLAVDoMiOFUqbPaIhKfjdYR33DIh6weA0u9ZY2769NJPiO19e8Gw_u1b0ndZMSgda8nOJ8RHSZazk2Em0sOCyKfm0_vbwsZ9VUMHwL8mvRkEbVFfm9I7tSUUpL7ju8Q2roWF8.1IOCUSq3POEwk_enqLJDPP7BHJZA8.luYKyjmrv.WALRPq4hmyfx4slO2xAXzCJNOZNxHB9bqKjWiDbAUiHsfCTRnGKUM8cUVyx9e19aailgGhWeVX_Sivnk_GGYT56DmQAWHd5e6h2HPGdhP5h6NYE17miWfhPcyVp2ceoFq7Vd7DfUHAikM98Dxmtjh.qqhBAiqQpLiYD5P6ZC4RhnGJ7LzSF1mXZxzAAYoFSTYqVC1nSu5nONeSYi1N9EqhfsAKDg42NXsZ.cJAFE6IlOIT8JO7NKsfcl2JGsmosVZMBakTIRg.IcB.fmbZyjIHbU8sZ7rgWR84LkJgRHznOTdhghAXBrEBpMzX7ZgKfsAOZM.ePi734F1E.GkbghN_4pDq39EK1UWL.QVbK1_gwSkaAyS8SWVdEU3yMl1pDjJXiLKsQsgbexwojlUu9_LIW49GkGPvlZDU8rcqn6N.SKeWiIsgr.FcZyjOPRqJ1y.K1kBI9pibo3zvimrkEVvsHObwCMLUfiV4ZcR0.CDFw1yikZpluUovYYsuvnyMydSndRGepaIFHymSnkdJv1CWSFwZHROTiC1_lofdeAbm4bn4.7LRj7e0d.L2QInsIeeQ9C4fUnZ8Mx_Kxas1bMrib11pc6P_iFcRRgxe5ran4GYZwgAoQ5DrxYGwu8EkNe0TxvxVGBPspjmdwuHd37HT3gB8KsvhbXr.m_J_cMP..tHdo',};var a = document.createElement('script');a.src = '/cdn-cgi/challenge-platform/h/b/orchestrate/chl_page/v1?ray=96e482f2ec3ceb2a';window._cf_chl_opt.cOgUHash = location.hash === '' && location.href.indexOf('#') !== -1 ? '#' : location.hash;window._cf_chl_opt.cOgUQuery = location.search === '' && location.href.slice(0, location.href.length - window._cf_chl_opt.cOgUHash.length).indexOf('?') !== -1 ? '?' : location.search;if (window.history && window.history.replaceState) {var ogU = location.pathname + window._cf_chl_opt.cOgUQuery + window._cf_chl_opt.cOgUHash;history.replaceState(null, null,"\/v1\/oauth\/token?__cf_chl_rt_tk=bO7C8zbZ3I3apRFhMP21fT3RmJiSwCQQgry2MXuzwGE-1755049300-1.0.1.1-UCKAIkGf8vu7DkXmZ2jmwy_iNcPeqcNZPD2WMT5_2xU"+ window._cf_chl_opt.cOgUHash);a.onload = function() {history.replaceState(null, null, ogU);}}document.getElementsByTagName('head')[0].appendChild(a);}());</script></body></html>
+[INFO] 2025/08/13 09:46:09 logger.go:35: Using proxy: http://13127681336_US_NewYork_7ysgkrsa:4tfpny@static-us12-gate.ipweb.cc:7778
+[INFO] 2025/08/13 09:46:09 logger.go:35: Attempting OAuth token exchange - URL: https://console.anthropic.com/v1/oauth/token, Code length: 48, Code prefix: YC6w22n7Hc..., Has proxy: true
+[INFO] 2025/08/13 09:46:11 logger.go:35: OAuth token exchange response: {"token_type": "Bearer", "access_token": "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", "expires_in": 28800, "refresh_token": "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", "scope": "user:inference user:profile", "organization": {"uuid": "4bdb926b-2c38-46ce-a771-bc53a73be01e", "name": "bp405a7j9m2@outlook.com's Organization"}, "account": {"uuid": "ed6ca511-6676-49c0-8d76-fd391b023f7c", "email_address": "bp405a7j9m2@outlook.com"}}
+[INFO] 2025/08/13 09:46:11 logger.go:35: OAuth token exchange successful - Has access token: true, Has refresh token: true, Scopes: [user:inference user:profile]
+[INFO] 2025/08/13 09:50:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 09:50:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 10:00:00 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/13 10:00:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 10:00:00 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/13 10:00:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 10:10:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 10:10:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 10:20:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 10:20:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 10:30:00 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/13 10:30:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 10:30:00 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/13 10:30:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 10:40:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 10:40:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 10:50:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 10:50:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 11:00:00 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/13 11:00:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 11:00:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 11:00:00 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/13 11:05:57 logger.go:35: Shutting down server...
+[INFO] 2025/08/13 11:05:57 logger.go:35: Cron service stopped
+[INFO] 2025/08/13 11:05:57 logger.go:35: Server stopped gracefully
+[INFO] 2025/08/13 11:05:57 logger.go:35: Cron service stopped
+[INFO] 2025/08/13 11:06:13 logger.go:35: Claude Code Relay v1.0.0 started
+[INFO] 2025/08/13 11:06:14 logger.go:35: Database initialized successfully
+[ERROR] 2025/08/13 11:06:14 logger.go:43: failed to initialize Redis: dial tcp [::1]:6379: connectex: No connection could be made because the target machine actively refused it.
+[INFO] 2025/08/13 11:09:48 logger.go:35: Claude Code Relay v1.0.0 started
+[INFO] 2025/08/13 11:09:49 logger.go:35: Database initialized successfully
+[ERROR] 2025/08/13 11:09:49 logger.go:43: failed to initialize Redis: dial tcp [::1]:6379: connectex: No connection could be made because the target machine actively refused it.
+[INFO] 2025/08/13 11:16:23 logger.go:35: Claude Code Relay v1.0.0 started
+[INFO] 2025/08/13 11:16:23 logger.go:35: Database initialized successfully
+[INFO] 2025/08/13 11:16:23 logger.go:35: Redis connection established
+[INFO] 2025/08/13 11:16:23 logger.go:35: Cron service started successfully
+[INFO] 2025/08/13 11:16:23 logger.go:35: Server starting on port 8088
+[INFO] 2025/08/13 11:20:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 11:20:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 11:30:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 11:30:00 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/13 11:30:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 11:30:00 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/13 11:38:42 logger.go:35: Shutting down server...
+[INFO] 2025/08/13 11:38:42 logger.go:35: Cron service stopped
+[INFO] 2025/08/13 11:38:42 logger.go:35: Server stopped gracefully
+[INFO] 2025/08/13 11:38:42 logger.go:35: Cron service stopped
+[INFO] 2025/08/13 11:38:55 logger.go:35: Claude Code Relay v1.0.0 started
+[INFO] 2025/08/13 11:38:56 logger.go:35: Database initialized successfully
+[ERROR] 2025/08/13 11:38:56 logger.go:43: failed to initialize Redis: dial tcp [::1]:6379: connectex: No connection could be made because the target machine actively refused it.
+[INFO] 2025/08/13 11:39:21 logger.go:35: Claude Code Relay v1.0.0 started
+[INFO] 2025/08/13 11:39:21 logger.go:35: Database initialized successfully
+[INFO] 2025/08/13 11:39:21 logger.go:35: Redis connection established
+[INFO] 2025/08/13 11:39:21 logger.go:35: Cron service started successfully
+[INFO] 2025/08/13 11:39:21 logger.go:35: Server starting on port 8088
+[INFO] 2025/08/13 11:40:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 11:40:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 11:40:27 logger.go:35: Shutting down server...
+[INFO] 2025/08/13 11:40:27 logger.go:35: Cron service stopped
+[INFO] 2025/08/13 11:40:27 logger.go:35: Server stopped gracefully
+[INFO] 2025/08/13 11:40:27 logger.go:35: Cron service stopped
+[INFO] 2025/08/13 11:48:31 logger.go:35: Claude Code Relay v1.0.0 started
+[INFO] 2025/08/13 11:48:31 logger.go:35: Database initialized successfully
+[INFO] 2025/08/13 11:48:31 logger.go:35: Redis connection established
+[INFO] 2025/08/13 11:48:31 logger.go:35: Cron service started successfully
+[INFO] 2025/08/13 11:48:31 logger.go:35: Server starting on port 8088
+[INFO] 2025/08/13 11:50:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 11:50:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 12:00:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 12:00:00 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/13 12:00:00 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/13 12:00:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 12:10:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 12:10:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 12:20:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 12:20:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 12:30:00 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/13 12:30:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 12:30:00 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/13 12:30:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 12:40:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 12:40:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 12:50:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 12:50:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 13:00:00 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/13 13:00:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 13:00:00 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/13 13:00:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 13:10:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 13:10:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 13:20:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 13:20:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 13:30:00 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/13 13:30:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 13:30:00 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/13 13:30:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 13:35:10 logger.go:35: Shutting down server...
+[INFO] 2025/08/13 13:35:10 logger.go:35: Cron service stopped
+[INFO] 2025/08/13 13:35:10 logger.go:35: Server stopped gracefully
+[INFO] 2025/08/13 13:35:10 logger.go:35: Cron service stopped
+[INFO] 2025/08/13 13:35:20 logger.go:35: Claude Code Relay v1.0.0 started
+[INFO] 2025/08/13 13:35:21 logger.go:35: Database initialized successfully
+[INFO] 2025/08/13 13:35:21 logger.go:35: Redis connection established
+[INFO] 2025/08/13 13:35:21 logger.go:35: Cron service started successfully
+[INFO] 2025/08/13 13:35:21 logger.go:35: Server starting on port 8088
+[INFO] 2025/08/13 13:35:54 logger.go:35: === API Key调试信息 ===
+[INFO] 2025/08/13 13:35:54 logger.go:35: 请求路径: POST /claude-code/v1/messages
+[INFO] 2025/08/13 13:35:54 logger.go:35: 客户端IP: ::1
+[INFO] 2025/08/13 13:35:54 logger.go:35: User-Agent: claude-cli/1.0.77 (external, cli)
+[INFO] 2025/08/13 13:35:54 logger.go:35: 请求头 X-api-key: (空)
+[INFO] 2025/08/13 13:35:54 logger.go:35: 请求头 X-Goog-API-Key: (空)
+[INFO] 2025/08/13 13:35:54 logger.go:35: 请求头 Authorization: Bearer sk-2b4caedf0a...
+[INFO] 2025/08/13 13:35:54 logger.go:35: 请求头 API-Key: (空)
+[INFO] 2025/08/13 13:35:54 logger.go:35: 请求头 x-api-key: (空)
+[INFO] 2025/08/13 13:35:54 logger.go:35: 请求头 api-key: (空)
+[INFO] 2025/08/13 13:35:54 logger.go:35: 请求头 anthropic-version: 2023-06-01
+[INFO] 2025/08/13 13:35:54 logger.go:35: 找到API Key在Authorization Bearer头中
+[INFO] 2025/08/13 13:35:54 logger.go:35: 成功获取API Key: sk-2b4caed...
+[INFO] 2025/08/13 13:35:54 logger.go:35: API Key验证成功, 用户ID: 3, 分组ID: 1
+[INFO] 2025/08/13 13:35:54 logger.go:35: === API Key调试信息 ===
+[INFO] 2025/08/13 13:35:54 logger.go:35: 请求路径: POST /claude-code/v1/messages
+[INFO] 2025/08/13 13:35:54 logger.go:35: 客户端IP: ::1
+[INFO] 2025/08/13 13:35:54 logger.go:35: User-Agent: claude-cli/1.0.77 (external, cli)
+[INFO] 2025/08/13 13:35:54 logger.go:35: 请求头 X-api-key: (空)
+[INFO] 2025/08/13 13:35:54 logger.go:35: 请求头 X-Goog-API-Key: (空)
+[INFO] 2025/08/13 13:35:54 logger.go:35: 请求头 Authorization: Bearer sk-2b4caedf0a...
+[INFO] 2025/08/13 13:35:54 logger.go:35: 请求头 API-Key: (空)
+[INFO] 2025/08/13 13:35:54 logger.go:35: 请求头 x-api-key: (空)
+[INFO] 2025/08/13 13:35:54 logger.go:35: 请求头 api-key: (空)
+[INFO] 2025/08/13 13:35:54 logger.go:35: 请求头 anthropic-version: 2023-06-01
+[INFO] 2025/08/13 13:35:54 logger.go:35: 找到API Key在Authorization Bearer头中
+[INFO] 2025/08/13 13:35:54 logger.go:35: 成功获取API Key: sk-2b4caed...
+[INFO] 2025/08/13 13:35:54 logger.go:35: API Key验证成功, 用户ID: 3, 分组ID: 1
+[INFO] 2025/08/13 13:36:18 logger.go:35: === API Key调试信息 ===
+[INFO] 2025/08/13 13:36:18 logger.go:35: 请求路径: POST /claude-code/v1/messages
+[INFO] 2025/08/13 13:36:18 logger.go:35: 客户端IP: ::1
+[INFO] 2025/08/13 13:36:18 logger.go:35: User-Agent: claude-cli/1.0.77 (external, cli)
+[INFO] 2025/08/13 13:36:18 logger.go:35: 请求头 X-api-key: (空)
+[INFO] 2025/08/13 13:36:18 logger.go:35: 请求头 X-Goog-API-Key: (空)
+[INFO] 2025/08/13 13:36:18 logger.go:35: 请求头 Authorization: Bearer sk-2b4caedf0a...
+[INFO] 2025/08/13 13:36:18 logger.go:35: 请求头 API-Key: (空)
+[INFO] 2025/08/13 13:36:18 logger.go:35: 请求头 x-api-key: (空)
+[INFO] 2025/08/13 13:36:18 logger.go:35: 请求头 api-key: (空)
+[INFO] 2025/08/13 13:36:18 logger.go:35: 请求头 anthropic-version: 2023-06-01
+[INFO] 2025/08/13 13:36:18 logger.go:35: 找到API Key在Authorization Bearer头中
+[INFO] 2025/08/13 13:36:18 logger.go:35: 成功获取API Key: sk-2b4caed...
+[INFO] 2025/08/13 13:36:18 logger.go:35: API Key验证成功, 用户ID: 3, 分组ID: 1
+[INFO] 2025/08/13 13:36:18 logger.go:35: === API Key调试信息 ===
+[INFO] 2025/08/13 13:36:18 logger.go:35: 请求路径: POST /claude-code/v1/messages
+[INFO] 2025/08/13 13:36:18 logger.go:35: 客户端IP: ::1
+[INFO] 2025/08/13 13:36:18 logger.go:35: User-Agent: claude-cli/1.0.77 (external, cli)
+[INFO] 2025/08/13 13:36:18 logger.go:35: 请求头 x-api-key: (空)
+[INFO] 2025/08/13 13:36:18 logger.go:35: 请求头 api-key: (空)
+[INFO] 2025/08/13 13:36:18 logger.go:35: 请求头 anthropic-version: 2023-06-01
+[INFO] 2025/08/13 13:36:18 logger.go:35: 请求头 X-api-key: (空)
+[INFO] 2025/08/13 13:36:18 logger.go:35: 请求头 X-Goog-API-Key: (空)
+[INFO] 2025/08/13 13:36:18 logger.go:35: 请求头 Authorization: Bearer sk-2b4caedf0a...
+[INFO] 2025/08/13 13:36:18 logger.go:35: 请求头 API-Key: (空)
+[INFO] 2025/08/13 13:36:18 logger.go:35: 找到API Key在Authorization Bearer头中
+[INFO] 2025/08/13 13:36:18 logger.go:35: 成功获取API Key: sk-2b4caed...
+[INFO] 2025/08/13 13:36:18 logger.go:35: API Key验证成功, 用户ID: 3, 分组ID: 1
+[INFO] 2025/08/13 13:40:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 13:40:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 13:42:33 logger.go:35: Shutting down server...
+[INFO] 2025/08/13 13:42:33 logger.go:35: Cron service stopped
+[INFO] 2025/08/13 13:42:33 logger.go:35: Server stopped gracefully
+[INFO] 2025/08/13 13:42:33 logger.go:35: Cron service stopped
+[INFO] 2025/08/13 13:42:42 logger.go:35: Claude Code Relay v1.0.0 started
+[INFO] 2025/08/13 13:42:42 logger.go:35: Database initialized successfully
+[INFO] 2025/08/13 13:42:42 logger.go:35: Redis connection established
+[INFO] 2025/08/13 13:42:42 logger.go:35: Cron service started successfully
+[INFO] 2025/08/13 13:42:42 logger.go:35: Server starting on port 8088
+[INFO] 2025/08/13 13:46:50 logger.go:35: Shutting down server...
+[INFO] 2025/08/13 13:46:50 logger.go:35: Cron service stopped
+[INFO] 2025/08/13 13:46:50 logger.go:35: Server stopped gracefully
+[INFO] 2025/08/13 13:46:50 logger.go:35: Cron service stopped
+[INFO] 2025/08/13 13:47:00 logger.go:35: Claude Code Relay v1.0.0 started
+[INFO] 2025/08/13 13:47:00 logger.go:35: Database initialized successfully
+[INFO] 2025/08/13 13:47:00 logger.go:35: Redis connection established
+[INFO] 2025/08/13 13:47:00 logger.go:35: Cron service started successfully
+[INFO] 2025/08/13 13:47:00 logger.go:35: Server starting on port 8088
+[INFO] 2025/08/13 13:50:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 13:50:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 14:00:00 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/13 14:00:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 14:00:00 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/13 14:00:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 14:10:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 14:10:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 14:20:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 14:20:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 14:30:00 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/13 14:30:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 14:30:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 14:30:00 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/13 14:40:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 14:40:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 14:50:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 14:50:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 15:00:00 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/13 15:00:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 15:00:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 15:00:00 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/13 15:10:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 15:10:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 15:10:24 logger.go:35: Shutting down server...
+[INFO] 2025/08/13 15:10:24 logger.go:35: Cron service stopped
+[INFO] 2025/08/13 15:10:24 logger.go:35: Server stopped gracefully
+[INFO] 2025/08/13 15:10:24 logger.go:35: Cron service stopped
