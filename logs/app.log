@@ -355,3 +355,66 @@
 [INFO] 2025/08/13 15:10:24 logger.go:35: Cron service stopped
 [INFO] 2025/08/13 15:10:24 logger.go:35: Server stopped gracefully
 [INFO] 2025/08/13 15:10:24 logger.go:35: Cron service stopped
+[INFO] 2025/08/13 15:56:52 logger.go:35: Claude Code Relay v1.0.0 started
+[INFO] 2025/08/13 15:56:52 logger.go:35: Database initialized successfully
+[INFO] 2025/08/13 15:56:52 logger.go:35: Redis connection established
+[INFO] 2025/08/13 15:56:52 logger.go:35: Cron service started successfully
+[INFO] 2025/08/13 15:56:52 logger.go:35: Server starting on port 8088
+[INFO] 2025/08/13 16:00:00 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/13 16:00:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 16:00:00 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/13 16:00:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 16:10:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 16:10:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 16:20:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 16:20:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 16:30:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 16:30:00 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/13 16:30:00 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/13 16:30:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 16:40:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 16:40:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 16:50:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 16:50:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 17:00:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 17:00:00 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/13 17:00:00 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/13 17:00:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 17:10:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 17:10:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 17:20:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 17:20:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 17:30:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 17:30:00 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/13 17:30:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 17:30:00 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/13 17:40:03 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 17:40:03 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 17:50:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 17:50:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 18:00:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 18:00:00 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/13 18:00:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 18:00:00 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/13 18:10:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 18:10:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 18:20:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 18:20:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 18:30:00 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/13 18:30:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 18:30:00 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/13 18:30:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 18:40:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 18:40:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 19:04:14 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 19:04:14 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 22:11:49 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 22:11:49 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/13 22:11:49 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/13 22:11:49 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 22:17:34 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/13 22:17:34 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 22:17:34 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/13 22:17:34 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/13 22:20:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/13 22:20:00 logger.go:35: No rate limited accounts found for checking
