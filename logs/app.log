@@ -3186,3 +3186,15 @@
 [INFO] 2025/08/22 13:37:03 logger.go:35: 邮件发送成功: 13127681336@163.com
 [INFO] 2025/08/22 13:37:03 logger.go:35: 验证码发送成功: 13127681336@163.com, 类型: email_verification
 [INFO] 2025/08/22 13:37:32 logger.go:35: 验证码验证成功: 13127681336@163.com, 类型: email_verification
+[INFO] 2025/08/22 13:40:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/22 13:40:00 logger.go:35: Starting Claude accounts token refresh check task
+[INFO] 2025/08/22 13:40:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/22 13:40:00 logger.go:35: No Claude accounts found for token refresh checking
+[INFO] 2025/08/22 13:50:00 logger.go:35: Starting Claude accounts token refresh check task
+[INFO] 2025/08/22 13:50:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/22 13:50:00 logger.go:35: No Claude accounts found for token refresh checking
+[INFO] 2025/08/22 13:50:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/22 13:59:13 logger.go:35: Shutting down server...
+[INFO] 2025/08/22 13:59:13 logger.go:35: Cron service stopped
+[INFO] 2025/08/22 13:59:13 logger.go:35: Server stopped gracefully
+[INFO] 2025/08/22 13:59:13 logger.go:35: Cron service stopped

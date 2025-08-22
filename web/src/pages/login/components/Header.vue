@@ -2,9 +2,9 @@
   <header class="login-header">
     <div></div>
     <div class="operations-container">
-      <t-button theme="default" shape="square" variant="text" @click="navToGitHub">
+      <!-- <t-button theme="default" shape="square" variant="text" @click="navToGitHub">
         <t-icon name="logo-github" class="icon" />
-      </t-button>
+      </t-button> -->
     </div>
   </header>
 </template>
