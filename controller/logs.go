@@ -29,6 +29,8 @@ type LogQueryRequest struct {
 
 // GetLogs 获取日志列表（支持多种筛选条件）
 func GetLogs(c *gin.Context) {
+	user := c.MustGet("user").(*model.User)
+
 	var req LogQueryRequest
 	if err := c.ShouldBindQuery(&req); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
@@ -36,6 +38,11 @@ func GetLogs(c *gin.Context) {
 			"code":  constant.InvalidParams,
 		})
 		return
+	}
+
+	// 权限检查：非管理员只能查看自己的日志
+	if user.Role != "admin" {
+		req.UserID = user.ID
 	}
 
 	// 参数验证和默认值设置
@@ -145,21 +152,19 @@ func GetLogStats(c *gin.Context) {
 	user := c.MustGet("user").(*model.User)
 	var userID *uint
 
-	// 检查是否指定了用户ID（管理员功能）
-	if userIDParam := c.Query("user_id"); userIDParam != "" {
-		// 检查当前用户是否为管理员
-		if user.Role != "admin" {
-			c.JSON(http.StatusForbidden, gin.H{
-				"error": "权限不足",
-				"code":  constant.Forbidden,
-			})
-			return
+	// 如果是管理员，可以查看所有用户或指定用户的统计
+	if user.Role == "admin" {
+		// 检查是否指定了用户ID
+		if userIDParam := c.Query("user_id"); userIDParam != "" {
+			if id, err := strconv.ParseUint(userIDParam, 10, 32); err == nil {
+				uid := uint(id)
+				userID = &uid
+			}
 		}
-
-		if id, err := strconv.ParseUint(userIDParam, 10, 32); err == nil {
-			uid := uint(id)
-			userID = &uid
-		}
+		// 如果没有指定用户ID，userID保持为nil，表示查看所有用户统计
+	} else {
+		// 普通用户只能查看自己的统计
+		userID = &user.ID
 	}
 
 	logService := service.NewLogService()

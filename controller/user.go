@@ -486,101 +486,147 @@ func GetMenuList(c *gin.Context) {
 
 // buildMenuByRole 根据用户角色构建菜单
 func buildMenuByRole(role string) []MenuItem {
-	// 基础菜单（所有用户都有）
-	baseMenus := []MenuItem{
-		{
-			Path:      "/group",
-			Name:      "groups",
-			Component: "LAYOUT",
-			Redirect:  "/groups/list",
-			Meta: MenuMeta{
-				Title: "分组管理",
-				Icon:  "usergroup",
-			},
-			Children: []MenuItem{
-				{
-					Path:      "list",
-					Name:      "GroupsList",
-					Component: "/groups/list/index",
-					Meta: MenuMeta{
-						Title: "分组列表",
-					},
-				},
-			},
-		},
-		{
-			Path:      "/accounts",
-			Name:      "accounts",
-			Component: "LAYOUT",
-			Redirect:  "/accounts/list",
-			Meta: MenuMeta{
-				Title: "账号管理",
-				Icon:  "user-circle",
-			},
-			Children: []MenuItem{
-				{
-					Path:      "list",
-					Name:      "AccountsList",
-					Component: "/accounts/list/index",
-					Meta: MenuMeta{
-						Title: "账号列表",
-					},
-				},
-			},
-		},
-		{
-			Path:      "/keys",
-			Name:      "keys",
-			Component: "LAYOUT",
-			Redirect:  "/keys/list",
-			Meta: MenuMeta{
-				Title: "API密钥",
-				Icon:  "secured",
-			},
-			Children: []MenuItem{
-				{
-					Path:      "list",
-					Name:      "ApiKeysList",
-					Component: "/keys/list/index",
-					Meta: MenuMeta{
-						Title: "密钥管理",
-					},
-				},
-			},
-		},
-		{
-			Path:      "/logs",
-			Name:      "logs",
-			Component: "LAYOUT",
-			Redirect:  "/logs/my",
-			Meta: MenuMeta{
-				Title: "模型日志",
-				Icon:  "chart-bar",
-			},
-			Children: []MenuItem{
-				{
-					Path:      "my",
-					Name:      "MyLogs",
-					Component: "/logs/my/index",
-					Meta: MenuMeta{
-						Title: "我的日志",
-					},
-				},
-				{
-					Path:      "stats",
-					Name:      "LogStats",
-					Component: "/logs/stats/index",
-					Meta: MenuMeta{
-						Title: "使用统计",
-					},
-				},
-			},
-		},
-	}
+	var menus []MenuItem
 
-	// 如果是管理员，添加管理员专属菜单
 	if role == "admin" {
-		adminMenus := []MenuItem{
+		// 管理员菜单（包含所有功能）
+		menus = []MenuItem{
+			{
+				Path:      "/dashboard",
+				Name:      "dashboard",
+				Component: "LAYOUT",
+				Redirect:  "/dashboard/base",
+				Meta: MenuMeta{
+					Title: "仪表盘",
+					Icon:  "dashboard",
+				},
+				Children: []MenuItem{
+					{
+						Path:      "base",
+						Name:      "DashboardBase",
+						Component: "/dashboard/base/index",
+						Meta: MenuMeta{
+							Title: "概览仪表盘",
+						},
+					},
+				},
+			},
+			{
+				Path:      "/group",
+				Name:      "groups",
+				Component: "LAYOUT",
+				Redirect:  "/groups/list",
+				Meta: MenuMeta{
+					Title: "分组管理",
+					Icon:  "usergroup",
+				},
+				Children: []MenuItem{
+					{
+						Path:      "list",
+						Name:      "GroupsList",
+						Component: "/groups/list/index",
+						Meta: MenuMeta{
+							Title: "分组列表",
+						},
+					},
+				},
+			},
+			{
+				Path:      "/accounts",
+				Name:      "accounts",
+				Component: "LAYOUT",
+				Redirect:  "/accounts/list",
+				Meta: MenuMeta{
+					Title: "账号管理",
+					Icon:  "user-circle",
+				},
+				Children: []MenuItem{
+					{
+						Path:      "list",
+						Name:      "AccountsList",
+						Component: "/accounts/list/index",
+						Meta: MenuMeta{
+							Title: "账号列表",
+						},
+					},
+				},
+			},
+			{
+				Path:      "/keys",
+				Name:      "keys",
+				Component: "LAYOUT",
+				Redirect:  "/keys/list",
+				Meta: MenuMeta{
+					Title: "API密钥",
+					Icon:  "secured",
+				},
+				Children: []MenuItem{
+					{
+						Path:      "list",
+						Name:      "ApiKeysList",
+						Component: "/keys/list/index",
+						Meta: MenuMeta{
+							Title: "密钥管理",
+						},
+					},
+				},
+			},
+			{
+				Path:      "/logs",
+				Name:      "logs",
+				Component: "LAYOUT",
+				Redirect:  "/logs/my",
+				Meta: MenuMeta{
+					Title: "模型日志",
+					Icon:  "chart-bar",
+				},
+				Children: []MenuItem{
+					{
+						Path:      "my",
+						Name:      "MyLogs",
+						Component: "/logs/my/index",
+						Meta: MenuMeta{
+							Title: "我的日志",
+						},
+					},
+					{
+						Path:      "stats",
+						Name:      "LogStats",
+						Component: "/logs/stats/index",
+						Meta: MenuMeta{
+							Title: "使用统计",
+						},
+					},
+				},
+			},
+			{
+				Path:      "/billing",
+				Name:      "billing",
+				Component: "LAYOUT",
+				Redirect:  "/billing/balance",
+				Meta: MenuMeta{
+					Title: "钱包服务",
+					Icon:  "wallet",
+				},
+				Children: []MenuItem{
+					{
+						Path:      "balance",
+						Name:      "BillingBalance",
+						Component: "/billing/balance/index",
+						Meta: MenuMeta{
+							Title: "余额管理",
+						},
+					},
+					{
+						Path:      "consumption",
+						Name:      "BillingConsumption",
+						Component: "/billing/consumption/index",
+						Meta: MenuMeta{
+							Title: "消费历史",
+						},
+					},
+				},
+			},
 			{
 				Path:      "/admin",
 				Name:      "admin",
@@ -607,11 +653,166 @@ func buildMenuByRole(role string) []MenuItem {
 							Title: "系统日志",
 						},
 					},
+					{
+						Path:      "billing/cards",
+						Name:      "AdminBillingCards",
+						Component: "/admin/billing/cards/index",
+						Meta: MenuMeta{
+							Title: "充值卡管理",
+						},
+					},
+					{
+						Path:      "billing/plans",
+						Name:      "AdminBillingPlans",
+						Component: "/admin/billing/plans/index",
+						Meta: MenuMeta{
+							Title: "用户套餐管理",
+						},
+					},
+					{
+						Path:      "billing/stats",
+						Name:      "AdminBillingStats",
+						Component: "/admin/billing/stats/index",
+						Meta: MenuMeta{
+							Title: "消费统计",
+						},
+					},
+					{
+						Path:      "models",
+						Name:      "AdminModels",
+						Component: "/admin/models/index",
+						Meta: MenuMeta{
+							Title: "模型配置",
+						},
+					},
+					{
+						Path:      "accounts",
+						Name:      "AdminAccounts",
+						Component: "/admin/accounts/index",
+						Meta: MenuMeta{
+							Title: "账号管理",
+						},
+					},
+					{
+						Path:      "keys",
+						Name:      "AdminKeys",
+						Component: "/admin/keys/index",
+						Meta: MenuMeta{
+							Title: "密钥管理",
+						},
+					},
+					{
+						Path:      "groups",
+						Name:      "AdminGroups",
+						Component: "/admin/groups/index",
+						Meta: MenuMeta{
+							Title: "分组管理",
+						},
+					},
+					{
+						Path:      "logs/all",
+						Name:      "AdminAllLogs",
+						Component: "/admin/logs/all/index",
+						Meta: MenuMeta{
+							Title: "所有日志",
+						},
+					},
 				},
 			},
 		}
-		baseMenus = append(baseMenus, adminMenus...)
+	} else {
+		// 普通用户菜单（受限功能）
+		menus = []MenuItem{
+			{
+				Path:      "/dashboard",
+				Name:      "dashboard",
+				Component: "LAYOUT",
+				Redirect:  "/dashboard/base",
+				Meta: MenuMeta{
+					Title: "仪表盘",
+					Icon:  "dashboard",
+				},
+				Children: []MenuItem{
+					{
+						Path:      "base",
+						Name:      "DashboardBase",
+						Component: "/billing/balance/index",
+						Meta: MenuMeta{
+							Title: "概览仪表盘",
+						},
+					},
+				},
+			},
+			{
+				Path:      "/keys",
+				Name:      "keys",
+				Component: "LAYOUT",
+				Redirect:  "/keys/list",
+				Meta: MenuMeta{
+					Title: "API密钥",
+					Icon:  "secured",
+				},
+				Children: []MenuItem{
+					{
+						Path:      "list",
+						Name:      "ApiKeysList",
+						Component: "/keys/list/index",
+						Meta: MenuMeta{
+							Title: "密钥管理",
+						},
+					},
+				},
+			},
+			{
+				Path:      "/billing",
+				Name:      "billing",
+				Component: "LAYOUT",
+				Redirect:  "/billing/balance",
+				Meta: MenuMeta{
+					Title: "钱包服务",
+					Icon:  "wallet",
+				},
+				Children: []MenuItem{
+					{
+						Path:      "balance",
+						Name:      "BillingBalance",
+						Component: "/billing/balance/index",
+						Meta: MenuMeta{
+							Title: "余额管理",
+						},
+					},
+					{
+						Path:      "consumption",
+						Name:      "BillingConsumption",
+						Component: "/billing/consumption/index",
+						Meta: MenuMeta{
+							Title: "消费历史",
+						},
+					},
+				},
+			},
+			{
+				Path:      "/logs",
+				Name:      "logs",
+				Component: "LAYOUT",
+				Redirect:  "/logs/my",
+				Meta: MenuMeta{
+					Title: "模型日志",
+					Icon:  "chart-bar",
+				},
+				Children: []MenuItem{
+					{
+						Path:      "my",
+						Name:      "MyLogs",
+						Component: "/logs/my/index",
+						Meta: MenuMeta{
+							Title: "我的日志",
+						},
+					},
+				},
+			},
+		}
 	}
 
-	return baseMenus
+	return menus
 }

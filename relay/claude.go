@@ -12,7 +12,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/tidwall/sjson"
 	"io"
 	"log"
 	"net/http"
@@ -21,6 +20,8 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/tidwall/sjson"
 
 	"github.com/gin-gonic/gin"
 	"github.com/tidwall/gjson"
@@ -436,15 +437,64 @@ func clearRateLimitIfExpired(account *model.Account) {
 	}
 }
 
-// saveRequestLog 保存请求日志
+// saveRequestLog 保存请求日志并处理计费
 func saveRequestLog(startTime time.Time, apiKey *model.ApiKey, account *model.Account, statusCode int, usageTokens *common.TokenUsage, isStream bool) {
+	// 只有成功的请求才记录日志和计费
 	if statusCode >= statusOK && statusCode < 300 && usageTokens != nil && apiKey != nil {
 		duration := time.Since(startTime).Milliseconds()
 		logService := service.NewLogService()
+		billingService := service.NewBillingService()
+
+		// 复制关键数据到局部变量，避免goroutine中的竞争条件
+		apiKeyUserID := apiKey.UserID
+		apiKeyID := apiKey.ID
+		accountID := account.ID
+		accountPlatformType := account.PlatformType
+
 		go func() {
-			_, err := logService.CreateLogFromTokenUsage(usageTokens, apiKey.UserID, apiKey.ID, account.ID, duration, isStream)
+			// 1. 记录调用日志
+			_, err := logService.CreateLogFromTokenUsage(usageTokens, apiKeyUserID, apiKeyID, accountID, duration, isStream)
 			if err != nil {
 				log.Printf("保存日志失败: %v", err)
+			}
+
+			// 2. 处理计费（使用相同的token数据）
+			totalTokens := usageTokens.InputTokens + usageTokens.OutputTokens + usageTokens.CacheReadInputTokens + usageTokens.CacheCreationInputTokens
+			if totalTokens > 0 {
+				// 计算费用
+				costResult := common.CalculateCost(usageTokens)
+
+				// 准备扣费请求
+				deductionReq := &model.DeductionRequest{
+					UserID:              apiKeyUserID,
+					CostUSD:             costResult.Costs.Total,
+					ApiKeyID:            &apiKeyID,
+					AccountID:           &accountID,
+					InputTokens:         usageTokens.InputTokens,
+					OutputTokens:        usageTokens.OutputTokens,
+					CacheReadTokens:     usageTokens.CacheReadInputTokens,
+					CacheCreationTokens: usageTokens.CacheCreationInputTokens,
+					Model:               &usageTokens.Model,
+					PlatformType:        &accountPlatformType,
+					IsStream:            isStream,
+				}
+
+				// 添加调试日志 - 构建扣费请求
+				common.SysLog(fmt.Sprintf("[SAVE_REQUEST_LOG] Creating deduction request for User ID: %d, API Key ID: %d, Cost: $%.6f",
+					apiKeyUserID, apiKeyID, costResult.Costs.Total))
+
+				// 执行扣费
+				response, err := billingService.ProcessDeduction(deductionReq)
+				if err != nil {
+					common.SysError(fmt.Sprintf("Failed to process billing deduction: %v", err))
+				} else if !response.Success {
+					common.SysError(fmt.Sprintf("Billing deduction failed: %s", response.Message))
+				} else {
+					common.SysLog(fmt.Sprintf("Billing processed successfully for user %d, model: %s, tokens: %d, cost: $%.6f",
+						apiKeyUserID, usageTokens.Model, totalTokens, costResult.Costs.Total))
+				}
+			} else {
+				common.SysLog("No tokens consumed, skipping billing")
 			}
 		}()
 	}
@@ -673,4 +723,28 @@ func maskToken(token string) string {
 		return strings.Repeat("*", len(token))
 	}
 	return token[:4] + strings.Repeat("*", len(token)-8) + token[len(token)-4:]
+}
+
+// RefreshClaudeToken 公开的Claude账号token刷新接口，供定时任务等外部调用
+func RefreshClaudeToken(account *model.Account) (accessToken, newRefreshToken string, expiresAt int64, err error) {
+	if account == nil {
+		return "", "", 0, errors.New("account cannot be nil")
+	}
+
+	if account.RefreshToken == "" {
+		return "", "", 0, errors.New("account lacks refresh token")
+	}
+
+	log.Printf("Refreshing token for account: %s (ID: %d)", account.Name, account.ID)
+
+	// 调用内部的refreshToken函数
+	newAccessToken, refreshTokenStr, newExpiresAt, refreshErr := refreshToken(account)
+	if refreshErr != nil {
+		return "", "", 0, fmt.Errorf("failed to refresh token: %v", refreshErr)
+	}
+
+	log.Printf("Token refresh successful for account: %s (ID: %d), new token: %s, expires in %d seconds",
+		account.Name, account.ID, maskToken(newAccessToken), newExpiresAt-time.Now().Unix())
+
+	return newAccessToken, refreshTokenStr, newExpiresAt, nil
 }

@@ -125,3 +125,28 @@ func ManualCleanLogs(c *gin.Context) {
 		},
 	})
 }
+
+// ManualRefreshTokens 手动刷新Claude账号token（管理员接口）
+func ManualRefreshTokens(c *gin.Context) {
+	if scheduled.GlobalCronService == nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": "定时任务服务未初始化",
+			"code":  constant.InternalServerError,
+		})
+		return
+	}
+
+	err := scheduled.GlobalCronService.ManualRefreshTokens()
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": "刷新token失败: " + err.Error(),
+			"code":  constant.InternalServerError,
+		})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{
+		"message": "Claude账号token刷新任务已触发",
+		"code":    constant.Success,
+	})
+}

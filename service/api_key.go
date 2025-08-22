@@ -162,6 +162,28 @@ func UpdateApiKeyStatusCom(id, userID uint, status int) error {
 	return nil
 }
 
+// AdminGetApiKeys 管理员获取所有用户的API Key列表
+func AdminGetApiKeys(page, limit int, userID *uint, groupID *uint) (*model.ApiKeyListResult, error) {
+	if page <= 0 {
+		page = 1
+	}
+	if limit <= 0 || limit > 100 {
+		limit = 10
+	}
+
+	apiKeys, total, err := model.AdminGetApiKeys(page, limit, userID, groupID)
+	if err != nil {
+		return nil, err
+	}
+
+	return &model.ApiKeyListResult{
+		ApiKeys: apiKeys,
+		Total:   total,
+		Page:    page,
+		Limit:   limit,
+	}, nil
+}
+
 // ValidateApiKey 验证API Key是否有效
 func ValidateApiKey(key string) (*model.ApiKey, error) {
 	if key == "" {

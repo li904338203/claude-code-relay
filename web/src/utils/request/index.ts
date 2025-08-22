@@ -44,18 +44,24 @@ const transform: AxiosTransform = {
     }
 
     //  这里 code为 后台统一的字段，需要在 types.ts内修改为项目自己的接口返回格式
-    const { code } = data;
+    const { code, success } = data as any;
 
     // 这里逻辑可以根据项目进行修改
-    const hasSuccess = data && code === 20000;
+    // 支持两种响应格式：{ code: 20000 } 或 { success: true }
+    const hasSuccess = (data && code === 20000) || (data && success === true);
     if (hasSuccess) {
+      // 如果有success字段，保留完整响应（包括message）
+      if ((data as any).success === true) {
+        return data;
+      }
+      // 否则返回data部分（兼容旧格式）
       return data.data || data;
     }
 
     // 根据后端错误码返回相应错误信息
     // eslint-disable-next-line ts/ban-ts-comment
     // @ts-ignore
-    const errorMessage = data?.message || data?.error || '请求失败';
+    const errorMessage = data?.message || data?.error?.message || data?.error || '请求失败';
     throw new Error(errorMessage);
   },
 

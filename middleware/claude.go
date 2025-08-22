@@ -1,9 +1,12 @@
 package middleware
 
 import (
+	"claude-code-relay/common"
 	"claude-code-relay/constant"
 	"claude-code-relay/model"
+	"claude-code-relay/service"
 	"encoding/json"
+	"fmt"
 	"io"
 	"net/http"
 	"regexp"
@@ -58,6 +61,10 @@ func ClaudeCodeAuth() gin.HandlerFunc {
 			return
 		}
 
+		// 添加调试日志 - API Key认证
+		common.SysLog(fmt.Sprintf("[API_KEY_AUTH] API Key: %s (masked), User ID: %d",
+			maskApiKey(apiKey), keyInfo.UserID))
+
 		// 判断是否达到每日限额
 		if keyInfo.DailyLimit > 0 && keyInfo.TodayTotalCost >= keyInfo.DailyLimit {
 			c.JSON(http.StatusTooManyRequests, gin.H{
@@ -74,6 +81,45 @@ func ClaudeCodeAuth() gin.HandlerFunc {
 		c.Set("api_key", keyInfo)
 		c.Set("user_id", keyInfo.UserID)
 		c.Set("group_id", keyInfo.GroupID)
+
+		// 计费检查：在请求前检查用户配额
+		billingService := service.NewBillingService()
+
+		// 预估请求费用（这里使用一个基础费用，实际费用会在请求后计算）
+		estimatedCost := 0.5 // 预估最低费用，避免完全没有余额的用户发起请求
+
+		// 检查用户配额
+		common.SysLog(fmt.Sprintf("[QUOTA_CHECK] Checking quota for User ID: %d, Cost: $%.6f",
+			keyInfo.UserID, estimatedCost))
+		quotaResponse, err := billingService.CheckQuota(keyInfo.UserID, estimatedCost)
+		if err != nil {
+			common.SysError(fmt.Sprintf("[QUOTA_CHECK] Failed to check user quota for User ID %d: %v",
+				keyInfo.UserID, err))
+			c.JSON(http.StatusInternalServerError, gin.H{
+				"error": "计费系统检查失败",
+				"code":  50001,
+			})
+			c.Abort()
+			return
+		}
+
+		if !quotaResponse.HasQuota {
+			common.SysError(fmt.Sprintf("[QUOTA_CHECK] Insufficient quota for User ID %d: %s",
+				keyInfo.UserID, quotaResponse.Message))
+			c.JSON(http.StatusPaymentRequired, gin.H{
+				"error": "余额不足或无可用套餐，请充值后再试",
+				"code":  40006,
+			})
+			c.Abort()
+			return
+		}
+
+		common.SysLog(fmt.Sprintf("[QUOTA_CHECK] Quota check passed for User ID: %d, Type: %s",
+			keyInfo.UserID, quotaResponse.QuotaType))
+
+		// 将计费信息存储到上下文中
+		c.Set("billing_service", billingService)
+		c.Set("quota_response", quotaResponse)
 
 		c.Next()
 	}
@@ -115,6 +161,14 @@ func getApiKeyFromHeaders(c *gin.Context) string {
 	return ""
 }
 
+// maskApiKey 遮蔽API Key用于安全日志输出
+func maskApiKey(apiKey string) string {
+	if len(apiKey) <= 8 {
+		return strings.Repeat("*", len(apiKey))
+	}
+	return apiKey[:4] + strings.Repeat("*", len(apiKey)-8) + apiKey[len(apiKey)-4:]
+}
+
 // isRealClaudeCodeRequest 判断是否是真实的 Claude Code 请求
 func isRealClaudeCodeRequest(c *gin.Context) bool {
 	// 检查 User-Agent 是否匹配 Claude Code 格式
@@ -149,24 +203,29 @@ func hasClaudeCodeSystemPrompt(c *gin.Context) bool {
 	// 重新设置请求体，以便后续处理可以再次读取
 	c.Request.Body = io.NopCloser(strings.NewReader(string(bodyBytes)))
 
-	// 解析请求体
-	var requestBody RequestBody
+	// 解析请求体为通用map结构
+	var requestBody map[string]interface{}
 	if err := json.Unmarshal(bodyBytes, &requestBody); err != nil {
 		return false
 	}
 
-	if requestBody.System == nil {
+	// 将解析后的请求体存储到上下文中，供后续使用
+	c.Set("request_body", requestBody)
+
+	// 检查system字段
+	system, exists := requestBody["system"]
+	if !exists || system == nil {
 		return false
 	}
 
 	// 如果是字符串格式，一定不是真实的 Claude Code 请求
-	if systemStr, ok := requestBody.System.(string); ok {
+	if systemStr, ok := system.(string); ok {
 		_ = systemStr // 避免未使用变量警告
 		return false
 	}
 
 	// 处理数组格式
-	if systemArray, ok := requestBody.System.([]interface{}); ok && len(systemArray) > 0 {
+	if systemArray, ok := system.([]interface{}); ok && len(systemArray) > 0 {
 		if firstItem, ok := systemArray[0].(map[string]interface{}); ok {
 			// 检查第一个元素是否包含 Claude Code 提示词
 			if itemType, exists := firstItem["type"]; exists && itemType == "text" {
@@ -179,3 +238,18 @@ func hasClaudeCodeSystemPrompt(c *gin.Context) bool {
 
 	return false
 }
+
+// BillingMiddleware 计费中间件 - 已废弃，计费逻辑已移至日志记录处
+// 现在计费处理在 relay/claude.go 的 saveRequestLog 函数中进行
+func BillingMiddleware() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		// 计费逻辑已移至日志记录处，确保数据一致性
+		c.Next()
+	}
+}
+
+// processPostRequestBilling 已废弃 - 计费逻辑已移至 relay/claude.go 的 saveRequestLog 函数
+// 在那里使用真实的TokenUsage数据进行计费，确保数据一致性和准确性
+
+// 以下函数已废弃 - 计费逻辑已移至 relay/claude.go 的 saveRequestLog 函数
+// 现在直接使用 TokenUsage 数据进行计费，无需从响应中提取token信息

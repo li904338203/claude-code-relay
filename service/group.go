@@ -126,3 +126,30 @@ func GetGroupList(page, limit int, userID uint) (*model.GroupListResult, error) 
 		Limit:  limit,
 	}, nil
 }
+
+// AdminGetGroupList 管理员获取所有用户的分组列表
+func AdminGetGroupList(page, limit int, userID *uint) (*model.GroupListResult, error) {
+	if page <= 0 {
+		page = 1
+	}
+	if limit <= 0 {
+		limit = 10
+	}
+
+	groups, total, err := model.AdminGetGroups(page, limit, userID)
+	if err != nil {
+		return nil, err
+	}
+
+	return &model.GroupListResult{
+		Groups: groups,
+		Total:  total,
+		Page:   page,
+		Limit:  limit,
+	}, nil
+}
+
+// AdminGetAllGroups 管理员获取所有用户的分组（用于下拉选择）
+func AdminGetAllGroups(userID *uint) ([]model.Group, error) {
+	return model.AdminGetAllGroups(userID)
+}

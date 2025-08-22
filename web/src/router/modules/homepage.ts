@@ -13,6 +13,7 @@ export default [
       title: '仪表盘',
       icon: shallowRef(DashboardIcon),
       orderNo: 0,
+      hidden: true, // 隐藏静态菜单，完全使用后端动态菜单
     },
     children: [
       {

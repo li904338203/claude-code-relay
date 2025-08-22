@@ -1,9 +1,11 @@
 package controller
 
 import (
+	"claude-code-relay/common"
 	"claude-code-relay/constant"
 	"claude-code-relay/model"
 	"claude-code-relay/service"
+	"fmt"
 	"net/http"
 	"strconv"
 	"time"
@@ -279,6 +281,49 @@ func GetApiKeys(c *gin.Context) {
 		})
 		return
 	}
+
+	c.JSON(http.StatusOK, gin.H{
+		"message": "获取API Key列表成功",
+		"code":    constant.Success,
+		"data":    result,
+	})
+}
+
+// AdminGetApiKeys 管理员获取所有用户的API Key列表
+func AdminGetApiKeys(c *gin.Context) {
+	page, _ := strconv.Atoi(c.DefaultQuery("page", "1"))
+	limit, _ := strconv.Atoi(c.DefaultQuery("limit", "10"))
+
+	// 可选的用户ID过滤
+	var userID *uint
+	if userIDStr := c.Query("user_id"); userIDStr != "" {
+		if userIDInt, err := strconv.ParseUint(userIDStr, 10, 32); err == nil {
+			userIDValue := uint(userIDInt)
+			userID = &userIDValue
+		}
+	}
+
+	// 可选的分组ID过滤
+	var groupID *uint
+	if groupIDStr := c.Query("group_id"); groupIDStr != "" {
+		if groupIDInt, err := strconv.ParseUint(groupIDStr, 10, 32); err == nil {
+			groupIDValue := uint(groupIDInt)
+			groupID = &groupIDValue
+		}
+	}
+
+	result, err := service.AdminGetApiKeys(page, limit, userID, groupID)
+	if err != nil {
+		common.SysLog(fmt.Sprintf("AdminGetApiKeys error: %v", err))
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": err.Error(),
+			"code":  constant.InternalServerError,
+		})
+		return
+	}
+
+	common.SysLog(fmt.Sprintf("AdminGetApiKeys result: page=%d, limit=%d, userID=%v, groupID=%v, total=%d, apiKeysCount=%d",
+		page, limit, userID, groupID, result.Total, len(result.ApiKeys)))
 
 	c.JSON(http.StatusOK, gin.H{
 		"message": "获取API Key列表成功",

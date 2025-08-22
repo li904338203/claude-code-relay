@@ -17,6 +17,9 @@ type Group struct {
 	// 统计字段，不存储在数据库中
 	ApiKeyCount  int `json:"api_key_count" gorm:"-"`
 	AccountCount int `json:"account_count" gorm:"-"`
+
+	// 关联查询
+	User User `json:"user,omitempty" gorm:"foreignKey:UserID"`
 }
 
 type CreateGroupRequest struct {
@@ -120,4 +123,68 @@ func GetGroups(page, limit int, userID uint) ([]Group, int64, error) {
 	}
 
 	return groups, total, nil
+}
+
+// AdminGetGroups 管理员分页获取所有用户的分组
+func AdminGetGroups(page, limit int, userID *uint) ([]Group, int64, error) {
+	var groups []Group
+	var total int64
+
+	query := DB.Model(&Group{})
+
+	// 如果指定了用户ID，则只查询该用户的分组
+	if userID != nil {
+		query = query.Where("user_id = ?", *userID)
+	}
+
+	err := query.Count(&total).Error
+	if err != nil {
+		return nil, 0, err
+	}
+
+	offset := (page - 1) * limit
+	err = query.Preload("User").Offset(offset).Limit(limit).Find(&groups).Error
+	if err != nil {
+		return nil, 0, err
+	}
+
+	// 为每个分组统计API密钥和账号数量
+	for i := range groups {
+		// 统计API密钥数量
+		var apiKeyCount int64
+		err = DB.Model(&ApiKey{}).Where("group_id = ? AND user_id = ?", groups[i].ID, groups[i].UserID).Count(&apiKeyCount).Error
+		if err != nil {
+			return nil, 0, err
+		}
+		groups[i].ApiKeyCount = int(apiKeyCount)
+
+		// 统计账号数量
+		var accountCount int64
+		err = DB.Model(&Account{}).Where("group_id = ? AND user_id = ?", groups[i].ID, groups[i].UserID).Count(&accountCount).Error
+		if err != nil {
+			return nil, 0, err
+		}
+		groups[i].AccountCount = int(accountCount)
+	}
+
+	return groups, total, nil
+}
+
+// AdminGetAllGroups 管理员获取所有分组（不分页）
+func AdminGetAllGroups(userID *uint) ([]Group, error) {
+	var groups []Group
+
+	query := DB.Where("status = 1")
+
+	// 如果指定了用户ID，则只查询该用户的分组
+	if userID != nil {
+		query = query.Where("user_id = ?", *userID)
+	}
+
+	err := query.Find(&groups).Error
+	if err != nil {
+		return nil, err
+	}
+
+	return groups, nil
 }

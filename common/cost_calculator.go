@@ -2,6 +2,8 @@ package common
 
 import (
 	"fmt"
+	"sync"
+	"time"
 )
 
 // ModelPricing Claude模型价格配置 (USD per 1M tokens)
@@ -62,84 +64,94 @@ type SavingsResult struct {
 	} `json:"formatted"`
 }
 
-// MODEL_PRICING Claude模型价格配置表
-var MODEL_PRICING = map[string]ModelPricing{
-	// Claude 3.5 Sonnet
-	"claude-3-5-sonnet-20241022": {
-		Input:      3.00,
-		Output:     15.00,
-		CacheWrite: 3.75,
-		CacheRead:  0.30,
-	},
-
-	"claude-sonnet-4-20250514": {
-		Input:      3.00,
-		Output:     15.00,
-		CacheWrite: 3.75,
-		CacheRead:  0.30,
-	},
-
-	"claude-opus-4-20250514": {
-		Input:      15.00,
-		Output:     75.00,
-		CacheWrite: 18.75,
-		CacheRead:  1.50,
-	},
-
-	"claude-opus-4-1-20250805": {
-		Input:      15.00,
-		Output:     75.00,
-		CacheWrite: 18.75,
-		CacheRead:  1.50,
-	},
-
-	// Claude 3.5 Haiku
-	"claude-3-5-haiku-20241022": {
-		Input:      0.25,
-		Output:     1.25,
-		CacheWrite: 0.30,
-		CacheRead:  0.03,
-	},
-
-	// Claude 3 Opus
-	"claude-3-opus-20240229": {
-		Input:      15.00,
-		Output:     75.00,
-		CacheWrite: 18.75,
-		CacheRead:  1.50,
-	},
-
-	// Claude 3 Sonnet
-	"claude-3-sonnet-20240229": {
-		Input:      3.00,
-		Output:     15.00,
-		CacheWrite: 3.75,
-		CacheRead:  0.30,
-	},
-
-	// Claude 3 Haiku
-	"claude-3-haiku-20240307": {
-		Input:      0.25,
-		Output:     1.25,
-		CacheWrite: 0.30,
-		CacheRead:  0.03,
-	},
-
-	// 默认定价（用于未知模型）
-	"unknown": {
-		Input:      3.00,
-		Output:     15.00,
-		CacheWrite: 3.75,
-		CacheRead:  0.30,
-	},
-}
+// 删除硬编码的模型定价配置，所有定价都从数据库获取
 
 // CostCalculator 费用计算器
-type CostCalculator struct{}
+type CostCalculator struct {
+	pricingCache map[string]ModelPricing
+	cacheMutex   sync.RWMutex
+	cacheTime    time.Time
+	cacheExpiry  time.Duration
+}
 
 // NewCostCalculator 创建费用计算器实例
 func NewCostCalculator() *CostCalculator {
-	return &CostCalculator{}
+	return &CostCalculator{
+		pricingCache: make(map[string]ModelPricing),
+		cacheExpiry:  5 * time.Minute, // 缓存5分钟
+	}
+}
+
+// 已删除getModelPricingFromDB方法，所有定价都通过ModelPricingService接口获取
+
+// refreshPricingCache 刷新定价缓存
+func (c *CostCalculator) refreshPricingCache() error {
+	c.cacheMutex.Lock()
+	defer c.cacheMutex.Unlock()
+
+	// 检查缓存是否过期
+	if time.Since(c.cacheTime) < c.cacheExpiry && len(c.pricingCache) > 0 {
+		return nil // 缓存未过期
+	}
+
+	// 清空现有缓存
+	c.pricingCache = make(map[string]ModelPricing)
+
+	// 从数据库服务获取定价
+	service := GetModelPricingService()
+	if service == nil {
+		SysLog("Error: Model pricing service is not initialized")
+		return fmt.Errorf("model pricing service is not initialized")
+	}
+
+	pricingMap, err := service.GetAllCurrentModelPricing()
+	if err != nil {
+		SysLog("Error: Failed to get pricing from database service: " + err.Error())
+		return fmt.Errorf("failed to get pricing from database: %v", err)
+	}
+
+	// 设置从数据库获取的定价到缓存
+	c.pricingCache = pricingMap
+	c.cacheTime = time.Now()
+
+	SysLog(fmt.Sprintf("Pricing cache refreshed with %d models", len(pricingMap)))
+	return nil
+}
+
+// getPricing 获取模型定价（从数据库缓存获取）
+func (c *CostCalculator) getPricing(modelName string) ModelPricing {
+	if modelName == "" {
+		modelName = "unknown"
+	}
+
+	// 刷新缓存
+	err := c.refreshPricingCache()
+	if err != nil {
+		SysLog("Warning: Failed to refresh pricing cache: " + err.Error())
+		// 如果刷新失败，尝试使用现有缓存
+	}
+
+	c.cacheMutex.RLock()
+	defer c.cacheMutex.RUnlock()
+
+	// 从缓存获取指定模型定价
+	if pricing, exists := c.pricingCache[modelName]; exists {
+		return pricing
+	}
+
+	// 如果指定模型不存在，尝试获取默认模型定价
+	if pricing, exists := c.pricingCache["unknown"]; exists {
+		return pricing
+	}
+
+	// 如果数据库中没有任何定价配置，返回空定价（会导致0费用）
+	SysLog(fmt.Sprintf("Warning: No pricing found for model '%s' and no default pricing available", modelName))
+	return ModelPricing{
+		Input:      0.0,
+		Output:     0.0,
+		CacheWrite: 0.0,
+		CacheRead:  0.0,
+	}
 }
 
 // CalculateCost 计算单次请求的费用
@@ -149,11 +161,8 @@ func (c *CostCalculator) CalculateCost(usage *TokenUsage) *CostCalculationResult
 		model = "unknown"
 	}
 
-	// 获取定价信息
-	pricing, exists := MODEL_PRICING[model]
-	if !exists {
-		pricing = MODEL_PRICING["unknown"]
-	}
+	// 获取定价信息（优先数据库，回退到硬编码）
+	pricing := c.getPricing(model)
 
 	// 计算各类型token的费用 (USD)
 	inputCost := (float64(usage.InputTokens) / 1000000) * pricing.Input
@@ -205,21 +214,19 @@ func (c *CostCalculator) CalculateAggregatedCost(inputTokens, outputTokens, cach
 
 // GetModelPricing 获取模型定价信息
 func (c *CostCalculator) GetModelPricing(model string) ModelPricing {
-	if model == "" {
-		model = "unknown"
-	}
-
-	pricing, exists := MODEL_PRICING[model]
-	if !exists {
-		pricing = MODEL_PRICING["unknown"]
-	}
-	return pricing
+	return c.getPricing(model)
 }
 
 // GetAllModelPricing 获取所有支持的模型和定价
 func (c *CostCalculator) GetAllModelPricing() map[string]ModelPricing {
+	// 刷新缓存
+	c.refreshPricingCache()
+
+	c.cacheMutex.RLock()
+	defer c.cacheMutex.RUnlock()
+
 	result := make(map[string]ModelPricing)
-	for k, v := range MODEL_PRICING {
+	for k, v := range c.pricingCache {
 		result[k] = v
 	}
 	return result
@@ -227,7 +234,13 @@ func (c *CostCalculator) GetAllModelPricing() map[string]ModelPricing {
 
 // IsModelSupported 验证模型是否支持
 func (c *CostCalculator) IsModelSupported(model string) bool {
-	_, exists := MODEL_PRICING[model]
+	// 刷新缓存
+	c.refreshPricingCache()
+
+	c.cacheMutex.RLock()
+	defer c.cacheMutex.RUnlock()
+
+	_, exists := c.pricingCache[model]
 	return exists
 }
 

@@ -30,6 +30,7 @@ type ApiKey struct {
 	DeletedAt                     gorm.DeletedAt `json:"-" gorm:"index"`
 	// 关联查询
 	Group *Group `json:"group" gorm:"-"`
+	User  *User  `json:"user,omitempty" gorm:"foreignKey:UserID"`
 }
 
 type CreateApiKeyRequest struct {
@@ -166,6 +167,72 @@ func GetApiKeys(page, limit int, userID uint, groupID *uint) ([]ApiKey, int64, e
 
 		var groups []Group
 		DB.Where("id IN ? AND user_id = ?", ids, userID).Find(&groups)
+
+		// 创建分组映射
+		groupMap := make(map[int]*Group)
+		for i := range groups {
+			groupMap[int(groups[i].ID)] = &groups[i]
+		}
+
+		// 为每个API Key设置对应的分组信息
+		for i := range apiKeys {
+			if apiKeys[i].GroupID > 0 {
+				if group, exists := groupMap[apiKeys[i].GroupID]; exists {
+					apiKeys[i].Group = group
+				}
+			}
+		}
+	}
+
+	return apiKeys, total, nil
+}
+
+// AdminGetApiKeys 管理员分页获取所有用户的API Keys
+func AdminGetApiKeys(page, limit int, userID *uint, groupID *uint) ([]ApiKey, int64, error) {
+	var apiKeys []ApiKey
+	var total int64
+
+	query := DB.Model(&ApiKey{})
+
+	// 如果指定了用户ID，则只查询该用户的API Keys
+	if userID != nil {
+		query = query.Where("user_id = ?", *userID)
+	}
+
+	// 如果指定了分组ID，则只查询该分组的API Keys
+	if groupID != nil {
+		query = query.Where("group_id = ?", *groupID)
+	}
+
+	err := query.Count(&total).Error
+	if err != nil {
+		return nil, 0, err
+	}
+
+	offset := (page - 1) * limit
+	err = query.Preload("User").Offset(offset).Limit(limit).Find(&apiKeys).Error
+	if err != nil {
+		return nil, 0, err
+	}
+
+	// 批量查询分组信息
+	groupIDs := make(map[int]bool)
+	userIDs := make(map[uint]bool)
+	for _, apiKey := range apiKeys {
+		if apiKey.GroupID > 0 {
+			groupIDs[apiKey.GroupID] = true
+		}
+		userIDs[apiKey.UserID] = true
+	}
+
+	if len(groupIDs) > 0 {
+		var ids []int
+		for id := range groupIDs {
+			ids = append(ids, id)
+		}
+
+		var groups []Group
+		DB.Where("id IN ?", ids).Find(&groups)
 
 		// 创建分组映射
 		groupMap := make(map[int]*Group)

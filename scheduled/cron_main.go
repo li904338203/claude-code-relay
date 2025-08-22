@@ -60,6 +60,27 @@ func (s *CronService) Start() {
 		return
 	}
 
+	// 每天凌晨0点重置时间卡的每日使用次数
+	_, err = s.cron.AddFunc("0 0 0 * * *", s.resetTimeCardDailyUsage)
+	if err != nil {
+		log.Printf("Failed to add time card reset cron job: %v", err)
+		return
+	}
+
+	// 每天凌晨2点清理过期的套餐和充值卡
+	_, err = s.cron.AddFunc("0 0 2 * * *", s.cleanupExpiredBillingPlans)
+	if err != nil {
+		log.Printf("Failed to add billing cleanup cron job: %v", err)
+		return
+	}
+
+	// 每10分钟检查并刷新即将过期的Claude账号Token
+	_, err = s.cron.AddFunc("0 */10 * * * *", s.checkAndRefreshTokens)
+	if err != nil {
+		log.Printf("Failed to add token refresh cron job: %v", err)
+		return
+	}
+
 	// 启动定时任务
 	s.cron.Start()
 	common.SysLog("Cron service started successfully")
@@ -343,4 +364,191 @@ func (s *CronService) checkRateLimitExpiredAccounts() {
 
 	duration := time.Since(startTime)
 	common.SysLog(fmt.Sprintf("Rate limit expired accounts check task completed in %s. Recovered: %d", duration.String(), recoveredCount))
+}
+
+// resetTimeCardDailyUsage 重置时间卡的每日使用次数
+func (s *CronService) resetTimeCardDailyUsage() {
+	startTime := time.Now()
+	common.SysLog("Starting time card daily usage reset task")
+
+	billingService := service.NewBillingService()
+	err := billingService.ResetDailyUsage()
+	if err != nil {
+		common.SysError("Failed to reset time card daily usage: " + err.Error())
+	} else {
+		common.SysLog("Time card daily usage reset successfully")
+	}
+
+	duration := time.Since(startTime)
+	common.SysLog("Time card daily usage reset task completed in " + duration.String())
+}
+
+// cleanupExpiredBillingPlans 清理过期的计费套餐和充值卡
+func (s *CronService) cleanupExpiredBillingPlans() {
+	startTime := time.Now()
+	common.SysLog("Starting expired billing plans cleanup task")
+
+	billingService := service.NewBillingService()
+	err := billingService.CleanupExpiredPlans()
+	if err != nil {
+		common.SysError("Failed to cleanup expired billing plans: " + err.Error())
+	} else {
+		common.SysLog("Expired billing plans cleanup successfully")
+	}
+
+	duration := time.Since(startTime)
+	common.SysLog("Expired billing plans cleanup task completed in " + duration.String())
+}
+
+// ManualResetTimeCardUsage 手动重置时间卡使用次数（用于测试或管理员操作）
+func (s *CronService) ManualResetTimeCardUsage() error {
+	common.SysLog("Manual time card usage reset triggered")
+
+	billingService := service.NewBillingService()
+	err := billingService.ResetDailyUsage()
+	if err != nil {
+		return fmt.Errorf("failed to reset time card usage: %v", err)
+	}
+
+	common.SysLog("Manual time card usage reset completed")
+	return nil
+}
+
+// ManualCleanupBillingPlans 手动清理过期计费套餐（用于测试或管理员操作）
+func (s *CronService) ManualCleanupBillingPlans() error {
+	common.SysLog("Manual billing plans cleanup triggered")
+
+	billingService := service.NewBillingService()
+	err := billingService.CleanupExpiredPlans()
+	if err != nil {
+		return fmt.Errorf("failed to cleanup billing plans: %v", err)
+	}
+
+	common.SysLog("Manual billing plans cleanup completed")
+	return nil
+}
+
+// checkAndRefreshTokens 检查并刷新即将过期的Claude账号Token
+func (s *CronService) checkAndRefreshTokens() {
+	startTime := time.Now()
+	common.SysLog("Starting Claude accounts token refresh check task")
+
+	// 获取所有启用的Claude账号（包括claude和claude_console平台）
+	var claudeAccounts []model.Account
+	err := model.DB.Where("platform_type IN (?, ?) AND active_status = ? AND refresh_token IS NOT NULL AND refresh_token != ''",
+		constant.PlatformClaude, constant.PlatformClaudeConsole, 1).Find(&claudeAccounts).Error
+	if err != nil {
+		common.SysError("Failed to query Claude accounts for token refresh: " + err.Error())
+		return
+	}
+
+	if len(claudeAccounts) == 0 {
+		common.SysLog("No Claude accounts found for token refresh checking")
+		return
+	}
+
+	common.SysLog(fmt.Sprintf("Found %d Claude accounts to check for token refresh", len(claudeAccounts)))
+
+	refreshedCount := 0
+	skippedCount := 0
+	failedCount := 0
+	now := time.Now().Unix()
+
+	// 20分钟的缓冲时间（以秒为单位）
+	refreshBuffer := int64(20 * 60) // 20分钟 = 1200秒
+
+	// 逐个检查每个账号的token过期时间
+	for _, account := range claudeAccounts {
+		// 检查token是否存在
+		if account.AccessToken == "" {
+			common.SysLog(fmt.Sprintf("Account %s (ID: %d) has no access token, skipping", account.Name, account.ID))
+			skippedCount++
+			continue
+		}
+
+		// 检查token是否在20分钟内过期
+		expiresAt := int64(account.ExpiresAt)
+
+		// 如果没有过期时间或者过期时间还很久，跳过
+		if expiresAt <= 0 {
+			common.SysLog(fmt.Sprintf("Account %s (ID: %d) has no expiry time, skipping", account.Name, account.ID))
+			skippedCount++
+			continue
+		}
+
+		// 如果距离过期时间还超过20分钟，跳过
+		if now < (expiresAt - refreshBuffer) {
+			timeUntilExpiry := time.Duration(expiresAt-now) * time.Second
+			common.SysLog(fmt.Sprintf("Account %s (ID: %d) token expires in %v, no need to refresh yet", account.Name, account.ID, timeUntilExpiry))
+			skippedCount++
+			continue
+		}
+
+		// Token需要刷新
+		timeUntilExpiry := time.Duration(expiresAt-now) * time.Second
+		common.SysLog(fmt.Sprintf("Account %s (ID: %d) token expires in %v, attempting to refresh", account.Name, account.ID, timeUntilExpiry))
+
+		// 调用刷新token的函数
+		if s.refreshAccountToken(&account) {
+			refreshedCount++
+			common.SysLog(fmt.Sprintf("Account %s (ID: %d) token refreshed successfully", account.Name, account.ID))
+		} else {
+			failedCount++
+			common.SysError(fmt.Sprintf("Failed to refresh token for account %s (ID: %d)", account.Name, account.ID))
+		}
+	}
+
+	duration := time.Since(startTime)
+	common.SysLog(fmt.Sprintf("Claude accounts token refresh check task completed in %s. Refreshed: %d, Skipped: %d, Failed: %d",
+		duration.String(), refreshedCount, skippedCount, failedCount))
+}
+
+// refreshAccountToken 刷新单个账号的token
+func (s *CronService) refreshAccountToken(account *model.Account) bool {
+	// 检查是否有refresh token
+	if account.RefreshToken == "" {
+		common.SysError(fmt.Sprintf("Account %s (ID: %d) has no refresh token, cannot refresh", account.Name, account.ID))
+		return false
+	}
+
+	// 调用relay包中的token刷新功能
+	newAccessToken, newRefreshToken, newExpiresAt, err := relay.RefreshClaudeToken(account)
+	if err != nil {
+		common.SysError(fmt.Sprintf("Failed to refresh token for account %s (ID: %d): %v", account.Name, account.ID, err))
+
+		// 如果刷新失败且token已经过期，禁用账号
+		now := time.Now().Unix()
+		if now >= int64(account.ExpiresAt) {
+			common.SysLog(fmt.Sprintf("Token expired and refresh failed, disabling account %s (ID: %d)", account.Name, account.ID))
+			account.CurrentStatus = 2 // 设置为接口异常状态
+			if updateErr := model.UpdateAccount(account); updateErr != nil {
+				common.SysError(fmt.Sprintf("Failed to disable account %s (ID: %d): %v", account.Name, account.ID, updateErr))
+			}
+		}
+		return false
+	}
+
+	// 更新账号信息
+	account.AccessToken = newAccessToken
+	account.RefreshToken = newRefreshToken
+	account.ExpiresAt = int(newExpiresAt)
+
+	// 保存到数据库
+	if err := model.UpdateAccount(account); err != nil {
+		common.SysError(fmt.Sprintf("Failed to update account token info for %s (ID: %d): %v", account.Name, account.ID, err))
+		return false
+	}
+
+	expiryTime := time.Unix(newExpiresAt, 0)
+	common.SysLog(fmt.Sprintf("Account %s (ID: %d) token refreshed successfully, new token expires at %s",
+		account.Name, account.ID, expiryTime.Format("2006-01-02 15:04:05")))
+	return true
+}
+
+// ManualRefreshTokens 手动刷新Claude账号token（用于测试或管理员操作）
+func (s *CronService) ManualRefreshTokens() error {
+	common.SysLog("Manual Claude accounts token refresh triggered")
+	s.checkAndRefreshTokens()
+	common.SysLog("Manual Claude accounts token refresh completed")
+	return nil
 }

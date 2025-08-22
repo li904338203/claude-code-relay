@@ -204,3 +204,60 @@ func GetGroups(c *gin.Context) {
 		"data":    result,
 	})
 }
+
+// AdminGetGroups 管理员获取所有用户的分组列表
+func AdminGetGroups(c *gin.Context) {
+	page, _ := strconv.Atoi(c.DefaultQuery("page", "1"))
+	limit, _ := strconv.Atoi(c.DefaultQuery("limit", "10"))
+
+	// 可选的用户ID过滤
+	var userID *uint
+	if userIDStr := c.Query("user_id"); userIDStr != "" {
+		if userIDInt, err := strconv.ParseUint(userIDStr, 10, 32); err == nil {
+			userIDValue := uint(userIDInt)
+			userID = &userIDValue
+		}
+	}
+
+	result, err := service.AdminGetGroupList(page, limit, userID)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": err.Error(),
+			"code":  constant.InternalServerError,
+		})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{
+		"message": "获取分组列表成功",
+		"code":    constant.Success,
+		"data":    result,
+	})
+}
+
+// AdminGetAllGroups 管理员获取所有用户的分组（用于下拉选择）
+func AdminGetAllGroups(c *gin.Context) {
+	// 可选的用户ID过滤
+	var userID *uint
+	if userIDStr := c.Query("user_id"); userIDStr != "" {
+		if userIDInt, err := strconv.ParseUint(userIDStr, 10, 32); err == nil {
+			userIDValue := uint(userIDInt)
+			userID = &userIDValue
+		}
+	}
+
+	groups, err := service.AdminGetAllGroups(userID)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": err.Error(),
+			"code":  constant.InternalServerError,
+		})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{
+		"message": "获取分组选项成功",
+		"code":    constant.Success,
+		"data":    groups,
+	})
+}
