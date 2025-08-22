@@ -134,6 +134,19 @@ func (s *UserService) Register(username, email, password string) error {
 		return errors.New("注册失败")
 	}
 
+	// 为新用户创建余额记录
+	userBalance := &model.UserBalance{
+		UserID:         user.ID,
+		Balance:        0,
+		FrozenBalance:  0,
+		TotalRecharged: 0,
+		TotalConsumed:  0,
+	}
+	if err := model.DB.Create(userBalance).Error; err != nil {
+		common.SysError(fmt.Sprintf("Failed to create user balance for user %d: %v", user.ID, err))
+		// 不影响注册流程，只记录错误
+	}
+
 	return nil
 }
 
@@ -264,6 +277,19 @@ func (s *UserService) AdminCreateUser(username, email, password, role string) er
 
 	if err := model.CreateUser(user); err != nil {
 		return errors.New("创建用户失败")
+	}
+
+	// 为新用户创建余额记录
+	userBalance := &model.UserBalance{
+		UserID:         user.ID,
+		Balance:        0,
+		FrozenBalance:  0,
+		TotalRecharged: 0,
+		TotalConsumed:  0,
+	}
+	if err := model.DB.Create(userBalance).Error; err != nil {
+		common.SysError(fmt.Sprintf("Failed to create user balance for user %d: %v", user.ID, err))
+		// 不影响创建流程，只记录错误
 	}
 
 	return nil

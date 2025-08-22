@@ -531,6 +531,21 @@ func (bs *BillingService) getUserBalance(userID uint) (*model.UserBalance, error
 	var balance model.UserBalance
 	err := model.DB.Where("user_id = ?", userID).First(&balance).Error
 	if err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			// 如果记录不存在，创建一个新的余额记录
+			balance = model.UserBalance{
+				UserID:         userID,
+				Balance:        0,
+				FrozenBalance:  0,
+				TotalRecharged: 0,
+				TotalConsumed:  0,
+			}
+			if createErr := model.DB.Create(&balance).Error; createErr != nil {
+				return nil, createErr
+			}
+			common.SysLog(fmt.Sprintf("Created new balance record for user %d", userID))
+			return &balance, nil
+		}
 		return nil, err
 	}
 	return &balance, nil
@@ -573,6 +588,21 @@ func (bs *BillingService) getUserBalanceWithTx(tx *gorm.DB, userID uint) (*model
 	var balance model.UserBalance
 	err := tx.Where("user_id = ?", userID).First(&balance).Error
 	if err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			// 如果记录不存在，创建一个新的余额记录
+			balance = model.UserBalance{
+				UserID:         userID,
+				Balance:        0,
+				FrozenBalance:  0,
+				TotalRecharged: 0,
+				TotalConsumed:  0,
+			}
+			if createErr := tx.Create(&balance).Error; createErr != nil {
+				return nil, createErr
+			}
+			common.SysLog(fmt.Sprintf("Created new balance record for user %d (with transaction)", userID))
+			return &balance, nil
+		}
 		return nil, err
 	}
 	return &balance, nil

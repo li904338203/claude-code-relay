@@ -3015,3 +3015,174 @@
 [INFO] 2025/08/22 08:50:00 logger.go:35: Account max车号098 (ID: 1) has no expiry time, skipping
 [INFO] 2025/08/22 08:50:00 logger.go:35: Account max101 (ID: 3) token expires in 7h55m48s, no need to refresh yet
 [INFO] 2025/08/22 08:50:00 logger.go:35: Claude accounts token refresh check task completed in 3.4051ms. Refreshed: 0, Skipped: 2, Failed: 0
+[INFO] 2025/08/22 08:55:20 logger.go:35: Shutting down server...
+[INFO] 2025/08/22 08:55:20 logger.go:35: Cron service stopped
+[INFO] 2025/08/22 08:55:20 logger.go:35: Server stopped gracefully
+[INFO] 2025/08/22 08:55:20 logger.go:35: Cron service stopped
+[INFO] 2025/08/22 11:19:07 logger.go:35: Claude Code Relay v1.0.0 started
+[INFO] 2025/08/22 11:19:07 logger.go:35: Model configurations already exist, skipping initialization
+[INFO] 2025/08/22 11:19:07 logger.go:35: Model pricing service initialized with database adapter
+[INFO] 2025/08/22 11:19:07 logger.go:35: Database initialized successfully
+[INFO] 2025/08/22 11:19:07 logger.go:35: Redis connection established
+[INFO] 2025/08/22 11:19:07 logger.go:35: Cron service started successfully
+[INFO] 2025/08/22 11:19:07 logger.go:35: Server starting on port 8088
+[INFO] 2025/08/22 11:20:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/22 11:20:00 logger.go:35: Starting Claude accounts token refresh check task
+[INFO] 2025/08/22 11:20:00 logger.go:35: Found 2 Claude accounts to check for token refresh
+[INFO] 2025/08/22 11:20:00 logger.go:35: Account max车号098 (ID: 1) has no expiry time, skipping
+[INFO] 2025/08/22 11:20:00 logger.go:35: Account max101 (ID: 3) token expires in 5h25m48s, no need to refresh yet
+[INFO] 2025/08/22 11:20:00 logger.go:35: Claude accounts token refresh check task completed in 1.8403ms. Refreshed: 0, Skipped: 2, Failed: 0
+[INFO] 2025/08/22 11:20:00 logger.go:35: No rate limited accounts found for checking
+[ERROR] 2025/08/22 11:20:25 logger.go:43: Failed to get user billing stats: failed to get user balance: record not found
+[ERROR] 2025/08/22 11:20:26 logger.go:43: Failed to get user billing stats: failed to get user balance: record not found
+[ERROR] 2025/08/22 11:20:27 logger.go:43: Failed to get user billing stats: failed to get user balance: record not found
+[ERROR] 2025/08/22 11:20:28 logger.go:43: Failed to get user billing stats: failed to get user balance: record not found
+[INFO] 2025/08/22 11:23:51 logger.go:35: Shutting down server...
+[INFO] 2025/08/22 11:23:51 logger.go:35: Cron service stopped
+[INFO] 2025/08/22 11:23:51 logger.go:35: Server stopped gracefully
+[INFO] 2025/08/22 11:23:51 logger.go:35: Cron service stopped
+[INFO] 2025/08/22 11:32:41 logger.go:35: Claude Code Relay v1.0.0 started
+[INFO] 2025/08/22 11:32:41 logger.go:35: Model configurations already exist, skipping initialization
+[INFO] 2025/08/22 11:32:41 logger.go:35: Model pricing service initialized with database adapter
+[INFO] 2025/08/22 11:32:41 logger.go:35: Database initialized successfully
+[INFO] 2025/08/22 11:32:41 logger.go:35: Redis connection established
+[INFO] 2025/08/22 11:32:41 logger.go:35: Cron service started successfully
+[INFO] 2025/08/22 11:32:41 logger.go:35: Server starting on port 8088
+[INFO] 2025/08/22 11:40:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/22 11:40:00 logger.go:35: Starting Claude accounts token refresh check task
+[INFO] 2025/08/22 11:40:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/22 11:40:00 logger.go:35: Found 2 Claude accounts to check for token refresh
+[INFO] 2025/08/22 11:40:00 logger.go:35: Account max车号098 (ID: 1) has no expiry time, skipping
+[INFO] 2025/08/22 11:40:00 logger.go:35: Account max101 (ID: 3) token expires in 5h5m48s, no need to refresh yet
+[INFO] 2025/08/22 11:40:00 logger.go:35: Claude accounts token refresh check task completed in 13.9254ms. Refreshed: 0, Skipped: 2, Failed: 0
+[INFO] 2025/08/22 11:50:00 logger.go:35: Starting Claude accounts token refresh check task
+[INFO] 2025/08/22 11:50:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/22 11:50:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/22 11:50:00 logger.go:35: Found 2 Claude accounts to check for token refresh
+[INFO] 2025/08/22 11:50:00 logger.go:35: Account max车号098 (ID: 1) has no expiry time, skipping
+[INFO] 2025/08/22 11:50:00 logger.go:35: Account max101 (ID: 3) token expires in 4h55m48s, no need to refresh yet
+[INFO] 2025/08/22 11:50:00 logger.go:35: Claude accounts token refresh check task completed in 2.5993ms. Refreshed: 0, Skipped: 2, Failed: 0
+[INFO] 2025/08/22 12:00:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/22 12:00:00 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/22 12:00:00 logger.go:35: Starting Claude accounts token refresh check task
+[INFO] 2025/08/22 12:00:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/22 12:00:00 logger.go:35: Found 1 abnormal accounts to test
+[INFO] 2025/08/22 12:00:00 logger.go:35: Found 2 Claude accounts to check for token refresh
+[INFO] 2025/08/22 12:00:00 logger.go:35: Account max车号098 (ID: 1) has no expiry time, skipping
+[INFO] 2025/08/22 12:00:00 logger.go:35: Account max101 (ID: 3) token expires in 4h45m48s, no need to refresh yet
+[INFO] 2025/08/22 12:00:00 logger.go:35: Claude accounts token refresh check task completed in 31.9273ms. Refreshed: 0, Skipped: 2, Failed: 0
+[INFO] 2025/08/22 12:00:00 logger.go:35: Testing account max车号098 (ID: 1) with status code: 500, error: Request failed: Post "https://api.anthropic.com/v1/messages": Proxy Authentication Required
+[INFO] 2025/08/22 12:00:00 logger.go:35: Account max车号098 (ID: 1) test failed: Request failed: Post "https://api.anthropic.com/v1/messages": Proxy Authentication Required
+[INFO] 2025/08/22 12:00:00 logger.go:35: Abnormal accounts recovery task completed in 713.0349ms. Recovered: 0, Failed: 1
+[INFO] 2025/08/22 12:10:00 logger.go:35: Starting Claude accounts token refresh check task
+[INFO] 2025/08/22 12:10:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/22 12:10:00 logger.go:35: Found 2 Claude accounts to check for token refresh
+[INFO] 2025/08/22 12:10:00 logger.go:35: Account max车号098 (ID: 1) has no expiry time, skipping
+[INFO] 2025/08/22 12:10:00 logger.go:35: Account max101 (ID: 3) token expires in 4h35m48s, no need to refresh yet
+[INFO] 2025/08/22 12:10:00 logger.go:35: Claude accounts token refresh check task completed in 18.3968ms. Refreshed: 0, Skipped: 2, Failed: 0
+[INFO] 2025/08/22 12:10:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/22 12:20:00 logger.go:35: Starting Claude accounts token refresh check task
+[INFO] 2025/08/22 12:20:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/22 12:20:00 logger.go:35: Found 2 Claude accounts to check for token refresh
+[INFO] 2025/08/22 12:20:00 logger.go:35: Account max车号098 (ID: 1) has no expiry time, skipping
+[INFO] 2025/08/22 12:20:00 logger.go:35: Account max101 (ID: 3) token expires in 4h25m48s, no need to refresh yet
+[INFO] 2025/08/22 12:20:00 logger.go:35: Claude accounts token refresh check task completed in 2.2488ms. Refreshed: 0, Skipped: 2, Failed: 0
+[INFO] 2025/08/22 12:20:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/22 12:22:05 logger.go:35: Shutting down server...
+[INFO] 2025/08/22 12:22:05 logger.go:35: Cron service stopped
+[INFO] 2025/08/22 12:22:05 logger.go:35: Server stopped gracefully
+[INFO] 2025/08/22 12:22:05 logger.go:35: Cron service stopped
+[INFO] 2025/08/22 12:22:16 logger.go:35: Claude Code Relay v1.0.0 started
+[INFO] 2025/08/22 12:22:16 logger.go:35: Initializing model configurations from hardcoded data...
+[INFO] 2025/08/22 12:22:16 logger.go:35: Model configurations initialized successfully
+[INFO] 2025/08/22 12:22:16 logger.go:35: Model pricing service initialized with database adapter
+[INFO] 2025/08/22 12:22:16 logger.go:35: Database initialized successfully
+[INFO] 2025/08/22 12:22:16 logger.go:35: Redis connection established
+[INFO] 2025/08/22 12:22:16 logger.go:35: Cron service started successfully
+[INFO] 2025/08/22 12:22:16 logger.go:35: Server starting on port 8088
+[INFO] 2025/08/22 12:22:17 logger.go:35: Default admin user created: li904338203/jie1306105459
+[ERROR] 2025/08/22 12:23:10 logger.go:43: 邮件发送失败: SMTP认证失败: 535 Login fail. Account is abnormal, service is not open, password is incorrect, login frequency limited, or system is busy. More information at https://help.mail.qq.com/detail/108/1023
+[ERROR] 2025/08/22 12:23:10 logger.go:43: 发送验证码失败: 邮件发送失败: SMTP认证失败: 535 Login fail. Account is abnormal, service is not open, password is incorrect, login frequency limited, or system is busy. More information at https://help.mail.qq.com/detail/108/1023
+[INFO] 2025/08/22 12:23:11 logger.go:35: 邮件发送被缓存跳过: 1@1.com
+[INFO] 2025/08/22 12:23:11 logger.go:35: 验证码发送成功: 1@1.com, 类型: email_verification
+[INFO] 2025/08/22 12:23:20 logger.go:35: 验证码验证失败: 1@1.com, 输入: 111, 期望: 853869
+[INFO] 2025/08/22 12:23:21 logger.go:35: 验证码验证失败: 1@1.com, 输入: 111, 期望: 853869
+[INFO] 2025/08/22 12:23:22 logger.go:35: 验证码验证失败: 1@1.com, 输入: 111, 期望: 853869
+[INFO] 2025/08/22 12:23:23 logger.go:35: 验证码验证失败: 1@1.com, 输入: 111, 期望: 853869
+[INFO] 2025/08/22 12:23:23 logger.go:35: 验证码验证成功: 1@1.com, 类型: email_verification
+[ERROR] 2025/08/22 12:23:46 logger.go:43: Failed to get user billing stats: failed to get user balance: record not found
+[ERROR] 2025/08/22 12:23:47 logger.go:43: Failed to get user billing stats: failed to get user balance: record not found
+[ERROR] 2025/08/22 12:23:48 logger.go:43: Failed to get user billing stats: failed to get user balance: record not found
+[ERROR] 2025/08/22 12:23:49 logger.go:43: Failed to get user billing stats: failed to get user balance: record not found
+[ERROR] 2025/08/22 12:24:25 logger.go:43: Failed to get user billing stats: failed to get user balance: record not found
+[ERROR] 2025/08/22 12:24:26 logger.go:43: Failed to get user billing stats: failed to get user balance: record not found
+[ERROR] 2025/08/22 12:24:27 logger.go:43: Failed to get user billing stats: failed to get user balance: record not found
+[ERROR] 2025/08/22 12:24:28 logger.go:43: Failed to get user billing stats: failed to get user balance: record not found
+[INFO] 2025/08/22 12:30:00 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/22 12:30:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/22 12:30:00 logger.go:35: Starting Claude accounts token refresh check task
+[INFO] 2025/08/22 12:30:00 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/22 12:30:00 logger.go:35: No Claude accounts found for token refresh checking
+[INFO] 2025/08/22 12:30:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/22 12:40:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/22 12:40:00 logger.go:35: Starting Claude accounts token refresh check task
+[INFO] 2025/08/22 12:40:00 logger.go:35: No Claude accounts found for token refresh checking
+[INFO] 2025/08/22 12:40:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/22 12:50:00 logger.go:35: Starting Claude accounts token refresh check task
+[INFO] 2025/08/22 12:50:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/22 12:50:00 logger.go:35: No Claude accounts found for token refresh checking
+[INFO] 2025/08/22 12:50:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/22 13:00:00 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/22 13:00:00 logger.go:35: Starting Claude accounts token refresh check task
+[INFO] 2025/08/22 13:00:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/22 13:00:00 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/22 13:00:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/22 13:00:00 logger.go:35: No Claude accounts found for token refresh checking
+[INFO] 2025/08/22 13:10:00 logger.go:35: Starting Claude accounts token refresh check task
+[INFO] 2025/08/22 13:10:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/22 13:10:00 logger.go:35: No Claude accounts found for token refresh checking
+[INFO] 2025/08/22 13:10:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/22 13:20:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/22 13:20:00 logger.go:35: Starting Claude accounts token refresh check task
+[INFO] 2025/08/22 13:20:00 logger.go:35: No Claude accounts found for token refresh checking
+[INFO] 2025/08/22 13:20:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/22 13:30:00 logger.go:35: Starting rate limit expired accounts check task
+[INFO] 2025/08/22 13:30:00 logger.go:35: Starting Claude accounts token refresh check task
+[INFO] 2025/08/22 13:30:00 logger.go:35: Starting abnormal accounts recovery task
+[INFO] 2025/08/22 13:30:00 logger.go:35: No Claude accounts found for token refresh checking
+[INFO] 2025/08/22 13:30:00 logger.go:35: No abnormal accounts found for recovery testing
+[INFO] 2025/08/22 13:30:00 logger.go:35: No rate limited accounts found for checking
+[INFO] 2025/08/22 13:30:46 logger.go:35: Shutting down server...
+[INFO] 2025/08/22 13:30:46 logger.go:35: Cron service stopped
+[INFO] 2025/08/22 13:30:46 logger.go:35: Server stopped gracefully
+[INFO] 2025/08/22 13:30:46 logger.go:35: Cron service stopped
+[INFO] 2025/08/22 13:30:53 logger.go:35: Claude Code Relay v1.0.0 started
+[INFO] 2025/08/22 13:30:53 logger.go:35: Model configurations already exist, skipping initialization
+[INFO] 2025/08/22 13:30:53 logger.go:35: Model pricing service initialized with database adapter
+[INFO] 2025/08/22 13:30:53 logger.go:35: Database initialized successfully
+[INFO] 2025/08/22 13:30:53 logger.go:35: Redis connection established
+[INFO] 2025/08/22 13:30:53 logger.go:35: Cron service started successfully
+[INFO] 2025/08/22 13:30:53 logger.go:35: Server starting on port 8088
+[ERROR] 2025/08/22 13:31:39 logger.go:43: 邮件发送失败: SMTP认证失败: 535 Login fail. Account is abnormal, service is not open, password is incorrect, login frequency limited, or system is busy. More information at https://help.mail.qq.com/detail/108/1023
+[ERROR] 2025/08/22 13:31:39 logger.go:43: 发送验证码失败: 邮件发送失败: SMTP认证失败: 535 Login fail. Account is abnormal, service is not open, password is incorrect, login frequency limited, or system is busy. More information at https://help.mail.qq.com/detail/108/1023
+[INFO] 2025/08/22 13:31:40 logger.go:35: 邮件发送被缓存跳过: lijie2@lijie2.com
+[INFO] 2025/08/22 13:31:40 logger.go:35: 验证码发送成功: lijie2@lijie2.com, 类型: email_verification
+[INFO] 2025/08/22 13:31:43 logger.go:35: 验证码验证失败: lijie2@lijie2.com, 输入: 1, 期望: 434188
+[INFO] 2025/08/22 13:31:44 logger.go:35: 验证码验证失败: lijie2@lijie2.com, 输入: 1, 期望: 434188
+[INFO] 2025/08/22 13:31:45 logger.go:35: 验证码验证失败: lijie2@lijie2.com, 输入: 1, 期望: 434188
+[INFO] 2025/08/22 13:31:46 logger.go:35: 验证码验证失败: lijie2@lijie2.com, 输入: 1, 期望: 434188
+[INFO] 2025/08/22 13:31:47 logger.go:35: 验证码验证成功: lijie2@lijie2.com, 类型: email_verification
+[INFO] 2025/08/22 13:36:33 logger.go:35: Shutting down server...
+[INFO] 2025/08/22 13:36:33 logger.go:35: Cron service stopped
+[INFO] 2025/08/22 13:36:33 logger.go:35: Server stopped gracefully
+[INFO] 2025/08/22 13:36:33 logger.go:35: Cron service stopped
+[INFO] 2025/08/22 13:36:43 logger.go:35: Claude Code Relay v1.0.0 started
+[INFO] 2025/08/22 13:36:44 logger.go:35: Model configurations already exist, skipping initialization
+[INFO] 2025/08/22 13:36:44 logger.go:35: Model pricing service initialized with database adapter
+[INFO] 2025/08/22 13:36:44 logger.go:35: Database initialized successfully
+[INFO] 2025/08/22 13:36:44 logger.go:35: Redis connection established
+[INFO] 2025/08/22 13:36:44 logger.go:35: Cron service started successfully
+[INFO] 2025/08/22 13:36:44 logger.go:35: Server starting on port 8088
+[INFO] 2025/08/22 13:37:03 logger.go:35: 邮件发送成功: 13127681336@163.com
+[INFO] 2025/08/22 13:37:03 logger.go:35: 验证码发送成功: 13127681336@163.com, 类型: email_verification
+[INFO] 2025/08/22 13:37:32 logger.go:35: 验证码验证成功: 13127681336@163.com, 类型: email_verification
